@@ -25,40 +25,37 @@ class BlackHole(object):
 
 
 def init_wandb(args: DictConfig):
-    if 'SLURM_JOB_ID' in os.environ:
-        if int(os.environ.get('SLURM_PROCID', 0)) == 0:
-            wandb.login(key=args.wandb.wandb_key)
-            wandb.init(
-                project=args.wandb.wandb_project,
-                name=args.wandb.wandb_task,
-                config=OmegaConf.to_container(args, resolve=True),
-                entity=args.wandb.wandb_entity,
-                mode=args.wandb.wandb_status,
-            )
-            wandb_logger = WandbLogger(project=args.wandb.wandb_project,
-                                    log_model=False,
-                                    offline=False)
-            wandb_logger = [wandb_logger]
-        else:
-            wandb_logger = []
-    else:
-        if int(os.environ.get('LOCAL_RANK', 0)) == 0:
-            wandb.login(key=args.wandb.wandb_key)
-            wandb.init(
-                project=args.wandb.wandb_project,
-                name=args.wandb.wandb_task,
-                config=OmegaConf.to_container(args, resolve=True),
-                entity=args.wandb.wandb_entity,
-                mode=args.wandb.wandb_status,
-            )
-            wandb_logger = WandbLogger(project=args.wandb.wandb_project,
-                                    log_model=False,
-                                    offline=False)
-            wandb_logger = [wandb_logger]
-        else:
-            wandb_logger = []
+    mode = str(args.wandb.wandb_status)
+    if mode == 'disabled':
+        return []
 
-    return wandb_logger
+    is_rank_zero = (
+        int(os.environ.get('SLURM_PROCID', 0)) == 0
+        if 'SLURM_JOB_ID' in os.environ
+        else int(os.environ.get('LOCAL_RANK', 0)) == 0
+    )
+    if not is_rank_zero:
+        return []
+
+    if mode == 'online':
+        key = args.wandb.wandb_key or os.environ.get('WANDB_API_KEY')
+        if key:
+            wandb.login(key=key)
+
+    wandb.init(
+        project=args.wandb.wandb_project,
+        name=args.wandb.wandb_task,
+        config=OmegaConf.to_container(args, resolve=True),
+        entity=args.wandb.wandb_entity,
+        mode=mode,
+    )
+    return [
+        WandbLogger(
+            project=args.wandb.wandb_project,
+            log_model=False,
+            offline=(mode == 'offline'),
+        )
+    ]
 
 
 def create_folders(cfg: DictConfig):
