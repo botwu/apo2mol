@@ -1,6 +1,19 @@
 #!/bin/bash
 
-conda create -n apo2mol python=3.10
+set -euo pipefail
+
+ENV_NAME=${ENV_NAME:-apo2mol}
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+
+if conda env list | awk '{print $1}' | grep -qx "${ENV_NAME}"; then
+    conda activate "${ENV_NAME}"
+else
+    conda create -y -n "${ENV_NAME}" python=3.10
+    conda activate "${ENV_NAME}"
+fi
+
+python -m pip install --upgrade pip setuptools wheel
 
 pip install pytorch-lightning==2.2.3
 pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
@@ -13,7 +26,7 @@ pip install bypy==1.8.5
 python -m pip install git+https://github.com/Valdes-Tresanco-MS/AutoDockTools_py3
 pip install einops==0.8.0 easydict==1.13
 pip install huggingface-hub==0.25.2 hydra-core==1.3.2 ipython==8.28.0 jinja2==3.1.3
-conda install -c conda-forge patch
+conda install -y -c conda-forge patch
 pip install lmdb==1.5.1
 pip install matplotlib==3.9.2 meeko==0.1.dev3 mmcif-pdbx==2.0.1
 pip install omegaconf==2.3.0 pandas==2.2.3 pdb2pqr==3.6.1 pillow==10.2.0 py3dmol==2.4.0
