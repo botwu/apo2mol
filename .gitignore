@@ -13,7 +13,6 @@ eval_results/
 .mplconfig/
 .hf-cache/
 data/
-apo2mol_dataset/
 *.lmdb
 *.lmdb-lock
 *.lmdb.failed_omp
@@ -22,3 +21,5 @@ apo2mol_dataset/
 *.pt
 *.pth
 apo2mol_dataset/_hf_download/
+!apo2mol_dataset/
+!apo2mol_dataset/**
