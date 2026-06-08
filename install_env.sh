@@ -7,10 +7,8 @@ pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https
 pip install numpy==1.24.1
 pip install torch-geometric==2.0.4
 pip install ninja cmake
-pip install --no-build-isolation --no-binary=torch-scatter torch-scatter==2.1.2
-pip install --no-build-isolation --no-binary=torch-sparse torch-sparse==0.6.18
-pip install --no-build-isolation --no-binary=torch-cluster torch-cluster==1.6.3
-pip install --no-build-isolation --no-binary=torch-spline-conv torch-spline-conv==1.2.2
+PYG_WHEEL_URL=${PYG_WHEEL_URL:-https://data.pyg.org/whl/torch-2.4.0+cu124.html}
+pip install --only-binary=:all: torch-scatter==2.1.2 torch-sparse==0.6.18 torch-cluster==1.6.3 torch-spline-conv==1.2.2 -f "${PYG_WHEEL_URL}"
 pip install bypy==1.8.5
 python -m pip install git+https://github.com/Valdes-Tresanco-MS/AutoDockTools_py3
 pip install einops==0.8.0 easydict==1.13
