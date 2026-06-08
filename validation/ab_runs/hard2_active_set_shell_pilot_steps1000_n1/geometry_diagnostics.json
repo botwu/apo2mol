@@ -1,0 +1,1615 @@
+{
+  "arms": {
+    "active_set_distance_top4_shell4_w025": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.27246956420992957,
+          "approx_active_residues": 6,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.027457798502084102,
+          "boundary_delta_pred_vs_apo_mean": 0.14784977914946074,
+          "boundary_delta_pred_vs_holo_mean": 0.33983143806731425,
+          "boundary_pairs": 47,
+          "contact_intersection": 9,
+          "contact_jaccard": 0.45,
+          "contact_precision": 0.6923076923076923,
+          "contact_recall": 0.5625,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.246474531552625,
+          "neighbor_displacement_jump_mean": 0.24756550678723757,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 32,
+          "protein_nonlocal_min_dist": 0.953407140645354,
+          "protein_rmsd": 2.0837202072143555,
+          "protein_tmscore": 0.9018046061197916,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_distance_top4_shell4_w025/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 1.5281482178225474,
+          "approx_active_residues": 7,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.21864368343195353,
+          "boundary_delta_pred_vs_apo_mean": 0.7204688808138013,
+          "boundary_delta_pred_vs_holo_mean": 0.8116789613611931,
+          "boundary_pairs": 41,
+          "contact_intersection": 10,
+          "contact_jaccard": 0.625,
+          "contact_precision": 0.7692307692307693,
+          "contact_recall": 0.7692307692307693,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.8432427358848296,
+          "neighbor_displacement_jump_mean": 1.4456256036719421,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 17,
+          "protein_nonlocal_min_dist": 0.6261223759470689,
+          "protein_rmsd": 2.044558525085449,
+          "protein_tmscore": 0.857395083990821,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_distance_top4_shell4_w025/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 1.5281482178225474,
+          "mean": 0.9003088910162385,
+          "median": 0.9003088910162385,
+          "min": 0.27246956420992957,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 7.0,
+          "mean": 6.5,
+          "median": 6.5,
+          "min": 6.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 0.21864368343195353,
+          "mean": 0.12305074096701882,
+          "median": 0.12305074096701882,
+          "min": 0.027457798502084102,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.7204688808138013,
+          "mean": 0.43415932998163104,
+          "median": 0.43415932998163104,
+          "min": 0.14784977914946074,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.8116789613611931,
+          "mean": 0.5757551997142537,
+          "median": 0.5757551997142537,
+          "min": 0.33983143806731425,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 47.0,
+          "mean": 44.0,
+          "median": 44.0,
+          "min": 41.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 10.0,
+          "mean": 9.5,
+          "median": 9.5,
+          "min": 9.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.625,
+          "mean": 0.5375,
+          "median": 0.5375,
+          "min": 0.45,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.7692307692307693,
+          "mean": 0.7307692307692308,
+          "median": 0.7307692307692308,
+          "min": 0.6923076923076923,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.7692307692307693,
+          "mean": 0.6658653846153846,
+          "median": 0.6658653846153846,
+          "min": 0.5625,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.8432427358848296,
+          "mean": 2.5448586337187273,
+          "median": 2.5448586337187273,
+          "min": 2.246474531552625,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 1.4456256036719421,
+          "mean": 0.8465955552295898,
+          "median": 0.8465955552295898,
+          "min": 0.24756550678723757,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 13.0,
+          "mean": 13.0,
+          "median": 13.0,
+          "min": 13.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 32.0,
+          "mean": 24.5,
+          "median": 24.5,
+          "min": 17.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 0.953407140645354,
+          "mean": 0.7897647582962115,
+          "median": 0.7897647582962115,
+          "min": 0.6261223759470689,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 2.0837202072143555,
+          "mean": 2.0641393661499023,
+          "median": 2.0641393661499023,
+          "min": 2.044558525085449,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.9018046061197916,
+          "mean": 0.8795998450553063,
+          "median": 0.8795998450553063,
+          "min": 0.857395083990821,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    },
+    "active_set_distance_top4_shell6_w025": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.15539313524428203,
+          "approx_active_residues": 22,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.04227934422603037,
+          "boundary_delta_pred_vs_apo_mean": 0.08740199974875426,
+          "boundary_delta_pred_vs_holo_mean": 0.35379951553293126,
+          "boundary_pairs": 83,
+          "contact_intersection": 9,
+          "contact_jaccard": 0.45,
+          "contact_precision": 0.6923076923076923,
+          "contact_recall": 0.5625,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.2410712034103413,
+          "neighbor_displacement_jump_mean": 0.13076661708913845,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 34,
+          "protein_nonlocal_min_dist": 0.9649815425989351,
+          "protein_rmsd": 2.097123622894287,
+          "protein_tmscore": 0.90142822265625,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_distance_top4_shell6_w025/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 0.3672380386889327,
+          "approx_active_residues": 16,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.5553052632094815,
+          "boundary_delta_pred_vs_apo_mean": 0.40350508771126636,
+          "boundary_delta_pred_vs_holo_mean": 0.59612354798837,
+          "boundary_pairs": 40,
+          "contact_intersection": 10,
+          "contact_jaccard": 0.625,
+          "contact_precision": 0.7692307692307693,
+          "contact_recall": 0.7692307692307693,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.7075803524477653,
+          "neighbor_displacement_jump_mean": 0.5656601596892357,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 19,
+          "protein_nonlocal_min_dist": 0.617875134808272,
+          "protein_rmsd": 2.0641345977783203,
+          "protein_tmscore": 0.857334552424969,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_distance_top4_shell6_w025/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 0.3672380386889327,
+          "mean": 0.26131558696660734,
+          "median": 0.26131558696660734,
+          "min": 0.15539313524428203,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 22.0,
+          "mean": 19.0,
+          "median": 19.0,
+          "min": 16.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 0.5553052632094815,
+          "mean": 0.29879230371775595,
+          "median": 0.29879230371775595,
+          "min": 0.04227934422603037,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.40350508771126636,
+          "mean": 0.24545354373001033,
+          "median": 0.24545354373001033,
+          "min": 0.08740199974875426,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.59612354798837,
+          "mean": 0.4749615317606506,
+          "median": 0.4749615317606506,
+          "min": 0.35379951553293126,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 83.0,
+          "mean": 61.5,
+          "median": 61.5,
+          "min": 40.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 10.0,
+          "mean": 9.5,
+          "median": 9.5,
+          "min": 9.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.625,
+          "mean": 0.5375,
+          "median": 0.5375,
+          "min": 0.45,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.7692307692307693,
+          "mean": 0.7307692307692308,
+          "median": 0.7307692307692308,
+          "min": 0.6923076923076923,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.7692307692307693,
+          "mean": 0.6658653846153846,
+          "median": 0.6658653846153846,
+          "min": 0.5625,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.7075803524477653,
+          "mean": 2.474325777929053,
+          "median": 2.474325777929053,
+          "min": 2.2410712034103413,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 0.5656601596892357,
+          "mean": 0.34821338838918703,
+          "median": 0.34821338838918703,
+          "min": 0.13076661708913845,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 13.0,
+          "mean": 13.0,
+          "median": 13.0,
+          "min": 13.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 34.0,
+          "mean": 26.5,
+          "median": 26.5,
+          "min": 19.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 0.9649815425989351,
+          "mean": 0.7914283387036036,
+          "median": 0.7914283387036036,
+          "min": 0.617875134808272,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 2.097123622894287,
+          "mean": 2.0806291103363037,
+          "median": 2.0806291103363037,
+          "min": 2.0641345977783203,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.90142822265625,
+          "mean": 0.8793813875406096,
+          "median": 0.8793813875406096,
+          "min": 0.857334552424969,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    },
+    "active_set_distance_top4_shell6_w050": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.24324853677896077,
+          "approx_active_residues": 22,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.069634403189668,
+          "boundary_delta_pred_vs_apo_mean": 0.13542942221154944,
+          "boundary_delta_pred_vs_holo_mean": 0.3657295041846648,
+          "boundary_pairs": 83,
+          "contact_intersection": 9,
+          "contact_jaccard": 0.45,
+          "contact_precision": 0.6923076923076923,
+          "contact_recall": 0.5625,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.1908552400882684,
+          "neighbor_displacement_jump_mean": 0.1984542134030792,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 34,
+          "protein_nonlocal_min_dist": 0.9014509841841896,
+          "protein_rmsd": 2.115790367126465,
+          "protein_tmscore": 0.9008670860612896,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_distance_top4_shell6_w050/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 0.46726274132265316,
+          "approx_active_residues": 16,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.5907400642362258,
+          "boundary_delta_pred_vs_apo_mean": 0.3923259174543368,
+          "boundary_delta_pred_vs_holo_mean": 0.5754783610648266,
+          "boundary_pairs": 40,
+          "contact_intersection": 10,
+          "contact_jaccard": 0.625,
+          "contact_precision": 0.7692307692307693,
+          "contact_recall": 0.7692307692307693,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.9816087586342706,
+          "neighbor_displacement_jump_mean": 0.48007553418802695,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 23,
+          "protein_nonlocal_min_dist": 0.7895568723969504,
+          "protein_rmsd": 2.0742950439453125,
+          "protein_tmscore": 0.8595440049376032,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_distance_top4_shell6_w050/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 0.46726274132265316,
+          "mean": 0.355255639050807,
+          "median": 0.355255639050807,
+          "min": 0.24324853677896077,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 22.0,
+          "mean": 19.0,
+          "median": 19.0,
+          "min": 16.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 0.5907400642362258,
+          "mean": 0.3301872337129469,
+          "median": 0.3301872337129469,
+          "min": 0.069634403189668,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.3923259174543368,
+          "mean": 0.26387766983294314,
+          "median": 0.26387766983294314,
+          "min": 0.13542942221154944,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.5754783610648266,
+          "mean": 0.47060393262474576,
+          "median": 0.47060393262474576,
+          "min": 0.3657295041846648,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 83.0,
+          "mean": 61.5,
+          "median": 61.5,
+          "min": 40.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 10.0,
+          "mean": 9.5,
+          "median": 9.5,
+          "min": 9.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.625,
+          "mean": 0.5375,
+          "median": 0.5375,
+          "min": 0.45,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.7692307692307693,
+          "mean": 0.7307692307692308,
+          "median": 0.7307692307692308,
+          "min": 0.6923076923076923,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.7692307692307693,
+          "mean": 0.6658653846153846,
+          "median": 0.6658653846153846,
+          "min": 0.5625,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.9816087586342706,
+          "mean": 2.5862319993612695,
+          "median": 2.5862319993612695,
+          "min": 2.1908552400882684,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 0.48007553418802695,
+          "mean": 0.3392648737955531,
+          "median": 0.3392648737955531,
+          "min": 0.1984542134030792,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 13.0,
+          "mean": 13.0,
+          "median": 13.0,
+          "min": 13.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 34.0,
+          "mean": 28.5,
+          "median": 28.5,
+          "min": 23.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 0.9014509841841896,
+          "mean": 0.84550392829057,
+          "median": 0.84550392829057,
+          "min": 0.7895568723969504,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 2.115790367126465,
+          "mean": 2.0950427055358887,
+          "median": 2.0950427055358887,
+          "min": 2.0742950439453125,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.9008670860612896,
+          "mean": 0.8802055454994464,
+          "median": 0.8802055454994464,
+          "min": 0.8595440049376032,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    },
+    "active_set_random_top4_shell6_w025": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.09073136174780812,
+          "approx_active_residues": 22,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.24695921698544873,
+          "boundary_delta_pred_vs_apo_mean": 0.1094722506397568,
+          "boundary_delta_pred_vs_holo_mean": 0.3376800278345051,
+          "boundary_pairs": 61,
+          "contact_intersection": 13,
+          "contact_jaccard": 0.6842105263157895,
+          "contact_precision": 0.8125,
+          "contact_recall": 0.8125,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.3872316650869476,
+          "neighbor_displacement_jump_mean": 0.13015643010965713,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 16,
+          "protein_nonlocal_clashes": 32,
+          "protein_nonlocal_min_dist": 0.9944536320500551,
+          "protein_rmsd": 2.0899176597595215,
+          "protein_tmscore": 0.9013293628961268,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_random_top4_shell6_w025/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 1.028225467086223,
+          "approx_active_residues": 17,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.605333524886224,
+          "boundary_delta_pred_vs_apo_mean": 0.3567895278817223,
+          "boundary_delta_pred_vs_holo_mean": 0.46082149846967974,
+          "boundary_pairs": 46,
+          "contact_intersection": 9,
+          "contact_jaccard": 0.5294117647058824,
+          "contact_precision": 0.6923076923076923,
+          "contact_recall": 0.6923076923076923,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.338552539159784,
+          "neighbor_displacement_jump_mean": 0.4592938817713964,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 17,
+          "protein_nonlocal_min_dist": 0.8687869452739567,
+          "protein_rmsd": 2.2351436614990234,
+          "protein_tmscore": 0.8558750467331889,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/active_set_random_top4_shell6_w025/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 1.028225467086223,
+          "mean": 0.5594784144170155,
+          "median": 0.5594784144170155,
+          "min": 0.09073136174780812,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 22.0,
+          "mean": 19.5,
+          "median": 19.5,
+          "min": 17.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 0.605333524886224,
+          "mean": 0.4261463709358364,
+          "median": 0.4261463709358364,
+          "min": 0.24695921698544873,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.3567895278817223,
+          "mean": 0.23313088926073955,
+          "median": 0.23313088926073955,
+          "min": 0.1094722506397568,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.46082149846967974,
+          "mean": 0.3992507631520924,
+          "median": 0.3992507631520924,
+          "min": 0.3376800278345051,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 61.0,
+          "mean": 53.5,
+          "median": 53.5,
+          "min": 46.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 13.0,
+          "mean": 11.0,
+          "median": 11.0,
+          "min": 9.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.6842105263157895,
+          "mean": 0.6068111455108359,
+          "median": 0.6068111455108359,
+          "min": 0.5294117647058824,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.8125,
+          "mean": 0.7524038461538461,
+          "median": 0.7524038461538461,
+          "min": 0.6923076923076923,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.8125,
+          "mean": 0.7524038461538461,
+          "median": 0.7524038461538461,
+          "min": 0.6923076923076923,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.3872316650869476,
+          "mean": 2.3628921021233658,
+          "median": 2.3628921021233658,
+          "min": 2.338552539159784,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 0.4592938817713964,
+          "mean": 0.2947251559405268,
+          "median": 0.2947251559405268,
+          "min": 0.13015643010965713,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 32.0,
+          "mean": 24.5,
+          "median": 24.5,
+          "min": 17.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 0.9944536320500551,
+          "mean": 0.931620288662006,
+          "median": 0.931620288662006,
+          "min": 0.8687869452739567,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 2.2351436614990234,
+          "mean": 2.1625306606292725,
+          "median": 2.1625306606292725,
+          "min": 2.0899176597595215,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.9013293628961268,
+          "mean": 0.8786022048146578,
+          "median": 0.8786022048146578,
+          "min": 0.8558750467331889,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    },
+    "control_realistic_late_dense": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.43300107157153855,
+          "approx_active_residues": 4,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.8149958755301173,
+          "boundary_delta_pred_vs_apo_mean": 0.33796844000226256,
+          "boundary_delta_pred_vs_holo_mean": 0.43818666756475305,
+          "boundary_pairs": 34,
+          "contact_intersection": 8,
+          "contact_jaccard": 0.42105263157894735,
+          "contact_precision": 0.7272727272727273,
+          "contact_recall": 0.5,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.415825300978743,
+          "neighbor_displacement_jump_mean": 0.28122565556977946,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 11,
+          "protein_nonlocal_clashes": 56,
+          "protein_nonlocal_min_dist": 0.5480152998650629,
+          "protein_rmsd": 2.4542131423950195,
+          "protein_tmscore": 0.8861435008160945,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/control_realistic_late_dense/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 1.3989843416259404,
+          "approx_active_residues": 4,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 1.7300638882344501,
+          "boundary_delta_pred_vs_apo_mean": 0.8590671007092762,
+          "boundary_delta_pred_vs_holo_mean": 0.9131499045796928,
+          "boundary_pairs": 27,
+          "contact_intersection": 10,
+          "contact_jaccard": 0.7142857142857143,
+          "contact_precision": 0.9090909090909091,
+          "contact_recall": 0.7692307692307693,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.8924778604051795,
+          "neighbor_displacement_jump_mean": 0.8083230510047656,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 11,
+          "protein_nonlocal_clashes": 45,
+          "protein_nonlocal_min_dist": 0.5777597771287913,
+          "protein_rmsd": 3.1191155910491943,
+          "protein_tmscore": 0.8129701519956684,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/control_realistic_late_dense/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 1.3989843416259404,
+          "mean": 0.9159927065987394,
+          "median": 0.9159927065987394,
+          "min": 0.43300107157153855,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 1.7300638882344501,
+          "mean": 1.2725298818822837,
+          "median": 1.2725298818822837,
+          "min": 0.8149958755301173,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.8590671007092762,
+          "mean": 0.5985177703557694,
+          "median": 0.5985177703557694,
+          "min": 0.33796844000226256,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.9131499045796928,
+          "mean": 0.675668286072223,
+          "median": 0.675668286072223,
+          "min": 0.43818666756475305,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 34.0,
+          "mean": 30.5,
+          "median": 30.5,
+          "min": 27.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 10.0,
+          "mean": 9.0,
+          "median": 9.0,
+          "min": 8.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.7142857142857143,
+          "mean": 0.5676691729323309,
+          "median": 0.5676691729323309,
+          "min": 0.42105263157894735,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.9090909090909091,
+          "mean": 0.8181818181818181,
+          "median": 0.8181818181818181,
+          "min": 0.7272727272727273,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.7692307692307693,
+          "mean": 0.6346153846153846,
+          "median": 0.6346153846153846,
+          "min": 0.5,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.8924778604051795,
+          "mean": 2.6541515806919613,
+          "median": 2.6541515806919613,
+          "min": 2.415825300978743,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 0.8083230510047656,
+          "mean": 0.5447743532872725,
+          "median": 0.5447743532872725,
+          "min": 0.28122565556977946,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 11.0,
+          "mean": 11.0,
+          "median": 11.0,
+          "min": 11.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 56.0,
+          "mean": 50.5,
+          "median": 50.5,
+          "min": 45.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 0.5777597771287913,
+          "mean": 0.5628875384969272,
+          "median": 0.5628875384969272,
+          "min": 0.5480152998650629,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 3.1191155910491943,
+          "mean": 2.786664366722107,
+          "median": 2.786664366722107,
+          "min": 2.4542131423950195,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.8861435008160945,
+          "mean": 0.8495568264058815,
+          "median": 0.8495568264058815,
+          "min": 0.8129701519956684,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    },
+    "pocket_router_distance_top4_hard": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.3596352791029457,
+          "approx_active_residues": 4,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.030271344733712787,
+          "boundary_delta_pred_vs_apo_mean": 0.19679076226601158,
+          "boundary_delta_pred_vs_holo_mean": 0.32207176894642586,
+          "boundary_pairs": 34,
+          "contact_intersection": 10,
+          "contact_jaccard": 0.5,
+          "contact_precision": 0.7142857142857143,
+          "contact_recall": 0.625,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.156965115507571,
+          "neighbor_displacement_jump_mean": 0.33542339295568857,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 14,
+          "protein_nonlocal_clashes": 32,
+          "protein_nonlocal_min_dist": 0.9379272239150969,
+          "protein_rmsd": 2.084649085998535,
+          "protein_tmscore": 0.9017817537549516,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/pocket_router_distance_top4_hard/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 1.1827749515276416,
+          "approx_active_residues": 4,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.34889352138115476,
+          "boundary_delta_pred_vs_apo_mean": 0.5638326802169237,
+          "boundary_delta_pred_vs_holo_mean": 0.7041203067426843,
+          "boundary_pairs": 25,
+          "contact_intersection": 10,
+          "contact_jaccard": 0.625,
+          "contact_precision": 0.7692307692307693,
+          "contact_recall": 0.7692307692307693,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.8291996323122106,
+          "neighbor_displacement_jump_mean": 0.8722041290425804,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 13,
+          "protein_nonlocal_clashes": 17,
+          "protein_nonlocal_min_dist": 0.7202313571901472,
+          "protein_rmsd": 2.0402297973632812,
+          "protein_tmscore": 0.8575020465913779,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/pocket_router_distance_top4_hard/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 1.1827749515276416,
+          "mean": 0.7712051153152937,
+          "median": 0.7712051153152937,
+          "min": 0.3596352791029457,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 0.34889352138115476,
+          "mean": 0.18958243305743377,
+          "median": 0.18958243305743377,
+          "min": 0.030271344733712787,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.5638326802169237,
+          "mean": 0.3803117212414676,
+          "median": 0.3803117212414676,
+          "min": 0.19679076226601158,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.7041203067426843,
+          "mean": 0.513096037844555,
+          "median": 0.513096037844555,
+          "min": 0.32207176894642586,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 34.0,
+          "mean": 29.5,
+          "median": 29.5,
+          "min": 25.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 10.0,
+          "mean": 10.0,
+          "median": 10.0,
+          "min": 10.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.625,
+          "mean": 0.5625,
+          "median": 0.5625,
+          "min": 0.5,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.7692307692307693,
+          "mean": 0.7417582417582418,
+          "median": 0.7417582417582418,
+          "min": 0.7142857142857143,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.7692307692307693,
+          "mean": 0.6971153846153846,
+          "median": 0.6971153846153846,
+          "min": 0.625,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.8291996323122106,
+          "mean": 2.493082373909891,
+          "median": 2.493082373909891,
+          "min": 2.156965115507571,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 0.8722041290425804,
+          "mean": 0.6038137609991345,
+          "median": 0.6038137609991345,
+          "min": 0.33542339295568857,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 14.0,
+          "mean": 13.5,
+          "median": 13.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 32.0,
+          "mean": 24.5,
+          "median": 24.5,
+          "min": 17.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 0.9379272239150969,
+          "mean": 0.8290792905526221,
+          "median": 0.8290792905526221,
+          "min": 0.7202313571901472,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 2.084649085998535,
+          "mean": 2.062439441680908,
+          "median": 2.062439441680908,
+          "min": 2.0402297973632812,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.9017817537549516,
+          "mean": 0.8796419001731648,
+          "median": 0.8796419001731648,
+          "min": 0.8575020465913779,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    },
+    "pocket_router_random_top4": {
+      "num_samples": 2,
+      "samples": [
+        {
+          "active_displacement_mean": 0.06797052217016934,
+          "approx_active_residues": 4,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.13350690717899716,
+          "boundary_delta_pred_vs_apo_mean": 0.065936701878193,
+          "boundary_delta_pred_vs_holo_mean": 0.37154965929680966,
+          "boundary_pairs": 34,
+          "contact_intersection": 13,
+          "contact_jaccard": 0.7222222222222222,
+          "contact_precision": 0.8666666666666667,
+          "contact_recall": 0.8125,
+          "ligand_protein_clashes": 0,
+          "ligand_protein_min_dist": 2.3600586753187343,
+          "neighbor_displacement_jump_mean": 0.09731536789544613,
+          "num_ligand_atoms": 30,
+          "num_protein_atoms": 426,
+          "num_residues": 54,
+          "pred_contacts": 15,
+          "protein_nonlocal_clashes": 32,
+          "protein_nonlocal_min_dist": 1.1288695466606415,
+          "protein_rmsd": 2.09743332862854,
+          "protein_tmscore": 0.901174052780223,
+          "ref_contacts": 16,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/pocket_router_random_top4/sampled_results/result_327.pt",
+          "sample_id": 327
+        },
+        {
+          "active_displacement_mean": 0.8323386903724889,
+          "approx_active_residues": 4,
+          "approx_core_residues": 4,
+          "background_displacement_mean": 0.6509595411302822,
+          "boundary_delta_pred_vs_apo_mean": 0.6629136276782438,
+          "boundary_delta_pred_vs_holo_mean": 0.9292807120952259,
+          "boundary_pairs": 21,
+          "contact_intersection": 9,
+          "contact_jaccard": 0.5625,
+          "contact_precision": 0.75,
+          "contact_recall": 0.6923076923076923,
+          "ligand_protein_clashes": 1,
+          "ligand_protein_min_dist": 1.4648372705722854,
+          "neighbor_displacement_jump_mean": 0.9209232632965092,
+          "num_ligand_atoms": 34,
+          "num_protein_atoms": 303,
+          "num_residues": 42,
+          "pred_contacts": 12,
+          "protein_nonlocal_clashes": 24,
+          "protein_nonlocal_min_dist": 0.8327342498080967,
+          "protein_rmsd": 2.152956008911133,
+          "protein_tmscore": 0.8577423599293523,
+          "ref_contacts": 13,
+          "result_file": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1/pocket_router_random_top4/sampled_results/result_477.pt",
+          "sample_id": 477
+        }
+      ],
+      "summary": {
+        "active_displacement_mean": {
+          "max": 0.8323386903724889,
+          "mean": 0.4501546062713291,
+          "median": 0.4501546062713291,
+          "min": 0.06797052217016934,
+          "n": 2
+        },
+        "approx_active_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "approx_core_residues": {
+          "max": 4.0,
+          "mean": 4.0,
+          "median": 4.0,
+          "min": 4.0,
+          "n": 2
+        },
+        "background_displacement_mean": {
+          "max": 0.6509595411302822,
+          "mean": 0.3922332241546397,
+          "median": 0.3922332241546397,
+          "min": 0.13350690717899716,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_apo_mean": {
+          "max": 0.6629136276782438,
+          "mean": 0.3644251647782184,
+          "median": 0.3644251647782184,
+          "min": 0.065936701878193,
+          "n": 2
+        },
+        "boundary_delta_pred_vs_holo_mean": {
+          "max": 0.9292807120952259,
+          "mean": 0.6504151856960178,
+          "median": 0.6504151856960178,
+          "min": 0.37154965929680966,
+          "n": 2
+        },
+        "boundary_pairs": {
+          "max": 34.0,
+          "mean": 27.5,
+          "median": 27.5,
+          "min": 21.0,
+          "n": 2
+        },
+        "contact_intersection": {
+          "max": 13.0,
+          "mean": 11.0,
+          "median": 11.0,
+          "min": 9.0,
+          "n": 2
+        },
+        "contact_jaccard": {
+          "max": 0.7222222222222222,
+          "mean": 0.6423611111111112,
+          "median": 0.6423611111111112,
+          "min": 0.5625,
+          "n": 2
+        },
+        "contact_precision": {
+          "max": 0.8666666666666667,
+          "mean": 0.8083333333333333,
+          "median": 0.8083333333333333,
+          "min": 0.75,
+          "n": 2
+        },
+        "contact_recall": {
+          "max": 0.8125,
+          "mean": 0.7524038461538461,
+          "median": 0.7524038461538461,
+          "min": 0.6923076923076923,
+          "n": 2
+        },
+        "ligand_protein_clashes": {
+          "max": 1.0,
+          "mean": 0.5,
+          "median": 0.5,
+          "min": 0.0,
+          "n": 2
+        },
+        "ligand_protein_min_dist": {
+          "max": 2.3600586753187343,
+          "mean": 1.9124479729455097,
+          "median": 1.9124479729455097,
+          "min": 1.4648372705722854,
+          "n": 2
+        },
+        "neighbor_displacement_jump_mean": {
+          "max": 0.9209232632965092,
+          "mean": 0.5091193155959777,
+          "median": 0.5091193155959777,
+          "min": 0.09731536789544613,
+          "n": 2
+        },
+        "num_ligand_atoms": {
+          "max": 34.0,
+          "mean": 32.0,
+          "median": 32.0,
+          "min": 30.0,
+          "n": 2
+        },
+        "num_protein_atoms": {
+          "max": 426.0,
+          "mean": 364.5,
+          "median": 364.5,
+          "min": 303.0,
+          "n": 2
+        },
+        "num_residues": {
+          "max": 54.0,
+          "mean": 48.0,
+          "median": 48.0,
+          "min": 42.0,
+          "n": 2
+        },
+        "pred_contacts": {
+          "max": 15.0,
+          "mean": 13.5,
+          "median": 13.5,
+          "min": 12.0,
+          "n": 2
+        },
+        "protein_nonlocal_clashes": {
+          "max": 32.0,
+          "mean": 28.0,
+          "median": 28.0,
+          "min": 24.0,
+          "n": 2
+        },
+        "protein_nonlocal_min_dist": {
+          "max": 1.1288695466606415,
+          "mean": 0.9808018982343691,
+          "median": 0.9808018982343691,
+          "min": 0.8327342498080967,
+          "n": 2
+        },
+        "protein_rmsd": {
+          "max": 2.152956008911133,
+          "mean": 2.1251946687698364,
+          "median": 2.1251946687698364,
+          "min": 2.09743332862854,
+          "n": 2
+        },
+        "protein_tmscore": {
+          "max": 0.901174052780223,
+          "mean": 0.8794582063547877,
+          "median": 0.8794582063547877,
+          "min": 0.8577423599293523,
+          "n": 2
+        },
+        "ref_contacts": {
+          "max": 16.0,
+          "mean": 14.5,
+          "median": 14.5,
+          "min": 13.0,
+          "n": 2
+        },
+        "sample_id": {
+          "max": 477.0,
+          "mean": 402.0,
+          "median": 402.0,
+          "min": 327.0,
+          "n": 2
+        }
+      }
+    }
+  },
+  "run_dir": "validation/ab_runs/hard2_active_set_shell_pilot_steps1000_n1",
+  "settings": {
+    "clash_cutoff": 2.0,
+    "contact_cutoff": 4.0,
+    "neighbor_cutoff": 8.0,
+    "shell_radius": 0.0,
+    "topk": 4
+  }
+}

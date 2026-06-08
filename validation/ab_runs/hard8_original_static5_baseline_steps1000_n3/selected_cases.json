@@ -1,0 +1,66 @@
+[
+  {
+    "test_position": 477,
+    "original_index": 24500,
+    "rmsd": 4.018812656402588,
+    "holo_pocket": "8pyx__2__1.B__1.J/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8pyx__2__1.B__1.J/receptor_apo_pocket10.pdb",
+    "ligand": "8pyx__2__1.B__1.J/1.J.sdf"
+  },
+  {
+    "test_position": 327,
+    "original_index": 24350,
+    "rmsd": 3.9615962505340576,
+    "holo_pocket": "8r9u__2__1.B__1.D/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8r9u__2__1.B__1.D/receptor_apo_pocket10.pdb",
+    "ligand": "8r9u__2__1.B__1.D/1.D.sdf"
+  },
+  {
+    "test_position": 390,
+    "original_index": 24413,
+    "rmsd": 3.3143081665039062,
+    "holo_pocket": "8u6b__1__1.A__1.C/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8u6b__1__1.A__1.C/receptor_apo_pocket10.pdb",
+    "ligand": "8u6b__1__1.A__1.C/1.C.sdf"
+  },
+  {
+    "test_position": 310,
+    "original_index": 24333,
+    "rmsd": 2.9210073947906494,
+    "holo_pocket": "8ow3__1__1.A__1.B/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8ow3__1__1.A__1.B/receptor_apo_pocket10.pdb",
+    "ligand": "8ow3__1__1.A__1.B/1.B.sdf"
+  },
+  {
+    "test_position": 377,
+    "original_index": 24400,
+    "rmsd": 2.7470428943634033,
+    "holo_pocket": "8sfu__2__1.B__1.E/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8sfu__2__1.B__1.E/receptor_apo_pocket10.pdb",
+    "ligand": "8sfu__2__1.B__1.E/1.E.sdf"
+  },
+  {
+    "test_position": 342,
+    "original_index": 24365,
+    "rmsd": 2.6895532608032227,
+    "holo_pocket": "8qn5__3__1.C__1.L/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8qn5__3__1.C__1.L/receptor_apo_pocket10.pdb",
+    "ligand": "8qn5__3__1.C__1.L/1.L.sdf"
+  },
+  {
+    "test_position": 365,
+    "original_index": 24388,
+    "rmsd": 2.6712098121643066,
+    "holo_pocket": "8pqh__1__1.A__1.B/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8pqh__1__1.A__1.B/receptor_apo_pocket10.pdb",
+    "ligand": "8pqh__1__1.A__1.B/1.B.sdf"
+  },
+  {
+    "test_position": 347,
+    "original_index": 24370,
+    "rmsd": 2.4534807205200195,
+    "holo_pocket": "8sbv__2__1.B__1.G/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8sbv__2__1.B__1.G/receptor_apo_pocket10.pdb",
+    "ligand": "8sbv__2__1.B__1.G/1.G.sdf"
+  }
+]

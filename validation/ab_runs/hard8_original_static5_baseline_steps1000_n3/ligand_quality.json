@@ -1,0 +1,76 @@
+{
+  "run_dir": "validation/ab_runs/hard8_original_static5_baseline_steps1000_n3",
+  "eval_step": -1,
+  "atom_enc_mode": "add_aromatic",
+  "arms": {
+    "baseline_realistic_static5": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 12,
+        "stable_atoms": 720,
+        "total_atoms": 762,
+        "recon_success": 21,
+        "complete": 21,
+        "chem_success": 21
+      },
+      "rates": {
+        "mol_stable": 0.5,
+        "atm_stable": 0.9448818897637795,
+        "recon_success": 0.875,
+        "complete": 0.875,
+        "chem_success": 0.875,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 21,
+          "mean": 0.5112582512076236,
+          "median": 0.48250366043319587,
+          "min": 0.16704463660332397,
+          "max": 0.8247882023055595
+        },
+        "sa": {
+          "n": 21,
+          "mean": 0.5190476190476192,
+          "median": 0.51,
+          "min": 0.23,
+          "max": 0.89
+        },
+        "logp": {
+          "n": 21,
+          "mean": 5.354276666666671,
+          "median": 5.683100000000006,
+          "min": 1.277690000000002,
+          "max": 11.250499999999988
+        },
+        "lipinski": {
+          "n": 21,
+          "mean": 4.190476190476191,
+          "median": 4.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.19047619047619047,
+          "5": 0.5238095238095238,
+          "6": 0.9047619047619048,
+          "7": 0.47619047619047616,
+          "8": 0.14285714285714285,
+          "9": 0.047619047619047616
+        }
+      },
+      "atom_types": {
+        "6": 614,
+        "7": 57,
+        "8": 28,
+        "9": 62,
+        "16": 1
+      },
+      "failures": {
+        "reconstruct": 3
+      }
+    }
+  }
+}

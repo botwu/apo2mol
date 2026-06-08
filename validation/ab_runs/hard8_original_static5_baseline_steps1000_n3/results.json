@@ -1,0 +1,64 @@
+{
+  "baseline_realistic_static5": {
+    "sampling": {
+      "available": true,
+      "result_files": 8,
+      "protein_rmsd": {
+        "n": 24,
+        "mean": 2.4449720829725266,
+        "median": 2.5210769176483154,
+        "min": 1.610964059829712,
+        "max": 3.1260809898376465
+      },
+      "protein_tmscore": {
+        "n": 24,
+        "mean": 0.8961856736323349,
+        "median": 0.9101989410735749,
+        "min": 0.8148447168935643,
+        "max": 0.9335825020926339
+      },
+      "seconds": {
+        "n": 24,
+        "mean": 1952.3153098324935,
+        "median": 592.8981920480728,
+        "min": 409.076936006546,
+        "max": 13610.304042100906
+      },
+      "router_selected_counts": {
+        "n": 120,
+        "mean": 52.25,
+        "median": 52.5,
+        "min": 42.0,
+        "max": 60.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 8.0,
+        "mol_stable": 0.5,
+        "atm_stable": 0.9449,
+        "recon_success": 0.875,
+        "eval_success": 0.875,
+        "complete": 0.875,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 21.0,
+        "complete_mols": 21.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  }
+}

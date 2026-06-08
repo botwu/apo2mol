@@ -22,6 +22,3 @@ apo2mol_dataset/
 *.pt
 *.pth
 apo2mol_dataset/_hf_download/
-validation/ab_runs/
-validation/**/hard8_data/
-validation/**/preflight_model/

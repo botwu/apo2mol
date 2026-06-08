@@ -1,0 +1,374 @@
+{
+  "pocket_router_random_top4": {
+    "sampling": {
+      "available": true,
+      "result_files": 20,
+      "protein_rmsd": {
+        "n": 60,
+        "mean": 1.588916689157486,
+        "median": 1.5364712476730347,
+        "min": 0.8534886837005615,
+        "max": 2.9326016902923584
+      },
+      "protein_tmscore": {
+        "n": 60,
+        "mean": 0.9421994260426072,
+        "median": 0.9509965830130487,
+        "min": 0.8577423599293523,
+        "max": 0.9664204398992703
+      },
+      "seconds": {
+        "n": 60,
+        "mean": 990.1269497712453,
+        "median": 619.0901839733124,
+        "min": 392.5080511569977,
+        "max": 10808.329670906067
+      },
+      "router_selected_counts": {
+        "n": 600,
+        "mean": 4.0,
+        "median": 4.0,
+        "min": 4.0,
+        "max": 4.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 20.0,
+        "mol_stable": 0.2833,
+        "atm_stable": 0.9191,
+        "recon_success": 0.9,
+        "eval_success": 0.7833,
+        "complete": 0.7833,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 54.0,
+        "complete_mols": 47.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  },
+  "pocket_router_distance_top4_hard": {
+    "sampling": {
+      "available": true,
+      "result_files": 20,
+      "protein_rmsd": {
+        "n": 60,
+        "mean": 1.5886415849129358,
+        "median": 1.5545235872268677,
+        "min": 0.8731919527053833,
+        "max": 3.00980544090271
+      },
+      "protein_tmscore": {
+        "n": 60,
+        "mean": 0.941856615299649,
+        "median": 0.9488639641324748,
+        "min": 0.8575020465913779,
+        "max": 0.968493311538309
+      },
+      "seconds": {
+        "n": 60,
+        "mean": 664.3423658053081,
+        "median": 587.5606954097748,
+        "min": 388.13611912727356,
+        "max": 1164.3925099372864
+      },
+      "router_selected_counts": {
+        "n": 600,
+        "mean": 4.0,
+        "median": 4.0,
+        "min": 4.0,
+        "max": 4.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 20.0,
+        "mol_stable": 0.4667,
+        "atm_stable": 0.9188,
+        "recon_success": 0.8833,
+        "eval_success": 0.7667,
+        "complete": 0.7667,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 53.0,
+        "complete_mols": 46.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  },
+  "active_set_distance_top4_shell4_w025": {
+    "sampling": {
+      "available": true,
+      "result_files": 20,
+      "protein_rmsd": {
+        "n": 60,
+        "mean": 1.5935474306344986,
+        "median": 1.5626232028007507,
+        "min": 0.8745323419570923,
+        "max": 2.994328498840332
+      },
+      "protein_tmscore": {
+        "n": 60,
+        "mean": 0.9416859973405435,
+        "median": 0.9489476638730041,
+        "min": 0.857395083990821,
+        "max": 0.9674596641269432
+      },
+      "seconds": {
+        "n": 60,
+        "mean": 661.8280358393987,
+        "median": 588.2395910024643,
+        "min": 386.4373559951782,
+        "max": 1157.6435799598694
+      },
+      "router_selected_counts": {
+        "n": 600,
+        "mean": 5.6466666666666665,
+        "median": 5.0,
+        "min": 4.0,
+        "max": 9.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 20.0,
+        "mol_stable": 0.45,
+        "atm_stable": 0.9199,
+        "recon_success": 0.9167,
+        "eval_success": 0.85,
+        "complete": 0.85,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 55.0,
+        "complete_mols": 51.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  },
+  "active_set_distance_top4_shell3_w010": {
+    "sampling": {
+      "available": true,
+      "result_files": 20,
+      "protein_rmsd": {
+        "n": 60,
+        "mean": 1.5896905839443207,
+        "median": 1.5549184679985046,
+        "min": 0.8731919527053833,
+        "max": 3.012162208557129
+      },
+      "protein_tmscore": {
+        "n": 60,
+        "mean": 0.9418008660351667,
+        "median": 0.9488644563514768,
+        "min": 0.8575248088773721,
+        "max": 0.9685272371708439
+      },
+      "seconds": {
+        "n": 60,
+        "mean": 1304.0078563014665,
+        "median": 641.158271074295,
+        "min": 383.6105341911316,
+        "max": 19972.088862895966
+      },
+      "router_selected_counts": {
+        "n": 600,
+        "mean": 4.145,
+        "median": 4.0,
+        "min": 4.0,
+        "max": 6.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 20.0,
+        "mol_stable": 0.4667,
+        "atm_stable": 0.9171,
+        "recon_success": 0.8833,
+        "eval_success": 0.7667,
+        "complete": 0.7667,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 53.0,
+        "complete_mols": 46.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  },
+  "active_set_distance_top4_shell3_w025": {
+    "sampling": {
+      "available": true,
+      "result_files": 20,
+      "protein_rmsd": {
+        "n": 60,
+        "mean": 1.5891291946172714,
+        "median": 1.5422493815422058,
+        "min": 0.8731919527053833,
+        "max": 2.996370792388916
+      },
+      "protein_tmscore": {
+        "n": 60,
+        "mean": 0.9418353206446155,
+        "median": 0.9487052850316998,
+        "min": 0.8575260174943276,
+        "max": 0.9685341307354457
+      },
+      "seconds": {
+        "n": 60,
+        "mean": 1363.3411548256875,
+        "median": 646.6227629184723,
+        "min": 406.38167667388916,
+        "max": 32299.407994031906
+      },
+      "router_selected_counts": {
+        "n": 600,
+        "mean": 4.155,
+        "median": 4.0,
+        "min": 4.0,
+        "max": 7.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 20.0,
+        "mol_stable": 0.4667,
+        "atm_stable": 0.916,
+        "recon_success": 0.8833,
+        "eval_success": 0.75,
+        "complete": 0.75,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 53.0,
+        "complete_mols": 45.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  },
+  "active_set_distance_top4_shell4_w010": {
+    "sampling": {
+      "available": true,
+      "result_files": 20,
+      "protein_rmsd": {
+        "n": 60,
+        "mean": 1.5896850854158402,
+        "median": 1.562321424484253,
+        "min": 0.873341977596283,
+        "max": 2.989100933074951
+      },
+      "protein_tmscore": {
+        "n": 60,
+        "mean": 0.9418343419897905,
+        "median": 0.9486315189019665,
+        "min": 0.8574430257967203,
+        "max": 0.968302925226047
+      },
+      "seconds": {
+        "n": 60,
+        "mean": 836.9177420973778,
+        "median": 611.5994780063629,
+        "min": 398.2226791381836,
+        "max": 9641.820111989975
+      },
+      "router_selected_counts": {
+        "n": 600,
+        "mean": 5.67,
+        "median": 5.0,
+        "min": 4.0,
+        "max": 9.0
+      }
+    },
+    "eval": {
+      "available": true,
+      "metrics": {
+        "Number_of_generated_data": 20.0,
+        "mol_stable": 0.45,
+        "atm_stable": 0.9166,
+        "recon_success": 0.8833,
+        "eval_success": 0.8167,
+        "complete": 0.8167,
+        "JSD_CC_2A": null,
+        "JSD_All_12A": null,
+        "Atom_type_JS": null,
+        "Number_of_reconstructed_mols": 53.0,
+        "complete_mols": 49.0,
+        "evaluated_mols": 0.0,
+        "QED_Mean": null,
+        "QED_Median": null,
+        "SA_Mean": null,
+        "SA_Median": null,
+        "ring_size_3_ratio": null,
+        "ring_size_4_ratio": null,
+        "ring_size_5_ratio": null,
+        "ring_size_6_ratio": null,
+        "ring_size_7_ratio": null,
+        "ring_size_8_ratio": null,
+        "ring_size_9_ratio": null
+      }
+    }
+  }
+}

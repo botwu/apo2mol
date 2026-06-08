@@ -1,0 +1,426 @@
+{
+  "run_dir": "validation/ab_runs/hard8_active_set_candidate_repeat_steps1000_n3",
+  "eval_step": -1,
+  "atom_enc_mode": "add_aromatic",
+  "arms": {
+    "pocket_router_random_top4": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 6,
+        "stable_atoms": 693,
+        "total_atoms": 762,
+        "recon_success": 21,
+        "complete": 17,
+        "chem_success": 17
+      },
+      "rates": {
+        "mol_stable": 0.25,
+        "atm_stable": 0.9094488188976378,
+        "recon_success": 0.875,
+        "complete": 0.7083333333333334,
+        "chem_success": 0.7083333333333334,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 17,
+          "mean": 0.4441475935637489,
+          "median": 0.4302198995625854,
+          "min": 0.19183897533844563,
+          "max": 0.7930719502478166
+        },
+        "sa": {
+          "n": 17,
+          "mean": 0.5147058823529411,
+          "median": 0.54,
+          "min": 0.35,
+          "max": 0.7
+        },
+        "logp": {
+          "n": 17,
+          "mean": 4.766749411764708,
+          "median": 4.204300000000003,
+          "min": -0.34069999999999845,
+          "max": 11.519599999999988
+        },
+        "lipinski": {
+          "n": 17,
+          "mean": 4.294117647058823,
+          "median": 4.0,
+          "min": 2.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.11764705882352941,
+          "5": 0.47058823529411764,
+          "6": 0.8235294117647058,
+          "7": 0.4117647058823529,
+          "8": 0.11764705882352941,
+          "9": 0.058823529411764705
+        }
+      },
+      "atom_types": {
+        "6": 584,
+        "7": 69,
+        "8": 26,
+        "9": 83
+      },
+      "failures": {
+        "fragmented_smiles": 4,
+        "reconstruct": 3
+      }
+    },
+    "pocket_router_distance_top4_hard": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 12,
+        "stable_atoms": 694,
+        "total_atoms": 762,
+        "recon_success": 20,
+        "complete": 16,
+        "chem_success": 16
+      },
+      "rates": {
+        "mol_stable": 0.5,
+        "atm_stable": 0.910761154855643,
+        "recon_success": 0.8333333333333334,
+        "complete": 0.6666666666666666,
+        "chem_success": 0.6666666666666666,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 16,
+          "mean": 0.4855931121442897,
+          "median": 0.5030073704402018,
+          "min": 0.1679697357864786,
+          "max": 0.7715676791028556
+        },
+        "sa": {
+          "n": 16,
+          "mean": 0.5025000000000001,
+          "median": 0.51,
+          "min": 0.26,
+          "max": 0.78
+        },
+        "logp": {
+          "n": 16,
+          "mean": 4.8933643750000035,
+          "median": 5.215810000000005,
+          "min": 1.4592699999999998,
+          "max": 8.273400000000008
+        },
+        "lipinski": {
+          "n": 16,
+          "mean": 4.25,
+          "median": 4.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.1875,
+          "5": 0.8125,
+          "6": 0.875,
+          "7": 0.375,
+          "8": 0.25,
+          "9": 0.0625
+        }
+      },
+      "atom_types": {
+        "6": 558,
+        "8": 35,
+        "7": 49,
+        "17": 1,
+        "9": 119
+      },
+      "failures": {
+        "reconstruct": 4,
+        "fragmented_smiles": 4
+      }
+    },
+    "active_set_distance_top4_shell4_w025": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 12,
+        "stable_atoms": 699,
+        "total_atoms": 762,
+        "recon_success": 21,
+        "complete": 18,
+        "chem_success": 18
+      },
+      "rates": {
+        "mol_stable": 0.5,
+        "atm_stable": 0.9173228346456693,
+        "recon_success": 0.875,
+        "complete": 0.75,
+        "chem_success": 0.75,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 18,
+          "mean": 0.5017477114007537,
+          "median": 0.5515901738821117,
+          "min": 0.13663631361516457,
+          "max": 0.7925146320478899
+        },
+        "sa": {
+          "n": 18,
+          "mean": 0.5105555555555555,
+          "median": 0.525,
+          "min": 0.28,
+          "max": 0.71
+        },
+        "logp": {
+          "n": 18,
+          "mean": 4.841466666666671,
+          "median": 4.654435000000005,
+          "min": 1.4592699999999998,
+          "max": 7.3713000000000095
+        },
+        "lipinski": {
+          "n": 18,
+          "mean": 4.333333333333333,
+          "median": 5.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.1111111111111111,
+          "5": 0.7222222222222222,
+          "6": 0.8888888888888888,
+          "7": 0.4444444444444444,
+          "8": 0.1111111111111111,
+          "9": 0.05555555555555555
+        }
+      },
+      "atom_types": {
+        "6": 562,
+        "8": 41,
+        "7": 50,
+        "17": 1,
+        "9": 108
+      },
+      "failures": {
+        "reconstruct": 3,
+        "fragmented_smiles": 3
+      }
+    },
+    "active_set_distance_top4_shell3_w010": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 12,
+        "stable_atoms": 697,
+        "total_atoms": 762,
+        "recon_success": 20,
+        "complete": 16,
+        "chem_success": 16
+      },
+      "rates": {
+        "mol_stable": 0.5,
+        "atm_stable": 0.9146981627296588,
+        "recon_success": 0.8333333333333334,
+        "complete": 0.6666666666666666,
+        "chem_success": 0.6666666666666666,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 16,
+          "mean": 0.4802219754503081,
+          "median": 0.5030073704402018,
+          "min": 0.11927294765061014,
+          "max": 0.7715676791028556
+        },
+        "sa": {
+          "n": 16,
+          "mean": 0.5025,
+          "median": 0.51,
+          "min": 0.26,
+          "max": 0.73
+        },
+        "logp": {
+          "n": 16,
+          "mean": 5.058876875000003,
+          "median": 5.215810000000005,
+          "min": 1.4592699999999998,
+          "max": 10.603799999999993
+        },
+        "lipinski": {
+          "n": 16,
+          "mean": 4.1875,
+          "median": 4.0,
+          "min": 2.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.1875,
+          "5": 0.8125,
+          "6": 0.875,
+          "7": 0.375,
+          "8": 0.25,
+          "9": 0.0625
+        }
+      },
+      "atom_types": {
+        "6": 556,
+        "8": 34,
+        "7": 50,
+        "17": 1,
+        "9": 121
+      },
+      "failures": {
+        "reconstruct": 4,
+        "fragmented_smiles": 4
+      }
+    },
+    "active_set_distance_top4_shell3_w025": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 11,
+        "stable_atoms": 692,
+        "total_atoms": 762,
+        "recon_success": 20,
+        "complete": 15,
+        "chem_success": 15
+      },
+      "rates": {
+        "mol_stable": 0.4583333333333333,
+        "atm_stable": 0.9081364829396326,
+        "recon_success": 0.8333333333333334,
+        "complete": 0.625,
+        "chem_success": 0.625,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 15,
+          "mean": 0.4972543963927741,
+          "median": 0.493540289640403,
+          "min": 0.1679697357864786,
+          "max": 0.7715676791028556
+        },
+        "sa": {
+          "n": 15,
+          "mean": 0.5080000000000001,
+          "median": 0.53,
+          "min": 0.26,
+          "max": 0.72
+        },
+        "logp": {
+          "n": 15,
+          "mean": 4.461008666666671,
+          "median": 5.159820000000005,
+          "min": 1.2528999999999995,
+          "max": 7.148300000000007
+        },
+        "lipinski": {
+          "n": 15,
+          "mean": 4.333333333333333,
+          "median": 4.0,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.2,
+          "5": 0.7333333333333333,
+          "6": 0.8,
+          "7": 0.4666666666666667,
+          "8": 0.2,
+          "9": 0.06666666666666667
+        }
+      },
+      "atom_types": {
+        "6": 557,
+        "8": 34,
+        "7": 49,
+        "17": 1,
+        "9": 121
+      },
+      "failures": {
+        "reconstruct": 4,
+        "fragmented_smiles": 5
+      }
+    },
+    "active_set_distance_top4_shell4_w010": {
+      "result_files": 8,
+      "generated_samples": 24,
+      "counts": {
+        "stable_mols": 11,
+        "stable_atoms": 693,
+        "total_atoms": 762,
+        "recon_success": 20,
+        "complete": 18,
+        "chem_success": 18
+      },
+      "rates": {
+        "mol_stable": 0.4583333333333333,
+        "atm_stable": 0.9094488188976378,
+        "recon_success": 0.8333333333333334,
+        "complete": 0.75,
+        "chem_success": 0.75,
+        "chem_success_over_complete": 1.0
+      },
+      "chemistry": {
+        "qed": {
+          "n": 18,
+          "mean": 0.4888640279889232,
+          "median": 0.5082713164098969,
+          "min": 0.1743434986665925,
+          "max": 0.7715676791028556
+        },
+        "sa": {
+          "n": 18,
+          "mean": 0.4955555555555555,
+          "median": 0.505,
+          "min": 0.29,
+          "max": 0.72
+        },
+        "logp": {
+          "n": 18,
+          "mean": 4.73705555555556,
+          "median": 4.890795000000004,
+          "min": 1.4592699999999998,
+          "max": 7.148300000000007
+        },
+        "lipinski": {
+          "n": 18,
+          "mean": 4.333333333333333,
+          "median": 4.5,
+          "min": 3.0,
+          "max": 5.0
+        },
+        "ring_ratios": {
+          "3": 0.0,
+          "4": 0.16666666666666666,
+          "5": 0.6666666666666666,
+          "6": 0.7777777777777778,
+          "7": 0.4444444444444444,
+          "8": 0.2222222222222222,
+          "9": 0.05555555555555555
+        }
+      },
+      "atom_types": {
+        "6": 555,
+        "8": 38,
+        "7": 50,
+        "17": 1,
+        "9": 118
+      },
+      "failures": {
+        "reconstruct": 4,
+        "fragmented_smiles": 2
+      }
+    }
+  }
+}

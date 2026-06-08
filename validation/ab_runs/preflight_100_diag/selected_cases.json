@@ -1,0 +1,18 @@
+[
+  {
+    "test_position": 477,
+    "original_index": 24500,
+    "rmsd": 4.018812656402588,
+    "holo_pocket": "8pyx__2__1.B__1.J/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8pyx__2__1.B__1.J/receptor_apo_pocket10.pdb",
+    "ligand": "8pyx__2__1.B__1.J/1.J.sdf"
+  },
+  {
+    "test_position": 327,
+    "original_index": 24350,
+    "rmsd": 3.9615962505340576,
+    "holo_pocket": "8r9u__2__1.B__1.D/receptor_holo_pocket10.pdb",
+    "apo_pocket": "8r9u__2__1.B__1.D/receptor_apo_pocket10.pdb",
+    "ligand": "8r9u__2__1.B__1.D/1.D.sdf"
+  }
+]

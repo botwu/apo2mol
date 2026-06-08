@@ -1,0 +1,11 @@
+model:
+  checkpoint: ./apo2mol_dataset/apo2mol_checkpoint.ckpt
+
+sample:
+  seed: 2021
+  num_samples: 5
+  num_steps: 100
+  pos_only: False
+  center_pos_mode: protein
+  init_center_mode: apo
+  sample_num_atoms: prior

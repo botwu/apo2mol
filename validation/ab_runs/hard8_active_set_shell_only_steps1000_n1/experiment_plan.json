@@ -1,0 +1,351 @@
+{
+  "generated_at": "2026-05-29T11:14:34",
+  "repo_root": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol",
+  "run_dir": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1",
+  "ids_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/hard_test_positions.txt",
+  "original_ids_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/hard_original_indices.txt",
+  "processed_lmdb_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/selected_cases_data.lmdb",
+  "selected_cases": [
+    {
+      "test_position": 477,
+      "original_index": 24500,
+      "rmsd": 4.018812656402588,
+      "holo_pocket": "8pyx__2__1.B__1.J/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8pyx__2__1.B__1.J/receptor_apo_pocket10.pdb",
+      "ligand": "8pyx__2__1.B__1.J/1.J.sdf"
+    },
+    {
+      "test_position": 327,
+      "original_index": 24350,
+      "rmsd": 3.9615962505340576,
+      "holo_pocket": "8r9u__2__1.B__1.D/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8r9u__2__1.B__1.D/receptor_apo_pocket10.pdb",
+      "ligand": "8r9u__2__1.B__1.D/1.D.sdf"
+    },
+    {
+      "test_position": 390,
+      "original_index": 24413,
+      "rmsd": 3.3143081665039062,
+      "holo_pocket": "8u6b__1__1.A__1.C/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8u6b__1__1.A__1.C/receptor_apo_pocket10.pdb",
+      "ligand": "8u6b__1__1.A__1.C/1.C.sdf"
+    },
+    {
+      "test_position": 310,
+      "original_index": 24333,
+      "rmsd": 2.9210073947906494,
+      "holo_pocket": "8ow3__1__1.A__1.B/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8ow3__1__1.A__1.B/receptor_apo_pocket10.pdb",
+      "ligand": "8ow3__1__1.A__1.B/1.B.sdf"
+    },
+    {
+      "test_position": 377,
+      "original_index": 24400,
+      "rmsd": 2.7470428943634033,
+      "holo_pocket": "8sfu__2__1.B__1.E/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8sfu__2__1.B__1.E/receptor_apo_pocket10.pdb",
+      "ligand": "8sfu__2__1.B__1.E/1.E.sdf"
+    },
+    {
+      "test_position": 342,
+      "original_index": 24365,
+      "rmsd": 2.6895532608032227,
+      "holo_pocket": "8qn5__3__1.C__1.L/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8qn5__3__1.C__1.L/receptor_apo_pocket10.pdb",
+      "ligand": "8qn5__3__1.C__1.L/1.L.sdf"
+    },
+    {
+      "test_position": 365,
+      "original_index": 24388,
+      "rmsd": 2.6712098121643066,
+      "holo_pocket": "8pqh__1__1.A__1.B/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8pqh__1__1.A__1.B/receptor_apo_pocket10.pdb",
+      "ligand": "8pqh__1__1.A__1.B/1.B.sdf"
+    },
+    {
+      "test_position": 347,
+      "original_index": 24370,
+      "rmsd": 2.4534807205200195,
+      "holo_pocket": "8sbv__2__1.B__1.G/receptor_holo_pocket10.pdb",
+      "apo_pocket": "8sbv__2__1.B__1.G/receptor_apo_pocket10.pdb",
+      "ligand": "8sbv__2__1.B__1.G/1.G.sdf"
+    }
+  ],
+  "arms": [
+    {
+      "name": "active_set_distance_top4_shell4_w025",
+      "sample": {
+        "num_steps": 1000,
+        "sample_num_atoms": "prior",
+        "init_center_mode": "apo"
+      },
+      "model": {
+        "protein_update_schedule": "late_dense",
+        "protein_update_interval": 50,
+        "protein_update_min_t": 10,
+        "protein_update_residual_threshold": 0.5,
+        "pocket_router_mode": "distance",
+        "pocket_router_topk": 4,
+        "pocket_router_shell_radius": 4.0,
+        "pocket_router_shell_weight": 0.25,
+        "pocket_router_background_weight": 0.0
+      },
+      "sampling_diagnostics": {
+        "sampler": "current_adjacent_tail_chain",
+        "num_timesteps": 1000,
+        "num_steps": 1000,
+        "starts_at_t": 999,
+        "terminal_t": 0,
+        "reaches_t0": true,
+        "configured_update_steps": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_steps_hit": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_hit_count": 10
+      },
+      "sample_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell4_w025/sampling.yaml",
+      "train_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell4_w025/training.yaml",
+      "sample_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell4_w025/sampled_results",
+      "eval_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell4_w025/eval_results"
+    },
+    {
+      "name": "active_set_distance_top4_shell6_w025",
+      "sample": {
+        "num_steps": 1000,
+        "sample_num_atoms": "prior",
+        "init_center_mode": "apo"
+      },
+      "model": {
+        "protein_update_schedule": "late_dense",
+        "protein_update_interval": 50,
+        "protein_update_min_t": 10,
+        "protein_update_residual_threshold": 0.5,
+        "pocket_router_mode": "distance",
+        "pocket_router_topk": 4,
+        "pocket_router_shell_radius": 6.0,
+        "pocket_router_shell_weight": 0.25,
+        "pocket_router_background_weight": 0.0
+      },
+      "sampling_diagnostics": {
+        "sampler": "current_adjacent_tail_chain",
+        "num_timesteps": 1000,
+        "num_steps": 1000,
+        "starts_at_t": 999,
+        "terminal_t": 0,
+        "reaches_t0": true,
+        "configured_update_steps": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_steps_hit": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_hit_count": 10
+      },
+      "sample_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w025/sampling.yaml",
+      "train_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w025/training.yaml",
+      "sample_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w025/sampled_results",
+      "eval_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w025/eval_results"
+    },
+    {
+      "name": "active_set_distance_top4_shell6_w050",
+      "sample": {
+        "num_steps": 1000,
+        "sample_num_atoms": "prior",
+        "init_center_mode": "apo"
+      },
+      "model": {
+        "protein_update_schedule": "late_dense",
+        "protein_update_interval": 50,
+        "protein_update_min_t": 10,
+        "protein_update_residual_threshold": 0.5,
+        "pocket_router_mode": "distance",
+        "pocket_router_topk": 4,
+        "pocket_router_shell_radius": 6.0,
+        "pocket_router_shell_weight": 0.5,
+        "pocket_router_background_weight": 0.0
+      },
+      "sampling_diagnostics": {
+        "sampler": "current_adjacent_tail_chain",
+        "num_timesteps": 1000,
+        "num_steps": 1000,
+        "starts_at_t": 999,
+        "terminal_t": 0,
+        "reaches_t0": true,
+        "configured_update_steps": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_steps_hit": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_hit_count": 10
+      },
+      "sample_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w050/sampling.yaml",
+      "train_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w050/training.yaml",
+      "sample_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w050/sampled_results",
+      "eval_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_distance_top4_shell6_w050/eval_results"
+    },
+    {
+      "name": "active_set_random_top4_shell6_w025",
+      "sample": {
+        "num_steps": 1000,
+        "sample_num_atoms": "prior",
+        "init_center_mode": "apo"
+      },
+      "model": {
+        "protein_update_schedule": "late_dense",
+        "protein_update_interval": 50,
+        "protein_update_min_t": 10,
+        "protein_update_residual_threshold": 0.5,
+        "pocket_router_mode": "random",
+        "pocket_router_topk": 4,
+        "pocket_router_shell_radius": 6.0,
+        "pocket_router_shell_weight": 0.25,
+        "pocket_router_background_weight": 0.0
+      },
+      "sampling_diagnostics": {
+        "sampler": "current_adjacent_tail_chain",
+        "num_timesteps": 1000,
+        "num_steps": 1000,
+        "starts_at_t": 999,
+        "terminal_t": 0,
+        "reaches_t0": true,
+        "configured_update_steps": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_steps_hit": [
+          460,
+          410,
+          360,
+          310,
+          260,
+          210,
+          160,
+          110,
+          60,
+          10
+        ],
+        "candidate_update_hit_count": 10
+      },
+      "sample_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_random_top4_shell6_w025/sampling.yaml",
+      "train_config": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_random_top4_shell6_w025/training.yaml",
+      "sample_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_random_top4_shell6_w025/sampled_results",
+      "eval_path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard8_active_set_shell_only_steps1000_n1/active_set_random_top4_shell6_w025/eval_results"
+    }
+  ],
+  "preflight": {
+    "paths": {
+      "data_folder": {
+        "path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/apo2mol_dataset/data_folder",
+        "exists": true
+      },
+      "checkpoint": {
+        "path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/apo2mol_dataset/apo2mol_checkpoint.ckpt",
+        "exists": true
+      },
+      "pmnet": {
+        "path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/pretrained_models/PMINet",
+        "exists": true
+      },
+      "index": {
+        "path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/apo2mol_dataset/apo2mol_version/selected_index_apo_druglike.pkl",
+        "exists": true
+      },
+      "split": {
+        "path": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/apo2mol_dataset/apo2mol_version/split_druglike.pt",
+        "exists": true
+      }
+    },
+    "modules": {
+      "torch": true,
+      "torch_geometric": true,
+      "torch_scatter": true,
+      "torch_sparse": true,
+      "torch_cluster": true,
+      "torch_spline_conv": true,
+      "pytorch_lightning": true,
+      "rdkit": true,
+      "Bio": true,
+      "lmdb": true,
+      "omegaconf": true,
+      "openbabel": true,
+      "openbabel.pybel": true,
+      "kornia": true,
+      "quaternion": true,
+      "wandb": true,
+      "einops": true,
+      "huggingface_hub": true
+    },
+    "data_files": {
+      "checked": true,
+      "required_count": 24,
+      "missing": []
+    },
+    "missing": []
+  },
+  "warnings": []
+}

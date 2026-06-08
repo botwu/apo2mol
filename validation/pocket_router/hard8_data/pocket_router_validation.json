@@ -1,0 +1,2888 @@
+{
+  "generated_at": "2026-05-26T20:04:23",
+  "run_dir": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/pocket_router/hard8_data",
+  "topk": [
+    4,
+    8,
+    12,
+    16
+  ],
+  "random_trials": 64,
+  "cases": [
+    {
+      "case": {
+        "test_position": 477,
+        "original_index": 24500,
+        "rmsd": 4.018812656402588,
+        "holo_pocket": "8pyx__2__1.B__1.J/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8pyx__2__1.B__1.J/receptor_apo_pocket10.pdb",
+        "ligand": "8pyx__2__1.B__1.J/1.J.sdf"
+      },
+      "router": {
+        "num_residues": 42,
+        "apo_atom_rmsd": 1.780302882194519,
+        "holo_contact_residues": 5,
+        "mobile_residues_top20pct": 9,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.09523809523809523,
+              "motion_coverage": 0.02427867137945833,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.6,
+              "sparse_holo_replay_rmsd": 1.7453532218933105
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.09523809523809523,
+              "motion_coverage": 0.6616385472038804,
+              "mobile_recall": 0.4444444444444444,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.6539323925971985
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.09523809523809523,
+              "motion_coverage": 0.021877308848107516,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 1.7539743185043335
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.09523809523809523,
+              "motion_coverage": 0.6616385472038804,
+              "mobile_recall": 0.4444444444444444,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.6539323925971985
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.09523809523809523,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.07377898426202256,
+                "median": 0.02349617834646184,
+                "min": 0.010532837170066964,
+                "max": 0.3787287713035907
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.078125,
+                "median": 0.1111111111111111,
+                "min": 0.0,
+                "max": 0.3333333333333333
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.06875,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.4
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.6490088235586882,
+                "median": 1.7333217859268188,
+                "min": 1.0626749992370605,
+                "max": 1.7657389640808105
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.19047619047619047,
+              "motion_coverage": 0.0403856521992667,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.7176098823547363
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.19047619047619047,
+              "motion_coverage": 0.8543129884526044,
+              "mobile_recall": 0.8888888888888888,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.242279052734375
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.19047619047619047,
+              "motion_coverage": 0.03799869447262044,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.7262173891067505
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.19047619047619047,
+              "motion_coverage": 0.8340805641868352,
+              "mobile_recall": 0.6666666666666666,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.2661069631576538
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.19047619047619047,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.1912129068546447,
+                "median": 0.19045716463153395,
+                "min": 0.026668559888677373,
+                "max": 0.5496830675466227
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.2065972222222222,
+                "median": 0.2222222222222222,
+                "min": 0.0,
+                "max": 0.4444444444444444
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.15937500000000002,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.4
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.4311396470293403,
+                "median": 1.4890452027320862,
+                "min": 0.8533271551132202,
+                "max": 1.7364288568496704
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.2857142857142857,
+              "motion_coverage": 0.05573791387397952,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.6961687803268433
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.2857142857142857,
+              "motion_coverage": 0.885639814077695,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.18482626974582672
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.2857142857142857,
+              "motion_coverage": 0.12986601525384375,
+              "mobile_recall": 0.1111111111111111,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.5017893314361572
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.2857142857142857,
+              "motion_coverage": 0.8576075023753764,
+              "mobile_recall": 0.7777777777777778,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.23331327736377716
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.2857142857142857,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.28806357497484775,
+                "median": 0.2851064083057235,
+                "min": 0.050175953953844006,
+                "max": 0.6021960037834931
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.28125,
+                "median": 0.2222222222222222,
+                "min": 0.1111111111111111,
+                "max": 0.6666666666666666
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.3,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.8
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.2603240963071585,
+                "median": 1.2898542284965515,
+                "min": 0.7353396415710449,
+                "max": 1.697245717048645
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.38095238095238093,
+              "motion_coverage": 0.07926962691421956,
+              "mobile_recall": 0.1111111111111111,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.658191442489624
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.38095238095238093,
+              "motion_coverage": 0.9102642459104673,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 0.14394885301589966
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.38095238095238093,
+              "motion_coverage": 0.14996217568458056,
+              "mobile_recall": 0.2222222222222222,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.465174674987793
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.38095238095238093,
+              "motion_coverage": 0.8758293529527453,
+              "mobile_recall": 0.7777777777777778,
+              "holo_contact_recall": 0.6,
+              "sparse_holo_replay_rmsd": 0.20689721405506134
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.38095238095238093,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.34611626492625513,
+                "median": 0.32174951636235566,
+                "min": 0.07742922920786038,
+                "max": 0.8768638774042661
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.3454861111111111,
+                "median": 0.3333333333333333,
+                "min": 0.1111111111111111,
+                "max": 0.7777777777777778
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.3875,
+                "median": 0.4,
+                "min": 0.0,
+                "max": 0.8
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.180845976807177,
+                "median": 1.2469797134399414,
+                "min": 0.2044050395488739,
+                "max": 1.6427005529403687
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 327,
+        "original_index": 24350,
+        "rmsd": 3.9615962505340576,
+        "holo_pocket": "8r9u__2__1.B__1.D/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8r9u__2__1.B__1.D/receptor_apo_pocket10.pdb",
+        "ligand": "8r9u__2__1.B__1.D/1.D.sdf"
+      },
+      "router": {
+        "num_residues": 54,
+        "apo_atom_rmsd": 2.0800068378448486,
+        "holo_contact_residues": 8,
+        "mobile_residues_top20pct": 11,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.04592945238455995,
+              "mobile_recall": 0.09090909090909091,
+              "holo_contact_recall": 0.375,
+              "sparse_holo_replay_rmsd": 2.008610248565674
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.4451186627946212,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.1173990964889526
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.03433400428856207,
+              "mobile_recall": 0.09090909090909091,
+              "holo_contact_recall": 0.5,
+              "sparse_holo_replay_rmsd": 2.0162792205810547
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.4451186627946212,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.1173990964889526
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.08020948105668625,
+                "median": 0.05154860126124562,
+                "min": 0.024343984261845593,
+                "max": 0.21992107714084783
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.07244318181818182,
+                "median": 0.09090909090909091,
+                "min": 0.0,
+                "max": 0.18181818181818182
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.0546875,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.25
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.9136743657290936,
+                "median": 1.9774445295333862,
+                "min": 1.6023602485656738,
+                "max": 2.030693292617798
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.10046438895019892,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 0.75,
+              "sparse_holo_replay_rmsd": 1.9205050468444824
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.5608126202306348,
+              "mobile_recall": 0.7272727272727273,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.865193784236908
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.07694597606820153,
+              "mobile_recall": 0.09090909090909091,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.946330189704895
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.5011935406055129,
+              "mobile_recall": 0.5454545454545454,
+              "holo_contact_recall": 0.375,
+              "sparse_holo_replay_rmsd": 0.9987559914588928
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.13622903207630876,
+                "median": 0.1156884676562518,
+                "min": 0.056732977433737564,
+                "max": 0.39720479338646664
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.14488636363636365,
+                "median": 0.18181818181818182,
+                "min": 0.0,
+                "max": 0.36363636363636365
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.1640625,
+                "median": 0.125,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.7988468203693628,
+                "median": 1.843486487865448,
+                "min": 1.2307085990905762,
+                "max": 1.9771336317062378
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.14014474915687564,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 0.875,
+              "sparse_holo_replay_rmsd": 1.8382740020751953
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.6264575320635215,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.125,
+              "sparse_holo_replay_rmsd": 0.7442737221717834
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.14545888274572977,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.8276121616363525
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.5404609444035046,
+              "mobile_recall": 0.5454545454545454,
+              "holo_contact_recall": 0.5,
+              "sparse_holo_replay_rmsd": 0.913112998008728
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.2026048541072264,
+                "median": 0.2041492701645751,
+                "min": 0.10339519937237528,
+                "max": 0.43069559205140906
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.20880681818181818,
+                "median": 0.18181818181818182,
+                "min": 0.0,
+                "max": 0.45454545454545453
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.21875,
+                "median": 0.25,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.666296748444438,
+                "median": 1.6689680218696594,
+                "min": 1.1780997514724731,
+                "max": 1.9042949676513672
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.18118758343572422,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.7649421691894531
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.6795687500383775,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.375,
+              "sparse_holo_replay_rmsd": 0.6443204879760742
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.2663243376879729,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.561356544494629
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.5743580403296485,
+              "mobile_recall": 0.5454545454545454,
+              "holo_contact_recall": 0.5,
+              "sparse_holo_replay_rmsd": 0.8303099274635315
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.28958252580383675,
+                "median": 0.2644579286130796,
+                "min": 0.1421449571079477,
+                "max": 0.5037800748880895
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.28125,
+                "median": 0.2727272727272727,
+                "min": 0.0,
+                "max": 0.5454545454545454
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.30859375,
+                "median": 0.25,
+                "min": 0.0,
+                "max": 0.75
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.4781666565686464,
+                "median": 1.5186957716941833,
+                "min": 0.9875533580780029,
+                "max": 1.8184653520584106
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 390,
+        "original_index": 24413,
+        "rmsd": 3.3143081665039062,
+        "holo_pocket": "8u6b__1__1.A__1.C/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8u6b__1__1.A__1.C/receptor_apo_pocket10.pdb",
+        "ligand": "8u6b__1__1.A__1.C/1.C.sdf"
+      },
+      "router": {
+        "num_residues": 48,
+        "apo_atom_rmsd": 2.8594677448272705,
+        "holo_contact_residues": 7,
+        "mobile_residues_top20pct": 10,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.08333333333333333,
+              "motion_coverage": 0.12430481967047864,
+              "mobile_recall": 0.2,
+              "holo_contact_recall": 0.42857142857142855,
+              "sparse_holo_replay_rmsd": 2.3769497871398926
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.08333333333333333,
+              "motion_coverage": 0.18789756568318133,
+              "mobile_recall": 0.4,
+              "holo_contact_recall": 0.14285714285714285,
+              "sparse_holo_replay_rmsd": 2.2720863819122314
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.08333333333333333,
+              "motion_coverage": 0.11808210582696115,
+              "mobile_recall": 0.2,
+              "holo_contact_recall": 0.5714285714285714,
+              "sparse_holo_replay_rmsd": 2.4281959533691406
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.08333333333333333,
+              "motion_coverage": 0.14306424721517616,
+              "mobile_recall": 0.2,
+              "holo_contact_recall": 0.14285714285714285,
+              "sparse_holo_replay_rmsd": 2.4088828563690186
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.08333333333333333,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.08330514581516384,
+                "median": 0.08113255356023771,
+                "min": 0.04145944746269619,
+                "max": 0.1287753648321148
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.07968750000000001,
+                "median": 0.1,
+                "min": 0.0,
+                "max": 0.3
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.09151785714285714,
+                "median": 0.14285714285714285,
+                "min": 0.0,
+                "max": 0.2857142857142857
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 2.622105374932289,
+                "median": 2.6223570108413696,
+                "min": 2.4203362464904785,
+                "max": 2.7517330646514893
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.16666666666666666,
+              "motion_coverage": 0.2159662459239717,
+              "mobile_recall": 0.4,
+              "holo_contact_recall": 0.42857142857142855,
+              "sparse_holo_replay_rmsd": 2.145366907119751
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.16666666666666666,
+              "motion_coverage": 0.32422972569541764,
+              "mobile_recall": 0.8,
+              "holo_contact_recall": 0.2857142857142857,
+              "sparse_holo_replay_rmsd": 1.8556092977523804
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.16666666666666666,
+              "motion_coverage": 0.20705457335276606,
+              "mobile_recall": 0.3,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 2.09952712059021
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.16666666666666666,
+              "motion_coverage": 0.2065407808317667,
+              "mobile_recall": 0.2,
+              "holo_contact_recall": 0.2857142857142857,
+              "sparse_holo_replay_rmsd": 2.221055746078491
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.16666666666666666,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.17095486688077136,
+                "median": 0.1701190548123906,
+                "min": 0.09804220455276394,
+                "max": 0.23845904182409872
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.1703125,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.15848214285714285,
+                "median": 0.14285714285714285,
+                "min": 0.0,
+                "max": 0.5714285714285714
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 2.379378404468298,
+                "median": 2.3680498600006104,
+                "min": 2.045440196990967,
+                "max": 2.6149909496307373
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.25,
+              "motion_coverage": 0.2838980020537238,
+              "mobile_recall": 0.5,
+              "holo_contact_recall": 0.5714285714285714,
+              "sparse_holo_replay_rmsd": 1.9777852296829224
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.25,
+              "motion_coverage": 0.433815314630437,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.2857142857142857,
+              "sparse_holo_replay_rmsd": 1.5624771118164062
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.25,
+              "motion_coverage": 0.27471853695597315,
+              "mobile_recall": 0.3,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.8980724811553955
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.25,
+              "motion_coverage": 0.2865030544782664,
+              "mobile_recall": 0.3,
+              "holo_contact_recall": 0.42857142857142855,
+              "sparse_holo_replay_rmsd": 1.9741616249084473
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.25,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.2418304511957453,
+                "median": 0.23770026022795993,
+                "min": 0.19317502664205502,
+                "max": 0.34066519415196206
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.21875,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.22544642857142855,
+                "median": 0.14285714285714285,
+                "min": 0.0,
+                "max": 0.5714285714285714
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 2.165827624499798,
+                "median": 2.1897062063217163,
+                "min": 1.911037564277649,
+                "max": 2.4286246299743652
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.3333333333333333,
+              "motion_coverage": 0.36788566976234915,
+              "mobile_recall": 0.5,
+              "holo_contact_recall": 0.7142857142857143,
+              "sparse_holo_replay_rmsd": 1.7090020179748535
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.3333333333333333,
+              "motion_coverage": 0.5275703114601933,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.42857142857142855,
+              "sparse_holo_replay_rmsd": 1.3317506313323975
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.3333333333333333,
+              "motion_coverage": 0.32926921624753897,
+              "mobile_recall": 0.3,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.7441868782043457
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.3333333333333333,
+              "motion_coverage": 0.32775243290730444,
+              "mobile_recall": 0.3,
+              "holo_contact_recall": 0.5714285714285714,
+              "sparse_holo_replay_rmsd": 1.888252854347229
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.3333333333333333,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.33135310456354145,
+                "median": 0.3237544780837289,
+                "min": 0.26830226094704107,
+                "max": 0.41771596240442743
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.3265625,
+                "median": 0.3,
+                "min": 0.0,
+                "max": 0.6
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.3325892857142857,
+                "median": 0.2857142857142857,
+                "min": 0.0,
+                "max": 0.7142857142857143
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.9114466067403555,
+                "median": 1.9213882088661194,
+                "min": 1.5999643802642822,
+                "max": 2.1977176666259766
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 310,
+        "original_index": 24333,
+        "rmsd": 2.9210073947906494,
+        "holo_pocket": "8ow3__1__1.A__1.B/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8ow3__1__1.A__1.B/receptor_apo_pocket10.pdb",
+        "ligand": "8ow3__1__1.A__1.B/1.B.sdf"
+      },
+      "router": {
+        "num_residues": 59,
+        "apo_atom_rmsd": 2.038925886154175,
+        "holo_contact_residues": 6,
+        "mobile_residues_top20pct": 12,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.06779661016949153,
+              "motion_coverage": 0.16898868488868668,
+              "mobile_recall": 0.16666666666666666,
+              "holo_contact_recall": 0.3333333333333333,
+              "sparse_holo_replay_rmsd": 1.7184257507324219
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.06779661016949153,
+              "motion_coverage": 0.27416772370856035,
+              "mobile_recall": 0.3333333333333333,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.426615834236145
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.06779661016949153,
+              "motion_coverage": 0.05979585829223753,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.6666666666666666,
+              "sparse_holo_replay_rmsd": 1.9186952114105225
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.06779661016949153,
+              "motion_coverage": 0.10068996727408691,
+              "mobile_recall": 0.25,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.8415930271148682
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.06779661016949153,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.07281890367150361,
+                "median": 0.0607154736808361,
+                "min": 0.020036335787863974,
+                "max": 0.17910325179996298
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.08203125,
+                "median": 0.08333333333333333,
+                "min": 0.0,
+                "max": 0.25
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.08333333333333333,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.3333333333333333
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.883627099916339,
+                "median": 1.915057897567749,
+                "min": 1.568994402885437,
+                "max": 2.006382703781128
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.13559322033898305,
+              "motion_coverage": 0.2148849939291081,
+              "mobile_recall": 0.16666666666666666,
+              "holo_contact_recall": 0.5,
+              "sparse_holo_replay_rmsd": 1.6420164108276367
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.13559322033898305,
+              "motion_coverage": 0.387828769962423,
+              "mobile_recall": 0.6666666666666666,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.2017124891281128
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.13559322033898305,
+              "motion_coverage": 0.0963346837382202,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.8449629545211792
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.13559322033898305,
+              "motion_coverage": 0.1983082096891441,
+              "mobile_recall": 0.4166666666666667,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.6722538471221924
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.13559322033898305,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.13744368386049222,
+                "median": 0.12742846663422458,
+                "min": 0.04795243222980566,
+                "max": 0.2613554550047525
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.12369791666666666,
+                "median": 0.08333333333333333,
+                "min": 0.0,
+                "max": 0.4166666666666667
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.1328125,
+                "median": 0.16666666666666666,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.7567251473665237,
+                "median": 1.7907426357269287,
+                "min": 1.4298042058944702,
+                "max": 1.9578901529312134
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.2033898305084746,
+              "motion_coverage": 0.2613789860945002,
+              "mobile_recall": 0.16666666666666666,
+              "holo_contact_recall": 0.8333333333333334,
+              "sparse_holo_replay_rmsd": 1.564286470413208
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.2033898305084746,
+              "motion_coverage": 0.4863636351718829,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.024678349494934
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.2033898305084746,
+              "motion_coverage": 0.2126154563733578,
+              "mobile_recall": 0.08333333333333333,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.5690667629241943
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.2033898305084746,
+              "motion_coverage": 0.2735950136899793,
+              "mobile_recall": 0.5,
+              "holo_contact_recall": 0.16666666666666666,
+              "sparse_holo_replay_rmsd": 1.502571940422058
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.2033898305084746,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.2116429359750492,
+                "median": 0.19591157803027176,
+                "min": 0.11523798157784314,
+                "max": 0.37315552962255816
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.22526041666666666,
+                "median": 0.25,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.21354166666666666,
+                "median": 0.16666666666666666,
+                "min": 0.0,
+                "max": 0.6666666666666666
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.6091141737997532,
+                "median": 1.6658724546432495,
+                "min": 1.2320878505706787,
+                "max": 1.8067351579666138
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.2711864406779661,
+              "motion_coverage": 0.3228003740328957,
+              "mobile_recall": 0.16666666666666666,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.417560338973999
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.2711864406779661,
+              "motion_coverage": 0.574439651996808,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.16666666666666666,
+              "sparse_holo_replay_rmsd": 0.8275078535079956
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.2711864406779661,
+              "motion_coverage": 0.2617740822678337,
+              "mobile_recall": 0.08333333333333333,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.4621150493621826
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.2711864406779661,
+              "motion_coverage": 0.34133592485572334,
+              "mobile_recall": 0.5,
+              "holo_contact_recall": 0.16666666666666666,
+              "sparse_holo_replay_rmsd": 1.376058578491211
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.2711864406779661,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.2754702790087515,
+                "median": 0.27404965859600305,
+                "min": 0.17188767909518815,
+                "max": 0.38198306390781467
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.2916666666666667,
+                "median": 0.3333333333333333,
+                "min": 0.0,
+                "max": 0.5833333333333334
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.2890625,
+                "median": 0.3333333333333333,
+                "min": 0.0,
+                "max": 0.6666666666666666
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.47056258097291,
+                "median": 1.485900342464447,
+                "min": 1.1564223766326904,
+                "max": 1.7209588289260864
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 377,
+        "original_index": 24400,
+        "rmsd": 2.7470428943634033,
+        "holo_pocket": "8sfu__2__1.B__1.E/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8sfu__2__1.B__1.E/receptor_apo_pocket10.pdb",
+        "ligand": "8sfu__2__1.B__1.E/1.E.sdf"
+      },
+      "router": {
+        "num_residues": 54,
+        "apo_atom_rmsd": 1.1245297193527222,
+        "holo_contact_residues": 10,
+        "mobile_residues_top20pct": 11,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.020737319323952622,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 1.1002044677734375
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.46423234597853796,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.1,
+              "sparse_holo_replay_rmsd": 0.6115438938140869
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.056364306949344606,
+              "mobile_recall": 0.09090909090909091,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 1.061181902885437
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": 0.4282800040220455,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.6649015545845032
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.07407407407407407,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.06825069409966844,
+                "median": 0.04940531213110501,
+                "min": 0.01579174196131098,
+                "max": 0.3948263651235811
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.07102272727272728,
+                "median": 0.09090909090909091,
+                "min": 0.0,
+                "max": 0.2727272727272727
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.07187500000000001,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.3
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.0475648697465658,
+                "median": 1.0696686506271362,
+                "min": 0.7525122761726379,
+                "max": 1.107787847518921
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.05880922992443266,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 1.0594744682312012
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.5970103189187648,
+              "mobile_recall": 0.7272727272727273,
+              "holo_contact_recall": 0.1,
+              "sparse_holo_replay_rmsd": 0.4668508470058441
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.1420931991087624,
+              "mobile_recall": 0.18181818181818182,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 0.9248877763748169
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": 0.526424756521096,
+              "mobile_recall": 0.5454545454545454,
+              "holo_contact_recall": 0.3,
+              "sparse_holo_replay_rmsd": 0.5353982448577881
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.14814814814814814,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.16487187809984266,
+                "median": 0.1127354445001966,
+                "min": 0.04024533138816752,
+                "max": 0.4807128996770327
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.14488636363636365,
+                "median": 0.13636363636363635,
+                "min": 0.0,
+                "max": 0.36363636363636365
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.1484375,
+                "median": 0.1,
+                "min": 0.0,
+                "max": 0.3
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.9426412889733911,
+                "median": 0.9993341863155365,
+                "min": 0.5725722312927246,
+                "max": 1.076833724975586
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.1318702349253572,
+              "mobile_recall": 0.18181818181818182,
+              "holo_contact_recall": 0.9,
+              "sparse_holo_replay_rmsd": 0.9928474426269531
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.6977231045122425,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.3,
+              "sparse_holo_replay_rmsd": 0.3553701341152191
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.21845054013407747,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.8558263182640076
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": 0.5910628637437434,
+              "mobile_recall": 0.6363636363636364,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 0.46117720007896423
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.2222222222222222,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.20482041012194083,
+                "median": 0.16199700300057712,
+                "min": 0.08463481639737451,
+                "max": 0.4838198865730186
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.20454545454545453,
+                "median": 0.18181818181818182,
+                "min": 0.0,
+                "max": 0.45454545454545453
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.2109375,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.8962351633235812,
+                "median": 0.9381402134895325,
+                "min": 0.6148421168327332,
+                "max": 1.0265263319015503
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.22685153523400634,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.9,
+              "sparse_holo_replay_rmsd": 0.8780577182769775
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.7702408055173114,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.3,
+              "sparse_holo_replay_rmsd": 0.26117634773254395
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.28835308789306563,
+              "mobile_recall": 0.45454545454545453,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.7629355192184448
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": 0.6309022389444888,
+              "mobile_recall": 0.6363636363636364,
+              "holo_contact_recall": 0.5,
+              "sparse_holo_replay_rmsd": 0.42046278715133667
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.2962962962962963,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.30556573648197305,
+                "median": 0.22161771672796587,
+                "min": 0.10238062050412755,
+                "max": 0.5933546689819871
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.28267045454545453,
+                "median": 0.2727272727272727,
+                "min": 0.0,
+                "max": 0.6363636363636364
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.321875,
+                "median": 0.3,
+                "min": 0.1,
+                "max": 0.7
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.7853804808109999,
+                "median": 0.8410468101501465,
+                "min": 0.4987141489982605,
+                "max": 1.0158532857894897
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 342,
+        "original_index": 24365,
+        "rmsd": 2.6895532608032227,
+        "holo_pocket": "8qn5__3__1.C__1.L/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8qn5__3__1.C__1.L/receptor_apo_pocket10.pdb",
+        "ligand": "8qn5__3__1.C__1.L/1.L.sdf"
+      },
+      "router": {
+        "num_residues": 50,
+        "apo_atom_rmsd": 1.260911464691162,
+        "holo_contact_residues": 5,
+        "mobile_residues_top20pct": 10,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.08,
+              "motion_coverage": 0.06653210380335906,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.6,
+              "sparse_holo_replay_rmsd": 1.170982003211975
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.08,
+              "motion_coverage": 0.4050062565753747,
+              "mobile_recall": 0.4,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.6937136650085449
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.08,
+              "motion_coverage": 0.03547232909984954,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 1.208604335784912
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.08,
+              "motion_coverage": 0.2780296901733196,
+              "mobile_recall": 0.1,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.8188912272453308
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.08,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.07957326172502718,
+                "median": 0.061972607889394356,
+                "min": 0.01406444999090049,
+                "max": 0.27820174599631825
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.0828125,
+                "median": 0.1,
+                "min": 0.0,
+                "max": 0.3
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.065625,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.2
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.1592834405601025,
+                "median": 1.1887763142585754,
+                "min": 0.8052289485931396,
+                "max": 1.2459107637405396
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.16,
+              "motion_coverage": 0.17220587785995597,
+              "mobile_recall": 0.2,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 1.0796749591827393
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.16,
+              "motion_coverage": 0.5865958517975265,
+              "mobile_recall": 0.8,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.4816056191921234
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.16,
+              "motion_coverage": 0.10557409724657364,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.1268905401229858
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.16,
+              "motion_coverage": 0.3234852047268304,
+              "mobile_recall": 0.1,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.7651227712631226
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.16,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.15867348516295338,
+                "median": 0.13189386022066485,
+                "min": 0.031561743249938344,
+                "max": 0.4630558522226038
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.15156250000000002,
+                "median": 0.1,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.12812500000000002,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.4
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.0556363435462117,
+                "median": 1.1087796092033386,
+                "min": 0.6095625162124634,
+                "max": 1.2266134023666382
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.24,
+              "motion_coverage": 0.2852870187351838,
+              "mobile_recall": 0.4,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.9496117830276489
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.24,
+              "motion_coverage": 0.7236143877323176,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.32834482192993164
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.24,
+              "motion_coverage": 0.17963815142771813,
+              "mobile_recall": 0.1,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.0629500150680542
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.24,
+              "motion_coverage": 0.33731177139455953,
+              "mobile_recall": 0.1,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.7511832118034363
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.24,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.24328084012830536,
+                "median": 0.21521566588027383,
+                "min": 0.07936514855049223,
+                "max": 0.5246374905686352
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.246875,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.7
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.22812500000000002,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.6
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.9529086882248521,
+                "median": 1.014313817024231,
+                "min": 0.5494551062583923,
+                "max": 1.1684061288833618
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.32,
+              "motion_coverage": 0.3228225855729426,
+              "mobile_recall": 0.4,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.9106763601303101
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.32,
+              "motion_coverage": 0.81602367403108,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.20353960990905762
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.32,
+              "motion_coverage": 0.2747082423406717,
+              "mobile_recall": 0.3,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.9859316349029541
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.32,
+              "motion_coverage": 0.3530534013984912,
+              "mobile_recall": 0.1,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 0.7392218708992004
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.32,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.3224999336857748,
+                "median": 0.298389728855161,
+                "min": 0.15710059869182838,
+                "max": 0.5514919142729524
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.3328125,
+                "median": 0.3,
+                "min": 0.1,
+                "max": 0.6
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.33125,
+                "median": 0.4,
+                "min": 0.0,
+                "max": 0.8
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.8582592718303204,
+                "median": 0.9357590079307556,
+                "min": 0.5163414478302002,
+                "max": 1.1230344772338867
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 365,
+        "original_index": 24388,
+        "rmsd": 2.6712098121643066,
+        "holo_pocket": "8pqh__1__1.A__1.B/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8pqh__1__1.A__1.B/receptor_apo_pocket10.pdb",
+        "ligand": "8pqh__1__1.A__1.B/1.B.sdf"
+      },
+      "router": {
+        "num_residues": 60,
+        "apo_atom_rmsd": 1.5306509733200073,
+        "holo_contact_residues": 9,
+        "mobile_residues_top20pct": 12,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.06666666666666667,
+              "motion_coverage": 0.31129639836782713,
+              "mobile_recall": 0.25,
+              "holo_contact_recall": 0.1111111111111111,
+              "sparse_holo_replay_rmsd": 1.0197207927703857
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.06666666666666667,
+              "motion_coverage": 0.3475881486722132,
+              "mobile_recall": 0.3333333333333333,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.9837065935134888
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.06666666666666667,
+              "motion_coverage": 0.041882028653459684,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.4444444444444444,
+              "sparse_holo_replay_rmsd": 1.4792193174362183
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.06666666666666667,
+              "motion_coverage": 0.11641040960544809,
+              "mobile_recall": 0.3333333333333333,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 1.3493969440460205
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.06666666666666667,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.06682625317754708,
+                "median": 0.05095912326417399,
+                "min": 0.02598702964065917,
+                "max": 0.236550705024842
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.06901041666666666,
+                "median": 0.08333333333333333,
+                "min": 0.0,
+                "max": 0.25
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.06770833333333333,
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.3333333333333333
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.4310418218374252,
+                "median": 1.456355631351471,
+                "min": 1.2235239744186401,
+                "max": 1.492553949356079
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.13333333333333333,
+              "motion_coverage": 0.341693170226065,
+              "mobile_recall": 0.25,
+              "holo_contact_recall": 0.5555555555555556,
+              "sparse_holo_replay_rmsd": 0.9754266738891602
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.13333333333333333,
+              "motion_coverage": 0.465851418276345,
+              "mobile_recall": 0.6666666666666666,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.8447915315628052
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.13333333333333333,
+              "motion_coverage": 0.07389431619993997,
+              "mobile_recall": 0.0,
+              "holo_contact_recall": 0.8888888888888888,
+              "sparse_holo_replay_rmsd": 1.4249958992004395
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.13333333333333333,
+              "motion_coverage": 0.1922004467076882,
+              "mobile_recall": 0.4166666666666667,
+              "holo_contact_recall": 0.1111111111111111,
+              "sparse_holo_replay_rmsd": 1.239310622215271
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.13333333333333333,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.12316573129102915,
+                "median": 0.10912856522919359,
+                "min": 0.06156067470959821,
+                "max": 0.24089248988120443
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.11328125,
+                "median": 0.08333333333333333,
+                "min": 0.0,
+                "max": 0.25
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.140625,
+                "median": 0.1111111111111111,
+                "min": 0.0,
+                "max": 0.3333333333333333
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.345217328518629,
+                "median": 1.375432550907135,
+                "min": 1.131745457649231,
+                "max": 1.4333184957504272
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.2,
+              "motion_coverage": 0.38771179538648437,
+              "mobile_recall": 0.25,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.9145911335945129
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.2,
+              "motion_coverage": 0.5627512010924945,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.6835973858833313
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.2,
+              "motion_coverage": 0.13402658034156953,
+              "mobile_recall": 0.08333333333333333,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.3416558504104614
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.2,
+              "motion_coverage": 0.2537690858534311,
+              "mobile_recall": 0.5,
+              "holo_contact_recall": 0.2222222222222222,
+              "sparse_holo_replay_rmsd": 1.1611981391906738
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.2,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.20222201068206,
+                "median": 0.19724548767645977,
+                "min": 0.09817059626838553,
+                "max": 0.3599465267037376
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.19661458333333331,
+                "median": 0.16666666666666666,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.19444444444444442,
+                "median": 0.2222222222222222,
+                "min": 0.0,
+                "max": 0.4444444444444444
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.2106672935187817,
+                "median": 1.2534912824630737,
+                "min": 0.9089376330375671,
+                "max": 1.395143985748291
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.26666666666666666,
+              "motion_coverage": 0.4190546743887546,
+              "mobile_recall": 0.25,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.8691995143890381
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.26666666666666666,
+              "motion_coverage": 0.6259462305439402,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.1111111111111111,
+              "sparse_holo_replay_rmsd": 0.5838330984115601
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.26666666666666666,
+              "motion_coverage": 0.17822047040047195,
+              "mobile_recall": 0.08333333333333333,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 1.2692941427230835
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.26666666666666666,
+              "motion_coverage": 0.3174634119253643,
+              "mobile_recall": 0.5833333333333334,
+              "holo_contact_recall": 0.3333333333333333,
+              "sparse_holo_replay_rmsd": 1.0604677200317383
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.26666666666666666,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.25279270009810023,
+                "median": 0.24915581090196842,
+                "min": 0.13595831345223455,
+                "max": 0.4476994965283443
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.24609375,
+                "median": 0.25,
+                "min": 0.0,
+                "max": 0.4166666666666667
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.26041666666666663,
+                "median": 0.2222222222222222,
+                "min": 0.0,
+                "max": 0.5555555555555556
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 1.146293181926012,
+                "median": 1.1983936429023743,
+                "min": 0.7966574430465698,
+                "max": 1.3340167999267578
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": {
+        "test_position": 347,
+        "original_index": 24370,
+        "rmsd": 2.4534807205200195,
+        "holo_pocket": "8sbv__2__1.B__1.G/receptor_holo_pocket10.pdb",
+        "apo_pocket": "8sbv__2__1.B__1.G/receptor_apo_pocket10.pdb",
+        "ligand": "8sbv__2__1.B__1.G/1.G.sdf"
+      },
+      "router": {
+        "num_residues": 51,
+        "apo_atom_rmsd": 0.9471424221992493,
+        "holo_contact_residues": 10,
+        "mobile_residues_top20pct": 11,
+        "topk": {
+          "4": {
+            "distance": {
+              "k": 4,
+              "fraction": 0.0784313725490196,
+              "motion_coverage": 0.06038324857296013,
+              "mobile_recall": 0.18181818181818182,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 0.8753703832626343
+            },
+            "motion_oracle": {
+              "k": 4,
+              "fraction": 0.0784313725490196,
+              "motion_coverage": 0.5647281440259465,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.4621339738368988
+            },
+            "contact_oracle": {
+              "k": 4,
+              "fraction": 0.0784313725490196,
+              "motion_coverage": 0.06038324857296013,
+              "mobile_recall": 0.18181818181818182,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 0.8753703832626343
+            },
+            "contact_change_oracle": {
+              "k": 4,
+              "fraction": 0.0784313725490196,
+              "motion_coverage": 0.5552006852981104,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.0,
+              "sparse_holo_replay_rmsd": 0.4781731367111206
+            },
+            "random": {
+              "k": 4,
+              "fraction": 0.0784313725490196,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.09509956164847688,
+                "median": 0.05193258339785912,
+                "min": 0.019192311709954394,
+                "max": 0.339179987678977
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.08948863636363637,
+                "median": 0.09090909090909091,
+                "min": 0.0,
+                "max": 0.2727272727272727
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.09062500000000001,
+                "median": 0.1,
+                "min": 0.0,
+                "max": 0.3
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.8570115473121405,
+                "median": 0.8926522731781006,
+                "min": 0.5899931192398071,
+                "max": 0.9300007820129395
+              }
+            }
+          },
+          "8": {
+            "distance": {
+              "k": 8,
+              "fraction": 0.1568627450980392,
+              "motion_coverage": 0.10032098101456904,
+              "mobile_recall": 0.18181818181818182,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 0.8456630110740662
+            },
+            "motion_oracle": {
+              "k": 8,
+              "fraction": 0.1568627450980392,
+              "motion_coverage": 0.6666415945390664,
+              "mobile_recall": 0.7272727272727273,
+              "holo_contact_recall": 0.1,
+              "sparse_holo_replay_rmsd": 0.3367137014865875
+            },
+            "contact_oracle": {
+              "k": 8,
+              "fraction": 0.1568627450980392,
+              "motion_coverage": 0.0974573037745491,
+              "mobile_recall": 0.18181818181818182,
+              "holo_contact_recall": 0.8,
+              "sparse_holo_replay_rmsd": 0.847319483757019
+            },
+            "contact_change_oracle": {
+              "k": 8,
+              "fraction": 0.1568627450980392,
+              "motion_coverage": 0.5807207071003095,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.4588375389575958
+            },
+            "random": {
+              "k": 8,
+              "fraction": 0.1568627450980392,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.1732723382181915,
+                "median": 0.09140048194256453,
+                "min": 0.04821333864570923,
+                "max": 0.5731205362882758
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.15482954545454544,
+                "median": 0.18181818181818182,
+                "min": 0.0,
+                "max": 0.36363636363636365
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.15937500000000002,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.4
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.7855423581786454,
+                "median": 0.8451893925666809,
+                "min": 0.45630064606666565,
+                "max": 0.9018135070800781
+              }
+            }
+          },
+          "12": {
+            "distance": {
+              "k": 12,
+              "fraction": 0.23529411764705882,
+              "motion_coverage": 0.14915893877371075,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.7983351945877075
+            },
+            "motion_oracle": {
+              "k": 12,
+              "fraction": 0.23529411764705882,
+              "motion_coverage": 0.7331245865171399,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.2,
+              "sparse_holo_replay_rmsd": 0.257262647151947
+            },
+            "contact_oracle": {
+              "k": 12,
+              "fraction": 0.23529411764705882,
+              "motion_coverage": 0.14915893877371075,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.7983351945877075
+            },
+            "contact_change_oracle": {
+              "k": 12,
+              "fraction": 0.23529411764705882,
+              "motion_coverage": 0.6434654523918607,
+              "mobile_recall": 0.5454545454545454,
+              "holo_contact_recall": 0.3,
+              "sparse_holo_replay_rmsd": 0.38356640934944153
+            },
+            "random": {
+              "k": 12,
+              "fraction": 0.23529411764705882,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.2334351193529634,
+                "median": 0.15004796457534175,
+                "min": 0.07003463910380521,
+                "max": 0.596643329490101
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.21732954545454544,
+                "median": 0.18181818181818182,
+                "min": 0.0,
+                "max": 0.45454545454545453
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.228125,
+                "median": 0.2,
+                "min": 0.0,
+                "max": 0.5
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.7309333435259759,
+                "median": 0.779009222984314,
+                "min": 0.4337307810783386,
+                "max": 0.8881376385688782
+              }
+            }
+          },
+          "16": {
+            "distance": {
+              "k": 16,
+              "fraction": 0.3137254901960784,
+              "motion_coverage": 0.18249050788844642,
+              "mobile_recall": 0.2727272727272727,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.7709230184555054
+            },
+            "motion_oracle": {
+              "k": 16,
+              "fraction": 0.3137254901960784,
+              "motion_coverage": 0.7794644352372471,
+              "mobile_recall": 1.0,
+              "holo_contact_recall": 0.4,
+              "sparse_holo_replay_rmsd": 0.20531199872493744
+            },
+            "contact_oracle": {
+              "k": 16,
+              "fraction": 0.3137254901960784,
+              "motion_coverage": 0.20524717550423585,
+              "mobile_recall": 0.36363636363636365,
+              "holo_contact_recall": 1.0,
+              "sparse_holo_replay_rmsd": 0.7411913275718689
+            },
+            "contact_change_oracle": {
+              "k": 16,
+              "fraction": 0.3137254901960784,
+              "motion_coverage": 0.659667950570614,
+              "mobile_recall": 0.5454545454545454,
+              "holo_contact_recall": 0.3,
+              "sparse_holo_replay_rmsd": 0.3679029941558838
+            },
+            "random": {
+              "k": 16,
+              "fraction": 0.3137254901960784,
+              "motion_coverage": {
+                "n": 64,
+                "mean": 0.31097122395858234,
+                "median": 0.36040679702865935,
+                "min": 0.116613985679944,
+                "max": 0.6595583667825029
+              },
+              "mobile_recall": {
+                "n": 64,
+                "mean": 0.28267045454545453,
+                "median": 0.2727272727272727,
+                "min": 0.0,
+                "max": 0.5454545454545454
+              },
+              "holo_contact_recall": {
+                "n": 64,
+                "mean": 0.3296875,
+                "median": 0.3,
+                "min": 0.1,
+                "max": 0.6
+              },
+              "sparse_holo_replay_rmsd": {
+                "n": 64,
+                "mean": 0.6533053424209356,
+                "median": 0.6849601566791534,
+                "min": 0.3605954945087433,
+                "max": 0.8471478223800659
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "apo_atom_rmsd": {
+      "n": 8,
+      "mean": 1.7027422413229942,
+      "median": 1.6554769277572632,
+      "min": 0.9471424221992493,
+      "max": 2.8594677448272705
+    },
+    "topk": {
+      "4": {
+        "distance": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.10280633729891031,
+            "median": 0.06345767618815959,
+            "min": 0.020737319323952622,
+            "max": 0.31129639836782713
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.11117424242424243,
+            "median": 0.12878787878787878,
+            "min": 0.0,
+            "max": 0.25
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.40600198412698413,
+            "median": 0.4,
+            "min": 0.1111111111111111,
+            "max": 0.6
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.5019520819187164,
+            "median": 1.4447038769721985,
+            "min": 0.8753703832626343,
+            "max": 2.3769497871398926
+          }
+        },
+        "motion_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.41879717433028946,
+            "median": 0.42506245968499795,
+            "min": 0.18789756568318133,
+            "max": 0.6616385472038804
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.3752525252525253,
+            "median": 0.36363636363636365,
+            "min": 0.3333333333333333,
+            "max": 0.4444444444444444
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.030357142857142857,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.14285714285714285
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.0276414789259434,
+            "median": 0.8387101292610168,
+            "min": 0.4621339738368988,
+            "max": 2.2720863819122314
+          }
+        },
+        "contact_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.05352389881643528,
+            "median": 0.04912316780140215,
+            "min": 0.021877308848107516,
+            "max": 0.11808210582696115
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.07045454545454546,
+            "median": 0.045454545454545456,
+            "min": 0.0,
+            "max": 0.2
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.5728174603174603,
+            "median": 0.5357142857142857,
+            "min": 0.4,
+            "max": 0.8
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.5926900804042816,
+            "median": 1.6165968179702759,
+            "min": 0.8753703832626343,
+            "max": 2.4281959533691406
+          }
+        },
+        "contact_change_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.341054026698336,
+            "median": 0.3531548470976825,
+            "min": 0.10068996727408691,
+            "max": 0.6616385472038804
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.3023358585858586,
+            "median": 0.3484848484848485,
+            "min": 0.1,
+            "max": 0.4444444444444444
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.04285714285714286,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.2
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.1666462793946266,
+            "median": 0.9681451618671417,
+            "min": 0.4781731367111206,
+            "max": 2.4088828563690186
+          }
+        },
+        "random": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.07748278568201197,
+            "median": 0.07667612299352487,
+            "min": 0.06682625317754708,
+            "max": 0.09509956164847688
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.07807765151515152,
+            "median": 0.07890625000000001,
+            "min": 0.06901041666666666,
+            "max": 0.08948863636363637
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.07426525297619048,
+            "median": 0.0703125,
+            "min": 0.0546875,
+            "max": 0.09151785714285714
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.5704146679490805,
+            "median": 1.5400253226980567,
+            "min": 0.8570115473121405,
+            "max": 2.622105374932289
+          }
+        }
+      },
+      "8": {
+        "distance": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.155591317503446,
+            "median": 0.13633513340507744,
+            "min": 0.0403856521992667,
+            "max": 0.341693170226065
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.18390151515151515,
+            "median": 0.19090909090909092,
+            "min": 0.0,
+            "max": 0.4
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.7042658730158731,
+            "median": 0.775,
+            "min": 0.42857142857142855,
+            "max": 1.0
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.4232171699404716,
+            "median": 1.360845685005188,
+            "min": 0.8456630110740662,
+            "max": 2.145366907119751
+          }
+        },
+        "motion_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.5554104109840978,
+            "median": 0.5737042360140807,
+            "min": 0.32422972569541764,
+            "max": 0.8543129884526044
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.7505050505050506,
+            "median": 0.7272727272727273,
+            "min": 0.6666666666666666,
+            "max": 0.8888888888888888
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.060714285714285714,
+            "median": 0.0,
+            "min": 0.0,
+            "max": 0.2857142857142857
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 0.786844540387392,
+            "median": 0.6631985753774643,
+            "min": 0.242279052734375,
+            "max": 1.8556092977523804
+          }
+        },
+        "contact_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.10466910549520417,
+            "median": 0.09689599375638465,
+            "min": 0.03799869447262044,
+            "max": 0.20705457335276606
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.09431818181818181,
+            "median": 0.045454545454545456,
+            "min": 0.0,
+            "max": 0.3
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.9361111111111111,
+            "median": 1.0,
+            "min": 0.8,
+            "max": 1.0
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.492641419172287,
+            "median": 1.575606644153595,
+            "min": 0.847319483757019,
+            "max": 2.09952712059021
+          }
+        },
+        "contact_change_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.4203692762961479,
+            "median": 0.41233937266617166,
+            "min": 0.1922004467076882,
+            "max": 0.8340805641868352
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.4068181818181818,
+            "median": 0.4166666666666667,
+            "min": 0.1,
+            "max": 0.6666666666666666
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.18397817460317462,
+            "median": 0.2,
+            "min": 0.0,
+            "max": 0.375
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.019605215638876,
+            "median": 0.8819393813610077,
+            "min": 0.2661069631576538,
+            "max": 2.221055746078491
+          }
+        },
+        "random": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.15697799030552922,
+            "median": 0.16177268163139802,
+            "min": 0.12316573129102915,
+            "max": 0.1912129068546447
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.1512567077020202,
+            "median": 0.14822443181818185,
+            "min": 0.11328125,
+            "max": 0.2065972222222222
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.14891183035714287,
+            "median": 0.15345982142857142,
+            "min": 0.12812500000000002,
+            "max": 0.1640625
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.4368909173063003,
+            "median": 1.3881784877739847,
+            "min": 0.7855423581786454,
+            "max": 2.379378404468298
+          }
+        }
+      },
+      "12": {
+        "distance": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.2118984548749769,
+            "median": 0.20526896243410547,
+            "min": 0.05573791387397952,
+            "max": 0.38771179538648437
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.25549242424242424,
+            "median": 0.26136363636363635,
+            "min": 0.0,
+            "max": 0.5
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.8974702380952381,
+            "median": 0.95,
+            "min": 0.5714285714285714,
+            "max": 1.0
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.341487504541874,
+            "median": 1.2785669565200806,
+            "min": 0.7983351945877075,
+            "max": 1.9777852296829224
+          }
+        },
+        "motion_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.6436861969747164,
+            "median": 0.662090318287882,
+            "min": 0.433815314630437,
+            "max": 0.885639814077695
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.13883928571428572,
+            "median": 0.1625,
+            "min": 0.0,
+            "max": 0.3
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 0.6426038052886724,
+            "median": 0.5194837599992752,
+            "min": 0.18482626974582672,
+            "max": 1.5624771118164062
+          }
+        },
+        "contact_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.18049163775074756,
+            "median": 0.16439854510071444,
+            "min": 0.12986601525384375,
+            "max": 0.27471853695597315
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.19835858585858585,
+            "median": 0.1919191919191919,
+            "min": 0.08333333333333333,
+            "max": 0.36363636363636365
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.3569135144352913,
+            "median": 1.4217225909233093,
+            "min": 0.7983351945877075,
+            "max": 1.8980724811553955
+          }
+        },
+        "contact_change_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.4729719610413402,
+            "median": 0.4388863578990321,
+            "min": 0.2537690858534311,
+            "max": 0.8576075023753764
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.48813131313131314,
+            "median": 0.5227272727272727,
+            "min": 0.1,
+            "max": 0.7777777777777778
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.30218253968253966,
+            "median": 0.26111111111111107,
+            "min": 0.16666666666666666,
+            "max": 0.5
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 0.9225356001406908,
+            "median": 0.8321481049060822,
+            "min": 0.23331327736377716,
+            "max": 1.9741616249084473
+          }
+        },
+        "random": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.22848752456726729,
+            "median": 0.2225390276640063,
+            "min": 0.20222201068206,
+            "max": 0.28806357497484775
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.22492897727272726,
+            "median": 0.2180397727272727,
+            "min": 0.19661458333333331,
+            "max": 0.28125
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.22742125496031745,
+            "median": 0.22209821428571427,
+            "min": 0.19444444444444442,
+            "max": 0.3
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.3115383914555423,
+            "median": 1.23549569491297,
+            "min": 0.7309333435259759,
+            "max": 2.165827624499798
+          }
+        }
+      },
+      "16": {
+        "distance": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.2627953196536673,
+            "median": 0.274825954633451,
+            "min": 0.07926962691421956,
+            "max": 0.4190546743887546
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.29210858585858585,
+            "median": 0.2727272727272727,
+            "min": 0.1111111111111111,
+            "max": 0.5
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.9517857142857142,
+            "median": 1.0,
+            "min": 0.7142857142857143,
+            "max": 1.0
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.24731907248497,
+            "median": 1.1641183495521545,
+            "min": 0.7709230184555054,
+            "max": 1.7649421691894531
+          }
+        },
+        "motion_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.7104397630919281,
+            "median": 0.7249047777778445,
+            "min": 0.5275703114601933,
+            "max": 0.9102642459104673
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.2976686507936508,
+            "median": 0.3375,
+            "min": 0.1111111111111111,
+            "max": 0.42857142857142855
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 0.5251736100763083,
+            "median": 0.422504723072052,
+            "min": 0.14394885301589966,
+            "max": 1.3317506313323975
+          }
+        },
+        "contact_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.24423234850329642,
+            "median": 0.2640492099779033,
+            "min": 0.14996217568458056,
+            "max": 0.32926921624753897
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.2713383838383838,
+            "median": 0.3,
+            "min": 0.08333333333333333,
+            "max": 0.45454545454545453
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 1.0,
+            "median": 1.0,
+            "min": 1.0,
+            "max": 1.0
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.2490232214331627,
+            "median": 1.365704596042633,
+            "min": 0.7411913275718689,
+            "max": 1.7441868782043457
+          }
+        },
+        "contact_change_oracle": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.5100453442355475,
+            "median": 0.46370572086406986,
+            "min": 0.3174634119253643,
+            "max": 0.8758293529527453
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.49854797979797977,
+            "median": 0.5454545454545454,
+            "min": 0.1,
+            "max": 0.7777777777777778
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.42142857142857143,
+            "median": 0.45,
+            "min": 0.16666666666666666,
+            "max": 0.6
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 0.861196743324399,
+            "median": 0.784765899181366,
+            "min": 0.20689721405506134,
+            "max": 1.888252854347229
+          }
+        },
+        "random": {
+          "motion_coverage": {
+            "n": 8,
+            "mean": 0.3042939710658519,
+            "median": 0.3082684802202777,
+            "min": 0.25279270009810023,
+            "max": 0.34611626492625513
+          },
+          "mobile_recall": {
+            "n": 8,
+            "mean": 0.29865155460858583,
+            "median": 0.2871685606060606,
+            "min": 0.24609375,
+            "max": 0.3454861111111111
+          },
+          "holo_contact_recall": {
+            "n": 8,
+            "mean": 0.32012183779761905,
+            "median": 0.32578125,
+            "min": 0.26041666666666663,
+            "max": 0.3875
+          },
+          "sparse_holo_replay_rmsd": {
+            "n": 8,
+            "mean": 1.1855325122596696,
+            "median": 1.1635695793665946,
+            "min": 0.6533053424209356,
+            "max": 1.9114466067403555
+          }
+        }
+      }
+    }
+  }
+}

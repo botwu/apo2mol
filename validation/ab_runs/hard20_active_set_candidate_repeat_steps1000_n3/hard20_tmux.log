@@ -1,0 +1,59 @@
+Sampling pocket_router_random_top4 for missing test positions: [396, 305, 301, 304, 248]
++ /Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/bin/python sample_split.py --config /Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/sampling.yaml --train_config /Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/training.yaml --device auto --num_samples 3 --batch_size 1 --result_path /Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/sampled_results --data_ids_file /Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/missing_test_positions.txt
+/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/lightning_fabric/__init__.py:41: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+[2026-06-01 13:56:42,613::sampling::INFO] {'model': {'checkpoint': './apo2mol_dataset/apo2mol_checkpoint.ckpt'}, 'sample': {'seed': 2021, 'num_samples': 5, 'num_steps': 1000, 'pos_only': False, 'center_pos_mode': 'protein', 'init_center_mode': 'apo', 'sample_num_atoms': 'prior'}}
+[2026-06-01 13:56:42,614::sampling::INFO] Training Config: {'data': {'topk_prompt': 0, 'name': 'pl', 'path': './apo2mol_dataset/data_folder', 'split': './apo2mol_dataset/apo2mol_version/split_druglike.pt', 'index': './apo2mol_dataset/apo2mol_version/selected_index_apo_druglike.pkl', 'type': 'both', 'transform': {'ligand_atom_mode': 'add_aromatic', 'random_rot': False}}, 'net_cond': {'ckpt_path': './pretrained_models/PMINet', 'hidden_dim': 128}, 'model': {'cond_dim': 128, 'topk_prompt': 0, 'model_mean_type': 'C0', 'beta_schedule': 'sigmoid', 'beta_start': 1e-07, 'beta_end': 0.002, 'v_beta_schedule': 'cosine', 'v_beta_s': 0.01, 'lambda_schedule': 'sigmoid', 'num_diffusion_timesteps': 1000, 'loss_v_weight': 100.0, 'sample_time_method': 'symmetric', 'time_emb_dim': 0, 'time_emb_mode': 'simple', 'center_pos_mode': 'protein', 'protein_update_schedule': 'late_dense', 'protein_update_interval': 50, 'protein_update_min_t': 10, 'protein_update_residual_threshold': 0.5, 'pocket_router_mode': 'random', 'pocket_router_topk': 4, 'pocket_router_shell_radius': 0.0, 'pocket_router_shell_weight': 0.0, 'pocket_router_background_weight': 0.0, 'node_indicator': True, 'model_type': 'uni_o2', 'num_blocks': 1, 'num_layers': 9, 'hidden_dim': 128, 'n_heads': 16, 'edge_feat_dim': 5, 'num_r_gaussian': 20, 'knn': 32, 'num_node_types': 8, 'act_fn': 'relu', 'norm': True, 'cutoff_mode': 'knn', 'ew_net_type': 'global', 'num_x2h': 1, 'num_h2x': 1, 'r_max': 10.0, 'x2h_out_fc': False, 'sync_twoup': False}, 'train': {'seed': 2021, 'batch_size': 2, 'val_batch_size': 2, 'num_workers': 1, 'n_acc_batch': 1, 'max_iters': 1000000, 'val_freq': 5, 'train_report_iter': 200, 'patience': 20, 'pos_noise_std': 0.1, 'max_grad_norm': 8.0, 'bond_loss_weight': 1.0, 'optimizer': {'type': 'adam', 'lr': 0.0005, 'weight_decay': 0, 'beta1': 0.95, 'beta2': 0.999}, 'scheduler': {'type': 'plateau', 'factor': 0.75, 'patience': 10, 'min_lr': 1e-06}}, 'sys': {'accelerator': 'gpu', 'strategy': 'ddp', 'find_unused_parameters': True, 'devices': 4, 'num_nodes': 1}}
+[2026-06-01 13:56:42,615::sampling::INFO] Successfully load the dataset (size: 478)!
+/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch/storage.py:414: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(io.BytesIO(b))
+Number of test data: 478
+Using 1 device(s): ['mps']
+Running in-process on mps...
+Restored from ./pretrained_models/PMINet with 0 missing and 0 unexpected keys
+[mps] Model loaded successfully!
+[mps] Processing data ID: 396
+sampling:   0%|          | 0/1000 [00:00<?, ?it/s]sampling:   0%|          | 0/1000 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/sample_split.py", line 445, in <module>
+    completed.append(run_data_point(data_id, test_set[data_id], device, worker_cfg, state=state))
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/sample_split.py", line 279, in run_data_point
+    pred_v0_traj, pred_vt_traj, router_selected_counts, time_list = sample_diffusion_ligand(
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/sample_split.py", line 162, in sample_diffusion_ligand
+    worker_process(
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/sample_split.py", line 82, in worker_process
+    r = model.sample_diffusion(
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/models/molopt_score_model.py", line 956, in sample_diffusion
+    preds = self.forward(
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/models/molopt_score_model.py", line 536, in forward
+    outputs = self.refine_net(
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/models/uni_transformer.py", line 518, in forward
+    edge_index = self._connect_edge(pos_all, mask_ligand, batch_all) # use knn to build edges, mask_ligand will not impact the edge_index
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/models/uni_transformer.py", line 369, in _connect_edge
+    edge_index = knn_graph(x, k=self.k, batch=batch, flow='source_to_target')
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch_geometric/nn/pool/__init__.py", line 128, in knn_graph
+    return torch_cluster.knn_graph(x, k, batch, loop, flow, cosine,
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch_cluster/knn.py", line 132, in knn_graph
+    edge_index = knn(x, x, k if loop else k + 1, batch, batch, cosine,
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch_cluster/knn.py", line 81, in knn
+    return torch.ops.torch_cluster.knn(x, y, ptr_x, ptr_y, k, cosine,
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/lib/python3.10/site-packages/torch/_ops.py", line 1061, in __call__
+    return self_._op(*args, **(kwargs or {}))
+RuntimeError: x.device().is_cpu() INTERNAL ASSERT FAILED at "csrc/cpu/knn_cpu.cpp":12, please report a bug to PyTorch. x must be CPU tensor
+Traceback (most recent call last):
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/run_new_method_ab.py", line 1522, in <module>
+    main()
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/run_new_method_ab.py", line 1503, in main
+    results = collect_results(payload) if args.summarize_only else run_experiment(payload, args)
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/run_new_method_ab.py", line 1424, in run_experiment
+    run_command(
+  File "/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/run_new_method_ab.py", line 933, in run_command
+    subprocess.run(cmd, cwd=str(cwd), env=env, check=True)
+  File "/Users/wujian1/.local/share/uv/python/cpython-3.10-macos-aarch64-none/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/wujian1/Downloads/a800_molecular/Apo2Mol/.venv310/bin/python', 'sample_split.py', '--config', '/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/sampling.yaml', '--train_config', '/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/training.yaml', '--device', 'auto', '--num_samples', '3', '--batch_size', '1', '--result_path', '/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/sampled_results', '--data_ids_file', '/Users/wujian1/Downloads/a800_molecular/Apo2Mol/validation/ab_runs/hard20_active_set_candidate_repeat_steps1000_n3/pocket_router_random_top4/missing_test_positions.txt']' returned non-zero exit status 1.
