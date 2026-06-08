@@ -1,0 +1,338 @@
+{
+  "generated_at": "2026-05-26T01:15:00",
+  "repo_root": "/Users/wujian1/Downloads/a800_molecular/Apo2Mol",
+  "index_path": "apo2mol_dataset/apo2mol_version/selected_index_apo_druglike.pkl",
+  "split_path": "apo2mol_dataset/apo2mol_version/split_druglike.pt",
+  "dataset": {
+    "record_count": 24501,
+    "record_tuple_length": 9,
+    "rmsd": {
+      "n": 24501,
+      "min": 0.0008699441095814109,
+      "p25": 0.603454053401947,
+      "median": 0.8457072973251343,
+      "mean": 1.0006977749045483,
+      "p75": 1.2196189165115356,
+      "p90": 1.697645664215088,
+      "p95": 2.0914463996887207,
+      "p99": 3.4201059341430664,
+      "max": 9.985754013061523,
+      "ge_1_5": 3549,
+      "ge_2": 1435,
+      "ge_3": 362,
+      "ge_5": 90,
+      "bins": {
+        "0-0.5": 3778,
+        "0.5-1": 11451,
+        "1-1.5": 5723,
+        "1.5-2": 2114,
+        "2-3": 1073,
+        "3-5": 272,
+        "5-10": 90,
+        "10+": 0
+      }
+    },
+    "date_min": "1982-06-25",
+    "date_max": "2024-04-29",
+    "top_years": [
+      [
+        "2017",
+        1849
+      ],
+      [
+        "2019",
+        1642
+      ],
+      [
+        "2018",
+        1545
+      ],
+      [
+        "2012",
+        1530
+      ],
+      [
+        "2022",
+        1368
+      ],
+      [
+        "2013",
+        1363
+      ],
+      [
+        "2015",
+        1359
+      ],
+      [
+        "2020",
+        1348
+      ],
+      [
+        "2016",
+        1311
+      ],
+      [
+        "2014",
+        1249
+      ]
+    ],
+    "unique_holo_pdb_ids": 12444,
+    "most_common_holo_pdb_ids": [
+      [
+        "6sjj",
+        98
+      ],
+      [
+        "4n3e",
+        75
+      ],
+      [
+        "6v8s",
+        47
+      ],
+      [
+        "4b0o",
+        40
+      ],
+      [
+        "4xx3",
+        28
+      ],
+      [
+        "2g1y",
+        28
+      ],
+      [
+        "1p0p",
+        27
+      ],
+      [
+        "1p72",
+        26
+      ],
+      [
+        "2jkj",
+        24
+      ],
+      [
+        "2y1k",
+        24
+      ]
+    ],
+    "unique_pli_dirs": 24501,
+    "duplicated_pli_dirs": 0,
+    "hard_examples": [
+      {
+        "rmsd": 9.985754013061523,
+        "holo_pocket": "6fpj__1__1.C__1.V/receptor_holo_pocket10.pdb",
+        "apo_pocket": "6fpj__1__1.C__1.V/receptor_apo_pocket10.pdb",
+        "ligand": "6fpj__1__1.C__1.V/1.V.sdf",
+        "date": "2018-02-09"
+      },
+      {
+        "rmsd": 9.947721481323242,
+        "holo_pocket": "3ki2__1__1.A__1.C/receptor_holo_pocket10.pdb",
+        "apo_pocket": "3ki2__1__1.A__1.C/receptor_apo_pocket10.pdb",
+        "ligand": "3ki2__1__1.A__1.C/1.C.sdf",
+        "date": "2009-10-31"
+      },
+      {
+        "rmsd": 9.934639930725098,
+        "holo_pocket": "3ku6__1__2.A__2.D/receptor_holo_pocket10.pdb",
+        "apo_pocket": "3ku6__1__2.A__2.D/receptor_apo_pocket10.pdb",
+        "ligand": "3ku6__1__2.A__2.D/2.D.sdf",
+        "date": "2009-11-26"
+      },
+      {
+        "rmsd": 9.843511581420898,
+        "holo_pocket": "3ki1__1__1.A__1.C/receptor_holo_pocket10.pdb",
+        "apo_pocket": "3ki1__1__1.A__1.C/receptor_apo_pocket10.pdb",
+        "ligand": "3ki1__1__1.A__1.C/1.C.sdf",
+        "date": "2009-10-31"
+      },
+      {
+        "rmsd": 9.370655059814453,
+        "holo_pocket": "6a3w__3__1.I__1.M/receptor_holo_pocket10.pdb",
+        "apo_pocket": "6a3w__3__1.I__1.M/receptor_apo_pocket10.pdb",
+        "ligand": "6a3w__3__1.I__1.M/1.M.sdf",
+        "date": "2018-06-17"
+      },
+      {
+        "rmsd": 8.344396591186523,
+        "holo_pocket": "1leg__1__1.A__1.E/receptor_holo_pocket10.pdb",
+        "apo_pocket": "1leg__1__1.A__1.E/receptor_apo_pocket10.pdb",
+        "ligand": "1leg__1__1.A__1.E/1.E.sdf",
+        "date": "2002-04-09"
+      },
+      {
+        "rmsd": 8.22690486907959,
+        "holo_pocket": "3rv5__4__1.D__1.GA/receptor_holo_pocket10.pdb",
+        "apo_pocket": "3rv5__4__1.D__1.GA/receptor_apo_pocket10.pdb",
+        "ligand": "3rv5__4__1.D__1.GA/1.GA.sdf",
+        "date": "2011-05-06"
+      },
+      {
+        "rmsd": 8.192428588867188,
+        "holo_pocket": "5vlo__1__1.A__1.C/receptor_holo_pocket10.pdb",
+        "apo_pocket": "5vlo__1__1.A__1.C/receptor_apo_pocket10.pdb",
+        "ligand": "5vlo__1__1.A__1.C/1.C.sdf",
+        "date": "2017-04-25"
+      }
+    ]
+  },
+  "splits": {
+    "train": {
+      "n": 22953,
+      "min": 0.0008699441095814109,
+      "p25": 0.610226035118103,
+      "median": 0.8542823195457458,
+      "mean": 1.0091712677180247,
+      "p75": 1.2294228076934814,
+      "p90": 1.7104169130325317,
+      "p95": 2.105302572250366,
+      "p99": 3.421041507720947,
+      "max": 9.985754013061523,
+      "ge_1_5": 3408,
+      "ge_2": 1376,
+      "ge_3": 343,
+      "ge_5": 87,
+      "bins": {
+        "0-0.5": 3401,
+        "0.5-1": 10737,
+        "1-1.5": 5407,
+        "1.5-2": 2032,
+        "2-3": 1033,
+        "3-5": 256,
+        "5-10": 87,
+        "10+": 0
+      },
+      "index_count": 22953,
+      "valid_index_count": 22953
+    },
+    "valid": {
+      "n": 1070,
+      "min": 0.10296276211738586,
+      "p25": 0.5051517337560654,
+      "median": 0.7844198048114777,
+      "mean": 0.8954672150035328,
+      "p75": 1.1183779537677765,
+      "p90": 1.4922086238861085,
+      "p95": 1.7309669375419614,
+      "p99": 3.4738375735282885,
+      "max": 6.200082302093506,
+      "ge_1_5": 97,
+      "ge_2": 38,
+      "ge_3": 16,
+      "ge_5": 3,
+      "bins": {
+        "0-0.5": 263,
+        "0.5-1": 465,
+        "1-1.5": 245,
+        "1.5-2": 59,
+        "2-3": 22,
+        "3-5": 13,
+        "5-10": 3,
+        "10+": 0
+      },
+      "index_count": 1070,
+      "valid_index_count": 1070
+    },
+    "test": {
+      "n": 478,
+      "min": 0.08139505237340927,
+      "p25": 0.5122010111808777,
+      "median": 0.6845855414867401,
+      "mean": 0.8293685250015438,
+      "p75": 0.9854927510023117,
+      "p90": 1.459892165660858,
+      "p95": 1.9453383684158325,
+      "p99": 2.7027758765220655,
+      "max": 4.018812656402588,
+      "ge_1_5": 44,
+      "ge_2": 21,
+      "ge_3": 3,
+      "ge_5": 0,
+      "bins": {
+        "0-0.5": 114,
+        "0.5-1": 249,
+        "1-1.5": 71,
+        "1.5-2": 23,
+        "2-3": 18,
+        "3-5": 3,
+        "5-10": 0,
+        "10+": 0
+      },
+      "index_count": 478,
+      "valid_index_count": 478
+    }
+  },
+  "code": {
+    "files": {
+      "sampling_config": "configs/sampling.yaml",
+      "training_config": "configs/training.yaml",
+      "sample_split": "sample_split.py",
+      "model": "models/molopt_score_model.py",
+      "eval_split": "eval_split.py"
+    },
+    "checks": {
+      "sampling_uses_ref_atom_count": true,
+      "training_topk_prompt_zero_count": 2,
+      "model_has_topk_prompt_parameter": true,
+      "model_prompt_list_initialized_empty": true,
+      "model_prompt_fallback_self_attention": true,
+      "model_has_static_protein_update_steps": true,
+      "sampling_uses_holo_center_for_ligand_init": true,
+      "eval_supports_gen_apo_holo_pocket_types": true,
+      "eval_has_vina_or_qvina": true,
+      "data_folder_exists": false,
+      "torch_importable_in_current_python": false
+    }
+  },
+  "external_evidence": [
+    {
+      "name": "ICLR 2026 reviewer guide",
+      "url": "https://iclr.cc/Conferences/2026/ReviewerGuide",
+      "use": "New, relevant, impactful knowledge backed by convincing evidence."
+    },
+    {
+      "name": "NeurIPS reviewer guidelines",
+      "url": "https://nips.cc/Conferences/2025/ReviewerGuidelines",
+      "use": "Novelty, empirical support, clarity, limitations."
+    },
+    {
+      "name": "ICML reviewer instructions",
+      "url": "https://icml.cc/Conferences/2025/ReviewerInstructions",
+      "use": "Significance, technical quality, empirical validation."
+    },
+    {
+      "name": "AAAI-26 main technical track call",
+      "url": "https://aaai.org/conference/aaai/aaai-26/main-technical-track-call/",
+      "use": "Originality, rigor, reproducibility, impact."
+    },
+    {
+      "name": "Apo2Mol",
+      "url": "https://arxiv.org/abs/2511.14559",
+      "use": "Direct baseline and dataset/method context."
+    },
+    {
+      "name": "DecompDiff, ICML 2023",
+      "url": "https://proceedings.mlr.press/v202/guan23a.html",
+      "use": "SBDD diffusion precedent with decomposition as a methodological hook."
+    },
+    {
+      "name": "IPDiff, ICLR 2024",
+      "url": "https://openreview.net/forum?id=qH9nrMNTIW",
+      "use": "Interaction-prior diffusion precedent."
+    },
+    {
+      "name": "FlexSBDD, NeurIPS 2024",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/60fb8cf8000f0386063fb24ead366330-Abstract-Conference.html",
+      "use": "Flexible-receptor SBDD precedent."
+    },
+    {
+      "name": "DynamicFlow, ICLR 2025",
+      "url": "https://arxiv.org/abs/2503.03989",
+      "use": "Protein dynamics for molecular generation precedent."
+    }
+  ]
+}
