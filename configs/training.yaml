@@ -80,10 +80,16 @@ train:
   seed: 2021
   batch_size: 2 # Recommend accumulating batches for up to 8 (batch_size * n_acc_batch * devices)
   val_batch_size: 2
-  num_workers: 1
+  num_workers: 4
+  val_num_workers: 2
+  pin_memory: true
+  persistent_workers: true
+  prefetch_factor: 2
   n_acc_batch: 1
   max_iters: 1000000
+  max_steps: -1
   val_freq: 5
+  log_every_n_steps: 50
   train_report_iter: 200
   patience: 20
   pos_noise_std: 0.1
@@ -110,5 +116,9 @@ sys:
   accelerator: gpu
   strategy: ddp
   find_unused_parameters: True
+  gradient_as_bucket_view: true
   devices: 4
   num_nodes: 1
+  precision: bf16-mixed
+  sync_batchnorm: false
+  benchmark: true

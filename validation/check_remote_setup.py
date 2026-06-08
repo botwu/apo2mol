@@ -9,6 +9,7 @@ dependencies before launching training.
 from __future__ import annotations
 
 import argparse
+import importlib
 import importlib.util
 import os
 import pickle
@@ -39,6 +40,7 @@ REQUIRED_MODULES = [
     "torch_cluster",
     "torch_spline_conv",
     "pytorch_lightning",
+    "sklearn",
     "rdkit",
     "Bio",
     "lmdb",
@@ -46,6 +48,8 @@ REQUIRED_MODULES = [
     "kornia",
     "wandb",
     "einops",
+    "psutil",
+    "quaternion",
 ]
 
 
@@ -58,8 +62,15 @@ def print_check(name: str, ok: bool, detail: str = "") -> None:
     print(f"[{status(ok):7}] {name}{suffix}")
 
 
-def module_available(name: str) -> bool:
-    return importlib.util.find_spec(name) is not None
+def import_module(name: str):
+    if importlib.util.find_spec(name) is None:
+        return False, "not found"
+    try:
+        module = importlib.import_module(name)
+    except Exception as exc:
+        return False, repr(exc)
+    version = getattr(module, "__version__", None)
+    return True, str(version) if version is not None else ""
 
 
 def run_git_status(repo_root: Path) -> None:
@@ -82,15 +93,16 @@ def run_git_status(repo_root: Path) -> None:
     print_check("git repository", result.returncode == 0, f"{len(dirty_lines)} local change(s)")
 
 
-def check_torch_cuda() -> None:
-    if not module_available("torch"):
+def check_torch_cuda(expected_gpus: int) -> bool:
+    torch_ok, _ = import_module("torch")
+    if not torch_ok:
         print_check("torch cuda", False, "torch is not importable")
-        return
+        return False
     try:
         import torch
     except Exception as exc:
         print_check("torch import", False, repr(exc))
-        return
+        return False
     print_check("torch import", True, torch.__version__)
     cuda_ok = torch.cuda.is_available()
     if cuda_ok:
@@ -100,9 +112,16 @@ def check_torch_cuda() -> None:
                 devices.append(torch.cuda.get_device_name(idx))
             except Exception:
                 devices.append(f"cuda:{idx}")
-        print_check("cuda devices", True, f"{len(devices)} device(s): {devices}")
+        enough_devices = len(devices) >= expected_gpus
+        print_check(
+            "cuda devices",
+            enough_devices,
+            f"{len(devices)} device(s), expected >= {expected_gpus}: {devices}",
+        )
+        return enough_devices
     else:
         print_check("cuda devices", False, "torch.cuda.is_available() is false")
+        return False
 
 
 def check_required_files(repo_root: Path) -> bool:
@@ -182,14 +201,14 @@ def check_lmdb(repo_root: Path) -> None:
         )
 
 
-def check_modules() -> bool:
+def check_modules(expected_gpus: int) -> bool:
     all_ok = True
     for name in REQUIRED_MODULES:
-        ok = module_available(name)
+        ok, detail = import_module(name)
         all_ok = all_ok and ok
-        print_check(f"python module {name}", ok)
-    check_torch_cuda()
-    return all_ok
+        print_check(f"python module {name}", ok, detail)
+    cuda_ok = check_torch_cuda(expected_gpus)
+    return all_ok and cuda_ok
 
 
 def main() -> None:
@@ -205,6 +224,12 @@ def main() -> None:
         help="Path to data_folder. Defaults to <repo-root>/data/data_folder.",
     )
     parser.add_argument("--sample-cases", type=int, default=20)
+    parser.add_argument(
+        "--expected-gpus",
+        type=int,
+        default=1,
+        help="Minimum number of CUDA devices required for this run.",
+    )
     parser.add_argument("--skip-modules", action="store_true")
     args = parser.parse_args()
 
@@ -225,7 +250,7 @@ def main() -> None:
     print()
     ok_modules = True
     if not args.skip_modules:
-        ok_modules = check_modules()
+        ok_modules = check_modules(args.expected_gpus)
         print()
 
     if ok_files and ok_data and ok_modules:

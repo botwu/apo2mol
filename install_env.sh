@@ -30,6 +30,7 @@ conda install -y -c conda-forge patch
 pip install lmdb==1.5.1
 pip install matplotlib==3.9.2 meeko==0.1.dev3 mmcif-pdbx==2.0.1
 pip install omegaconf==2.3.0 pandas==2.2.3 pdb2pqr==3.6.1 pillow==10.2.0 py3dmol==2.4.0
+pip install scikit-learn==1.5.2 psutil==6.0.0
 pip install tornado==6.4.1 tqdm==4.66.5 wandb==0.18.3
 conda install -y -c conda-forge vina=1.2.5
 pip install wheel==0.37.1

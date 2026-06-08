@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+import torch.distributed as dist
 import pytorch_lightning as pl
 from sklearn.metrics import roc_auc_score
 from tqdm.auto import tqdm
@@ -17,17 +18,23 @@ def get_auroc(y_true, y_pred, feat_mode):
     y_true = np.array(y_true)
     y_pred = np.array(y_pred)
     avg_auroc = 0.
+    total_weight = 0
     possible_classes = set(y_true)
     for c in possible_classes:
-        auroc = roc_auc_score(y_true == c, y_pred[:, c])
-        avg_auroc += auroc * np.sum(y_true == c)
+        binary_target = y_true == c
+        if np.unique(binary_target).size < 2:
+            continue
+        auroc = roc_auc_score(binary_target, y_pred[:, c])
+        class_weight = np.sum(binary_target)
+        avg_auroc += auroc * class_weight
+        total_weight += class_weight
         mapping = {
             'basic': trans.MAP_INDEX_TO_ATOM_TYPE_ONLY,
             'add_aromatic': trans.MAP_INDEX_TO_ATOM_TYPE_AROMATIC,
             'full': trans.MAP_INDEX_TO_ATOM_TYPE_FULL
         }
         print(f'atom: {mapping[feat_mode][c]} \t auc roc: {auroc:.4f}')
-    return avg_auroc / len(y_true)
+    return avg_auroc / total_weight if total_weight > 0 else float('nan')
 
 
 class MoleculeTrainer(pl.LightningModule):
@@ -95,22 +102,25 @@ class MoleculeTrainer(pl.LightningModule):
                 'optimizer': optimizer,
                 'lr_scheduler': {
                     'scheduler': scheduler,
-                    'monitor': 'validation/loss'
+                    'monitor': 'validation/loss',
+                    'frequency': int(getattr(self.config.train, 'val_freq', 1)),
                 }
             }
         else:
             return [optimizer], [scheduler]
 
     def on_train_epoch_start(self):
+        self.net_cond.eval()
+        if bool(getattr(self.config.train, 'freeze_backbone', False)):
+            self.model.eval()
+            if self.model.lasc is not None:
+                self.model.lasc.train()
+            if not bool(getattr(self.config.train, 'freeze_residue_head', True)):
+                self.model.res_inference.train()
         return super().on_train_epoch_start()
 
     def training_step(self, batch, batch_idx):
-        self.model.train()
-        optimizer = self.optimizers()
-
-        # all_batch = batch
         data_batch = batch
-        data_batch = data_batch.to(self.device)
 
         results = self.model.get_diffusion_loss(
             net_cond=self.net_cond,
@@ -125,7 +135,6 @@ class MoleculeTrainer(pl.LightningModule):
         )
         loss, loss_ligand_pos, loss_ligand_v = results['loss'], results['loss_ligang_pos'], results['loss_v']
         loss_protein_tr, loss_protein_rot, loss_protein_chi = results['loss_protein_tr'], results['loss_protein_rot'], results['loss_protein_chi']
-        loss = loss / self.config.train.n_acc_batch
 
         self.train_iterations += 1
         if self.train_iterations % self.config.train.train_report_iter == 0:
@@ -164,7 +173,6 @@ class MoleculeTrainer(pl.LightningModule):
         return loss
 
     def on_validation_epoch_start(self):
-        self.model.eval()
         self.all_pred_v, self.all_true_v = [], []
         self.sum_loss, self.sum_loss_ligand_pos, self.sum_loss_v, self.sum_n = 0, 0, 0, 0
         self.sum_loss_protein_tr, self.sum_loss_protein_rot, self.sum_loss_protein_chi = 0, 0, 0
@@ -209,15 +217,71 @@ class MoleculeTrainer(pl.LightningModule):
 
         return avg_loss
 
+    def _reduce_validation_sums(self):
+        values = torch.tensor(
+            [
+                self.sum_loss,
+                self.sum_loss_ligand_pos,
+                self.sum_loss_v,
+                self.sum_loss_protein_tr,
+                self.sum_loss_protein_rot,
+                self.sum_loss_protein_chi,
+                self.sum_n,
+            ],
+            dtype=torch.float64,
+            device=self.device,
+        )
+        if dist.is_available() and dist.is_initialized():
+            dist.all_reduce(values, op=dist.ReduceOp.SUM)
+        return values
+
+    def _gather_validation_predictions(self):
+        num_classes = self.ligand_featurizer.feature_dim
+        local_true = (
+            np.concatenate(self.all_true_v)
+            if self.all_true_v
+            else np.empty((0,), dtype=np.int64)
+        )
+        local_pred = (
+            np.concatenate(self.all_pred_v, axis=0)
+            if self.all_pred_v
+            else np.empty((0, num_classes), dtype=np.float32)
+        )
+
+        if not (dist.is_available() and dist.is_initialized()):
+            return local_true, local_pred
+
+        gathered = [None] * dist.get_world_size() if dist.get_rank() == 0 else None
+        dist.gather_object((local_true, local_pred), gathered, dst=0)
+        if dist.get_rank() != 0:
+            return None, None
+
+        global_true = np.concatenate([item[0] for item in gathered], axis=0)
+        global_pred = np.concatenate([item[1] for item in gathered], axis=0)
+        return global_true, global_pred
+
     def on_validation_epoch_end(self):
-        avg_loss = self.sum_loss / self.sum_n
-        avg_loss_ligand_pos = self.sum_loss_ligand_pos / self.sum_n
-        avg_loss_v = self.sum_loss_v / self.sum_n
-        atom_auroc = get_auroc(np.concatenate(self.all_true_v), np.concatenate(self.all_pred_v, axis=0),
-                               feat_mode=self.config.data.transform.ligand_atom_mode)
-        avg_loss_protein_tr = self.sum_loss_protein_tr / self.sum_n
-        avg_loss_protein_rot = self.sum_loss_protein_rot / self.sum_n
-        avg_loss_protein_chi = self.sum_loss_protein_chi / self.sum_n
+        stats = self._reduce_validation_sums()
+        count = stats[6].clamp_min(1.0)
+        avg_loss = stats[0] / count
+        avg_loss_ligand_pos = stats[1] / count
+        avg_loss_v = stats[2] / count
+        avg_loss_protein_tr = stats[3] / count
+        avg_loss_protein_rot = stats[4] / count
+        avg_loss_protein_chi = stats[5] / count
+
+        all_true_v, all_pred_v = self._gather_validation_predictions()
+        if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
+            atom_auroc = get_auroc(
+                all_true_v,
+                all_pred_v,
+                feat_mode=self.config.data.transform.ligand_atom_mode,
+            )
+        else:
+            atom_auroc = 0.0
+        atom_auroc = torch.tensor(atom_auroc, dtype=torch.float64, device=self.device)
+        if dist.is_available() and dist.is_initialized():
+            dist.broadcast(atom_auroc, src=0)
 
         self.log('epoch', self.current_epoch)
         self.log('validation/loss', avg_loss)
