@@ -183,6 +183,19 @@ def main():
             print("  cmd:", " ".join(cmd2))
             subprocess.run(cmd2, check=True, cwd=REPO_ROOT)
 
+            # Mirror to /root/autodl-tmp/vina_eval/learned_gate/ so it sits
+            # alongside the existing 4 arms (baseline_static5,
+            # ours_shell4_w025, distance_top4_hard, random_top4) for an
+            # easy 5-arm summary.
+            mirror_root = Path("/root/autodl-tmp/vina_eval/learned_gate")
+            mirror_root.mkdir(parents=True, exist_ok=True)
+            mirror_path = mirror_root / "ligand_full.json"
+            try:
+                shutil.copy(ligand_full_json, mirror_path)
+                print(f"[mirror] {mirror_path}")
+            except OSError as exc:
+                print(f"[mirror] WARN: copy to {mirror_path} failed: {exc}")
+
     print(f"DONE. arm_dir={arm_dir}")
 
 
