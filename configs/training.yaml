@@ -47,6 +47,9 @@ model:
     gate_target_sharpness: 4.0  # sharpness of the displacement->target sigmoid (rigid residue -> ~0.05)
     gate_rot_radius_A: 3.0      # convert residue frame rotation angle (rad) to effective displacement (A)
     gate_chi_radius_A: 1.5      # convert side-chain torsion change (rad) to effective displacement (A)
+    stage2_two_forward: false   # stage-2: second forward on gate-corrected pocket so ligand loss trains the gate
+    stage2_ligand_weight: 1.0   # weight of the stage-2 ligand-feedback loss
+    stage2_lowt_gamma: 2.0      # low-t emphasis exponent for ligand feedback ((T-t)/T)^gamma
 
   node_indicator: True
   model_type: uni_o2

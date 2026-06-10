@@ -68,6 +68,9 @@ class MoleculeTrainer(pl.LightningModule):
         train_cfg = self.config.train
         freeze_backbone = bool(getattr(train_cfg, 'freeze_backbone', False))
         freeze_residue_head = bool(getattr(train_cfg, 'freeze_residue_head', True))
+        # Optional extra unfreeze prefixes (e.g. ['v_inference.', 'refine_net.'])
+        # for a later trunk-unfreeze phase. Default empty = gate-only stage-2.
+        extra = list(getattr(train_cfg, 'unfreeze_prefixes', []) or [])
         if not freeze_backbone:
             return
         for name, param in self.model.named_parameters():
@@ -75,6 +78,9 @@ class MoleculeTrainer(pl.LightningModule):
                 param.requires_grad = True
                 continue
             if not freeze_residue_head and name.startswith('res_inference.'):
+                param.requires_grad = True
+                continue
+            if any(name.startswith(p) for p in extra):
                 param.requires_grad = True
                 continue
             param.requires_grad = False
@@ -140,7 +146,7 @@ class MoleculeTrainer(pl.LightningModule):
         # Router/gate diagnostics are cheap scalars: log every step so smoke tests
         # (which run far fewer than train_report_iter iterations) can see them.
         if self.config.model.pocket_router_mode == 'cross_attn_gate':
-            for key in ('loss_gate', 'router_w_mean', 'router_w_min',
+            for key in ('loss_gate', 'loss_ligand2', 'router_w_mean', 'router_w_min',
                         'router_w_max', 'router_selected_per_graph'):
                 val = results.get(key, None)
                 if val is not None:

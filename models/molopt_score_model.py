@@ -380,8 +380,17 @@ class ScorePosNet3D(nn.Module):
             self.gate_target_sharpness = float(getattr(gate_cfg, 'gate_target_sharpness', 4.0)) if gate_cfg is not None else 4.0
             self.gate_rot_radius_A = float(getattr(gate_cfg, 'gate_rot_radius_A', 3.0)) if gate_cfg is not None else 3.0
             self.gate_chi_radius_A = float(getattr(gate_cfg, 'gate_chi_radius_A', 1.5)) if gate_cfg is not None else 1.5
+            # Stage-2: two-forward end-to-end ligand feedback. The gate selects
+            # which residues to release toward holo; a second forward on the
+            # gate-corrected pocket lets the ligand reconstruction loss flow back
+            # into the gate. Feedback is weighted toward low t (late denoising),
+            # where the diagnostic showed the ligand head is most pocket-sensitive.
+            self.stage2_two_forward = bool(getattr(gate_cfg, 'stage2_two_forward', False)) if gate_cfg is not None else False
+            self.stage2_ligand_weight = float(getattr(gate_cfg, 'stage2_ligand_weight', 1.0)) if gate_cfg is not None else 1.0
+            self.stage2_lowt_gamma = float(getattr(gate_cfg, 'stage2_lowt_gamma', 2.0)) if gate_cfg is not None else 2.0
         else:
             self.cross_attn_gate = None
+            self.stage2_two_forward = False
 
     def _build_protein_update_steps(self):
         _num = 5
@@ -971,6 +980,46 @@ class ScorePosNet3D(nn.Module):
             pred_res_chi = pred_res_chi * w_f
             pred_res_rot = self.slerp_identity_to_q(pred_res_rot, 1.0 - w_f)
 
+        # Stage-2: end-to-end ligand feedback via a second forward on the
+        # gate-corrected pocket. The gate weight w_i releases residue i toward
+        # its holo position (differentiable interpolation, so the ligand loss
+        # below backprops into the gate). The feedback is weighted toward low t,
+        # where the ligand head is most sensitive to the pocket.
+        loss_ligand2 = pred_res_tr.new_zeros(())
+        if self.pocket_router_mode == 'cross_attn_gate' and self.stage2_two_forward:
+            prot_batch_flat = data.protein_translations_batch.view(-1)
+            res_counts = scatter_sum(torch.ones_like(prot_batch_flat), prot_batch_flat, dim=0)
+            res_offset = torch.cumsum(res_counts, 0) - res_counts
+            global_res_of_atom = res_offset[batch_protein] + data.protein_atom_to_aa_group.long()
+            w_atom = router_weights[global_res_of_atom].unsqueeze(-1)
+            # Interpolate from the apo pocket (full induced-fit lever) toward holo.
+            # Using the holo-perturbed pocket as base collapses the lever at low t
+            # (where it is already near holo) and starves the gate of gradient; the
+            # apo base keeps the full apo->holo displacement at every t, matching
+            # the apo->holo generative direction.
+            protein_pos_updated = protein_pos_apo + w_atom * (protein_pos_holo - protein_pos_apo)
+            preds2 = self.forward(
+                protein_pos=protein_pos_updated,
+                protein_v=protein_v,
+                batch_protein=batch_protein,
+                init_ligand_pos=ligand_pos_perturbed,
+                init_ligand_v=ligand_v_perturbed,
+                batch_ligand=batch_ligand,
+                protein_atom_to_aa_group=data.protein_atom_to_aa_group,
+                time_step=time_step,
+                hbap_protein=hbap_protein,
+                hbap_ligand=hbap_ligand,
+            )
+            pred_ligand_pos2 = preds2['pred_ligand_pos']
+            if self.model_mean_type == 'C0':
+                sqd2 = ((pred_ligand_pos2 - ligand_pos) ** 2).sum(-1)
+            else:
+                sqd2 = ((pred_ligand_pos2 - ligand_pos_perturbed - pos_noise) ** 2).sum(-1)
+            loss2_per_graph = scatter_mean(sqd2, batch_ligand, dim=0)
+            t_graph = time_step.float()
+            w_t_graph = ((self.num_timesteps - t_graph) / self.num_timesteps).clamp(min=0.0).pow(self.stage2_lowt_gamma)
+            loss_ligand2 = (loss2_per_graph * w_t_graph).sum() / (w_t_graph.sum() + 1e-8)
+
         if self.model_mean_type == 'C0':
             target_ligand, pred_ligand = ligand_pos, pred_ligand_pos
         elif self.model_mean_type == 'noise':
@@ -1003,6 +1052,8 @@ class ScorePosNet3D(nn.Module):
         loss = loss_ligand_pos + loss_v * self.loss_v_weight + loss_prot_tr + loss_prot_rot + 5*loss_prot_chi
         if self.pocket_router_mode == 'cross_attn_gate':
             loss = loss + self.gate_loss_weight * loss_gate
+            if self.stage2_two_forward:
+                loss = loss + self.stage2_ligand_weight * loss_ligand2
 
         return {
             'loss_ligang_pos': loss_ligand_pos,
@@ -1012,6 +1063,7 @@ class ScorePosNet3D(nn.Module):
             'loss_v': loss_v,
             'loss': loss,
             'loss_gate': loss_gate,
+            'loss_ligand2': loss_ligand2,
             'router_w_mean': router_w_mean,
             'router_w_min': router_w_min,
             'router_w_max': router_w_max,

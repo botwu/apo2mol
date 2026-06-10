@@ -48,5 +48,7 @@ class LigandResidueCrossAttnGate(nn.Module):
             sim = q @ k.transpose(0, 1) * self.scale
             # for each residue, take the strongest ligand atom's attention logit
             per_res = sim.max(dim=0).values + self.bias
-            logits = logits.index_copy(0, res_idx, per_res)
+            # under bf16 autocast the fp32 bias promotes per_res to fp32; cast
+            # back to the logits buffer dtype so index_copy dtypes match.
+            logits = logits.index_copy(0, res_idx, per_res.to(logits.dtype))
         return logits
