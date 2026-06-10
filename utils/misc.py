@@ -40,7 +40,16 @@ def init_wandb(args: DictConfig):
     if mode == 'online':
         key = args.wandb.wandb_key or os.environ.get('WANDB_API_KEY')
         if key:
-            wandb.login(key=key)
+            # wandb.login(key=...) only accepts 40-char hex keys and rejects the
+            # newer "wandb_v1_..." personal-access tokens. wandb.init() reads
+            # the same env var / netrc itself, so when we are handed a long
+            # token we skip the explicit login (which would raise) and let
+            # wandb.init authenticate normally.
+            if len(key) == 40:
+                wandb.login(key=key)
+            else:
+                # Make sure the SDK can find the key during init.
+                os.environ.setdefault('WANDB_API_KEY', key)
 
     wandb.init(
         project=args.wandb.wandb_project,

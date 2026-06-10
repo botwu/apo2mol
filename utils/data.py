@@ -591,7 +591,11 @@ def apply_transforms_tensor_batch(
         )
 
         # --- 把结果写回到总张量 ---
-        new_pos[atom_mask] = new_pos_p
+        # under bf16 autocast new_pos_p comes back as bf16 while new_pos was
+        # cloned from the fp32 input; cast to the destination dtype so the
+        # masked assign succeeds. This path runs in training_step's diagnostic
+        # block only, so it does not affect the loss graph.
+        new_pos[atom_mask] = new_pos_p.to(new_pos.dtype)
 
     return new_pos
 
