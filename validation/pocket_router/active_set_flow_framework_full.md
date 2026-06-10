@@ -1196,4 +1196,3 @@ learnable active-set flow matching：必须成为最终投稿方法
 ```
 
 如果这个 prototype 能超过 hard distance top4 和 fixed shell4 w025，或者在 clash/contact/complete/efficiency 上给出明确优势，这个方向就有进入 AAAI 风格论文主线的可能。
-

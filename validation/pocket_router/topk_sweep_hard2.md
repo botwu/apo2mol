@@ -184,4 +184,3 @@ top-k sweep 把 PocketRouter 的主线进一步收紧：
 大白话：
 
 > 不是 pocket 动得越多越好，而是要非常克制地只动 ligand 当前真正碰到的那一小块。
-

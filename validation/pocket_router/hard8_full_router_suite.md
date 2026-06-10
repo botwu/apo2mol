@@ -230,4 +230,3 @@ Practical next step:
 
 > Train a learned fragment-conditioned router, but judge it against
 > `distance_top4` and `random_top4`, not only against dense Apo2Mol baselines.
-

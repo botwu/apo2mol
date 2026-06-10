@@ -80,9 +80,26 @@ class PrepProt(object):
     def get_pdbqt(self, prot_pdbqt):
         if AutoDockTools is None:
             raise ImportError("AutoDockTools is required to prepare receptor pdbqt files.")
-        prepare_receptor = os.path.join(AutoDockTools.__path__[0], 'Utilities24/prepare_receptor4.py')
-        subprocess.Popen(['python3', prepare_receptor, '-r', self.prot_pqr, '-o', prot_pdbqt],
-                         stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL).communicate()
+        # Prefer the AutoDockTools_py3 console entry point. Running the raw
+        # prepare_receptor4.py script fails with "No module named 'MolKit'"
+        # because direct script execution drops the package import context;
+        # the console script (import AutoDockTools.Utilities24.prepare_receptor4)
+        # resolves the dependency correctly.
+        import sys
+        import shutil
+        exe = shutil.which('prepare_receptor4')
+        if exe is None:
+            candidate = os.path.join(os.path.dirname(sys.executable), 'prepare_receptor4')
+            if os.path.exists(candidate):
+                exe = candidate
+        if exe is not None:
+            cmd = [exe, '-r', self.prot_pqr, '-o', prot_pdbqt]
+        else:
+            cmd = [sys.executable, '-m', 'AutoDockTools.Utilities24.prepare_receptor4',
+                   '-r', self.prot_pqr, '-o', prot_pdbqt]
+        subprocess.Popen(cmd, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL).communicate()
+        if not os.path.exists(prot_pdbqt):
+            raise RuntimeError(f"Failed to prepare receptor pdbqt: {prot_pdbqt}")
 
 
 class VinaDock(object): 

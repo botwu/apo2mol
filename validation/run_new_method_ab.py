@@ -641,11 +641,11 @@ def make_active_set_ablation_arms() -> list[dict[str, Any]]:
             },
         },
         {
-            "name": "pocket_router_learned_lasc_v1",
+            "name": "pocket_router_cross_attn_gate",
             "sample": dict(base_sample),
             "model": {
                 **base_model,
-                "pocket_router_mode": "learned_active_set",
+                "pocket_router_mode": "cross_attn_gate",
                 "pocket_router_topk": 0,
                 "pocket_router_shell_radius": 0.0,
                 "pocket_router_shell_weight": 0.0,
@@ -1335,13 +1335,13 @@ def prepare_run(args: argparse.Namespace) -> dict[str, Any]:
         arm_dir.mkdir(parents=True, exist_ok=True)
         sample_overrides = dict(arm["sample"])
         sample_overrides["num_steps"] = args.num_steps
-        if arm["name"] == "pocket_router_learned_lasc_v1":
-            if args.learned_lasc_checkpoint:
-                sample_overrides["checkpoint"] = args.learned_lasc_checkpoint
+        if arm["name"] == "pocket_router_cross_attn_gate":
+            if args.cross_attn_gate_checkpoint:
+                sample_overrides["checkpoint"] = args.cross_attn_gate_checkpoint
             else:
                 warnings_out.append(
-                    "pocket_router_learned_lasc_v1 needs --learned-lasc-checkpoint; "
-                    "without it, sampling will fail because the original checkpoint has no LASC weights."
+                    "pocket_router_cross_attn_gate needs --cross-attn-gate-checkpoint; "
+                    "without it, sampling will fail because the original checkpoint has no cross-attn gate weights."
                 )
         model_overrides = dict(arm["model"])
         arm_payload = {
@@ -1506,7 +1506,7 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=3)
     parser.add_argument("--num-steps", type=int, default=NUM_TIMESTEPS)
     parser.add_argument("--device", default="auto")
-    parser.add_argument("--learned-lasc-checkpoint", default=None)
+    parser.add_argument("--cross-attn-gate-checkpoint", default=None)
     parser.add_argument("--docking-mode", default="none", choices=["none", "qvina", "vina_score", "vina_dock"])
     parser.add_argument("--include-controls", action="store_true")
     parser.add_argument("--baseline-only", action="store_true")

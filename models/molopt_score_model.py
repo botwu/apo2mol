@@ -13,7 +13,7 @@ from models.common import compose_context, ShiftedSoftplus
 from models.egnn import EGNN
 from models.uni_transformer import UniTransformerO2TwoUpdateGeneral
 from models.attn import CrossAttention, RetAugmentationLinearAttention
-from models.active_set_controller import LigandConditionedActiveSet
+from models.ligand_residue_cross_attn import LigandResidueCrossAttnGate
 from utils.data import apply_transforms_tensor_batch
 
 import time
@@ -361,33 +361,27 @@ class ScorePosNet3D(nn.Module):
         self.pocket_router_background_weight = float(getattr(config, 'pocket_router_background_weight', 0.0))
         self.protein_update_steps = self._build_protein_update_steps()
 
-        self.training_apply_router = bool(getattr(config, 'training_apply_router', False))
-        if self.training_apply_router:
-            raise NotImplementedError(
-                'training_apply_router=True is reserved for stage-2 training; '
-                'stage-1 LASC should keep config.model.training_apply_router=false.'
+        if self.pocket_router_mode == 'cross_attn_gate':
+            gate_cfg = getattr(config, 'cross_attn_gate', None)
+            inner_dim = int(getattr(gate_cfg, 'inner_dim', 64)) if gate_cfg is not None else 64
+            self.cross_attn_gate = LigandResidueCrossAttnGate(
+                ligand_dim=self.hidden_dim,
+                residue_dim=self.hidden_dim + 3,
+                inner_dim=inner_dim,
             )
-        lasc_cfg = getattr(config, 'lasc', None)
-        if self.pocket_router_mode == 'learned_active_set':
-            assert lasc_cfg is not None, 'config.model.lasc is required for learned_active_set'
-            self.lasc_core_threshold_A = float(getattr(lasc_cfg, 'core_threshold_A', 1.5))
-            self.lasc_core_contact_A = float(getattr(lasc_cfg, 'core_contact_A', 4.0))
-            self.lasc_shell_radius_A = float(getattr(lasc_cfg, 'shell_radius', 6.0))
-            self.lasc_shell_target = float(getattr(lasc_cfg, 'shell_target', 0.25))
-            self.lasc_core_weight = float(getattr(lasc_cfg, 'loss_core_weight', 1.0))
-            self.lasc_shell_weight = float(getattr(lasc_cfg, 'loss_shell_weight', 1.0))
-            self.lasc_sparsity_weight = float(getattr(lasc_cfg, 'loss_sparsity_weight', 0.01))
-            self.lasc_smoothness_weight = float(getattr(lasc_cfg, 'loss_smoothness_weight', 0.1))
-            self.lasc_pos_weight_max = float(getattr(lasc_cfg, 'pos_weight_max', 50.0))
-            self.lasc = LigandConditionedActiveSet(
-                residue_h_dim=self.hidden_dim + 3,
-                num_dist_gaussians=int(getattr(lasc_cfg, 'num_dist_gaussians', 16)),
-                time_emb_dim=int(getattr(lasc_cfg, 'time_emb_dim', 16)),
-                hidden_dim=int(getattr(lasc_cfg, 'hidden_dim', 128)),
-                dist_max=float(getattr(lasc_cfg, 'dist_max', 20.0)),
-            )
+            # Induced-fit supervision: the gate is trained to predict which
+            # residues are in the ligand-induced active set, supervised by the
+            # ground-truth apo->holo residue displacement (a continuous, soft,
+            # per-residue target). This gives the gate a correct gradient even
+            # with a frozen backbone (the protein L1 loss alone would otherwise
+            # collapse the gate into a scalar shrinkage of the frozen head).
+            self.gate_loss_weight = float(getattr(gate_cfg, 'gate_loss_weight', 1.0)) if gate_cfg is not None else 1.0
+            self.gate_target_center_A = float(getattr(gate_cfg, 'gate_target_center_A', 0.75)) if gate_cfg is not None else 0.75
+            self.gate_target_sharpness = float(getattr(gate_cfg, 'gate_target_sharpness', 4.0)) if gate_cfg is not None else 4.0
+            self.gate_rot_radius_A = float(getattr(gate_cfg, 'gate_rot_radius_A', 3.0)) if gate_cfg is not None else 3.0
+            self.gate_chi_radius_A = float(getattr(gate_cfg, 'gate_chi_radius_A', 1.5)) if gate_cfg is not None else 1.5
         else:
-            self.lasc = None
+            self.cross_attn_gate = None
 
     def _build_protein_update_steps(self):
         _num = 5
@@ -424,22 +418,22 @@ class ScorePosNet3D(nn.Module):
     def _build_pocket_router_weights(
             self, data, protein_pos, protein_pos_apo, protein_pos_holo,
             ligand_pos, batch_protein, batch_ligand, pred_residue_tr=None,
-            residue_h=None, time_step=None, return_logits=False):
+            residue_h=None, ligand_h=None, time_step=None, return_logits=False):
         prot_update_batch = data.protein_translations_batch.view(-1)
         num_residues = prot_update_batch.numel()
-        if self.pocket_router_mode == 'learned_active_set':
-            return self._build_learned_router_weights(
-                data=data,
-                protein_pos=protein_pos,
-                protein_pos_apo=protein_pos_apo,
-                ligand_pos=ligand_pos,
-                batch_protein=batch_protein,
-                batch_ligand=batch_ligand,
-                pred_residue_tr=pred_residue_tr,
+        if self.pocket_router_mode == 'cross_attn_gate':
+            assert self.cross_attn_gate is not None
+            assert residue_h is not None and ligand_h is not None, (
+                'cross_attn_gate requires residue_h and ligand_h')
+            logits = self.cross_attn_gate(
+                ligand_h=ligand_h,
                 residue_h=residue_h,
-                time_step=time_step,
-                return_logits=return_logits,
+                batch_ligand=batch_ligand,
+                prot_update_batch=prot_update_batch,
             )
+            if return_logits:
+                return logits
+            return torch.sigmoid(logits)
         if self.pocket_router_mode == 'none' or self.pocket_router_topk <= 0:
             return torch.ones(num_residues, dtype=protein_pos.dtype, device=protein_pos.device)
 
@@ -506,141 +500,6 @@ class ScorePosNet3D(nn.Module):
                 weights[shell_global] = torch.maximum(weights[shell_global], shell_weight)
                 weights[residue_global[selected_local]] = 1.0
         return weights.clamp(0.0, 1.0)
-
-    def _build_learned_router_weights(
-            self, data, protein_pos, protein_pos_apo, ligand_pos,
-            batch_protein, batch_ligand, pred_residue_tr,
-            residue_h, time_step, return_logits):
-        assert self.lasc is not None
-        assert residue_h is not None, 'learned_active_set requires residue_h'
-        prot_update_batch = data.protein_translations_batch.view(-1)
-        num_residues = prot_update_batch.numel()
-        assert residue_h.shape[0] == num_residues, (
-            f'residue_h shape {residue_h.shape} does not match num_residues {num_residues}')
-        device = residue_h.device
-        dtype = residue_h.dtype
-
-        current_min_dist = torch.full((num_residues,), 0.0, device=device, dtype=dtype)
-        apo_drift_norm = torch.zeros(num_residues, device=device, dtype=dtype)
-        num_graphs = int(prot_update_batch.max().item()) + 1 if num_residues > 0 else 0
-        for graph_idx in range(num_graphs):
-            residue_global = (prot_update_batch == graph_idx).nonzero(as_tuple=True)[0]
-            if residue_global.numel() == 0:
-                continue
-            atom_mask = batch_protein == graph_idx
-            ligand_mask = batch_ligand == graph_idx
-            if atom_mask.sum() == 0 or ligand_mask.sum() == 0:
-                continue
-            atom_to_residue = data.protein_atom_to_aa_group[atom_mask].long()
-            num_local_residues = residue_global.numel()
-            cur_centers = self._residue_centers(
-                protein_pos[atom_mask], atom_to_residue, num_local_residues)
-            apo_centers = self._residue_centers(
-                protein_pos_apo[atom_mask], atom_to_residue, num_local_residues)
-            ligand_pos_i = ligand_pos[ligand_mask]
-            current_min_dist[residue_global] = torch.cdist(cur_centers, ligand_pos_i).min(dim=1).values
-            apo_drift_norm[residue_global] = (cur_centers - apo_centers).norm(dim=-1)
-
-        if pred_residue_tr is None:
-            pred_tr_norm = torch.zeros(num_residues, device=device, dtype=dtype)
-        else:
-            pred_tr_norm = pred_residue_tr.norm(dim=-1).to(dtype)
-
-        if time_step is None:
-            time_per_residue = torch.zeros(num_residues, device=device, dtype=dtype)
-        else:
-            time_per_residue = time_step[prot_update_batch].to(dtype)
-
-        logits = self.lasc(
-            residue_h=residue_h,
-            current_min_dist=current_min_dist,
-            pred_tr_norm=pred_tr_norm,
-            apo_drift_norm=apo_drift_norm,
-            time_step_per_residue=time_per_residue,
-        )
-        if return_logits:
-            return logits
-        return torch.sigmoid(logits)
-
-    def _build_router_pseudo_labels(
-            self, data, protein_pos_apo, protein_pos_holo, ligand_pos_holo,
-            batch_protein, batch_ligand):
-        prot_update_batch = data.protein_translations_batch.view(-1)
-        num_residues = prot_update_batch.numel()
-        device = protein_pos_holo.device
-
-        core_label = torch.zeros(num_residues, device=device)
-        shell_mask = torch.zeros(num_residues, device=device)
-        valid_mask = torch.zeros(num_residues, dtype=torch.bool, device=device)
-
-        if num_residues == 0:
-            return core_label, shell_mask, valid_mask
-
-        num_graphs = int(prot_update_batch.max().item()) + 1
-        for graph_idx in range(num_graphs):
-            residue_global = (prot_update_batch == graph_idx).nonzero(as_tuple=True)[0]
-            if residue_global.numel() == 0:
-                continue
-            atom_mask = batch_protein == graph_idx
-            ligand_mask = batch_ligand == graph_idx
-            if atom_mask.sum() == 0 or ligand_mask.sum() == 0:
-                continue
-            atom_to_residue = data.protein_atom_to_aa_group[atom_mask].long()
-            num_local = residue_global.numel()
-            apo_centres = self._residue_centers(
-                protein_pos_apo[atom_mask], atom_to_residue, num_local)
-            holo_centres = self._residue_centers(
-                protein_pos_holo[atom_mask], atom_to_residue, num_local)
-            ligand_pos_i = ligand_pos_holo[ligand_mask]
-
-            centre_drift = (holo_centres - apo_centres).norm(dim=-1)
-            holo_min_dist = torch.cdist(holo_centres, ligand_pos_i).min(dim=1).values
-            core_local = (centre_drift >= self.lasc_core_threshold_A) | (
-                holo_min_dist <= self.lasc_core_contact_A)
-            core_label[residue_global] = core_local.float()
-
-            if core_local.any():
-                core_centres = holo_centres[core_local]
-                shell_dist = torch.cdist(holo_centres, core_centres).min(dim=1).values
-                shell_local = (shell_dist <= self.lasc_shell_radius_A) & (~core_local)
-                shell_mask[residue_global] = shell_local.float()
-                valid_mask[residue_global] = True
-
-        return core_label, shell_mask, valid_mask
-
-    def _residue_neighbour_pairs(self, data, protein_pos_apo, batch_protein):
-        prot_update_batch = data.protein_translations_batch.view(-1)
-        num_residues = prot_update_batch.numel()
-        device = protein_pos_apo.device
-        if num_residues == 0:
-            return (torch.empty(0, dtype=torch.long, device=device),
-                    torch.empty(0, dtype=torch.long, device=device))
-        num_graphs = int(prot_update_batch.max().item()) + 1
-        pair_i_chunks, pair_j_chunks = [], []
-        for graph_idx in range(num_graphs):
-            residue_global = (prot_update_batch == graph_idx).nonzero(as_tuple=True)[0]
-            if residue_global.numel() < 2:
-                continue
-            atom_mask = batch_protein == graph_idx
-            if atom_mask.sum() == 0:
-                continue
-            atom_to_residue = data.protein_atom_to_aa_group[atom_mask].long()
-            num_local = residue_global.numel()
-            apo_centres = self._residue_centers(
-                protein_pos_apo[atom_mask], atom_to_residue, num_local)
-            d = torch.cdist(apo_centres, apo_centres)
-            mask = (d <= self.lasc_shell_radius_A) & (
-                torch.arange(num_local, device=device).unsqueeze(0)
-                < torch.arange(num_local, device=device).unsqueeze(1))
-            local_pairs = mask.nonzero(as_tuple=False)
-            if local_pairs.numel() == 0:
-                continue
-            pair_i_chunks.append(residue_global[local_pairs[:, 0]])
-            pair_j_chunks.append(residue_global[local_pairs[:, 1]])
-        if not pair_i_chunks:
-            return (torch.empty(0, dtype=torch.long, device=device),
-                    torch.empty(0, dtype=torch.long, device=device))
-        return torch.cat(pair_i_chunks), torch.cat(pair_j_chunks)
 
     def forward(self, protein_pos, protein_v, batch_protein, init_ligand_pos, init_ligand_v, batch_ligand, protein_atom_to_aa_group,
                 time_step=None, return_all=False, fix_x=False, hbap_protein=None, hbap_ligand=None
@@ -852,6 +711,42 @@ class ScorePosNet3D(nn.Module):
         loss_v = scatter_mean(mask * decoder_nll_v + (1. - mask) * kl_v, batch, dim=0)
         return loss_v
 
+    def _build_induced_fit_target(self, prot_tr, prot_rot, prot_chi_update, prot_chi_mask):
+        """Continuous soft target for the active-set gate.
+
+        The ground-truth apo->holo residue motion is mapped to an *effective
+        displacement* in Angstrom (all three components converted to A), then to
+        a soft per-residue label in [0,1]:
+
+            eff_motion_i = ||tr_i||                          # backbone translation (A)
+                         + rot_radius * angle(rot_i)         # frame rotation -> A
+                         + chi_radius * ||wrap(chi_update_i)|| # side-chain torsion -> A
+            target_i     = sigmoid(sharpness * (eff_motion_i - center_A))
+
+        With the defaults (center 0.75 A, sharpness 4) a rigid residue (eff
+        motion ~0) maps to ~0.05, a shell-like residue (~0.5 A) to ~0.27, and a
+        core residue (>=1.5 A) to ~1 -- i.e. the core/shell/background gradient
+        emerges from the real induced-fit field instead of hand-tuned thresholds.
+
+        The chi delta is wrapped to (-pi, pi] before taking its magnitude:
+        chi is stored on [0, 2pi) (utils/data.py), so a raw subtraction would
+        turn e.g. 6.25 -> 0.03 rad into a spurious 6.22 rad and mislabel a rigid
+        residue as core. (The diffusion chi loss is unaffected: it uses a cosine
+        loss which is already periodic-invariant.)
+        """
+        tr_mag = prot_tr.norm(dim=-1)
+        rot_w = prot_rot[:, 0].abs().clamp(max=1.0)
+        rot_angle = 2.0 * torch.acos(rot_w)
+        chi_delta = torch.atan2(torch.sin(prot_chi_update), torch.cos(prot_chi_update))
+        chi_mag = (chi_delta * prot_chi_mask).norm(dim=-1)
+        eff_motion = (
+            tr_mag
+            + self.gate_rot_radius_A * rot_angle
+            + self.gate_chi_radius_A * chi_mag
+        )
+        target = torch.sigmoid(self.gate_target_sharpness * (eff_motion - self.gate_target_center_A))
+        return target
+
     def slerp_identity_to_q(self, q, lambdas):
         """
         q:       [B, 4]  (quaternion, w,x,y,z)
@@ -860,7 +755,7 @@ class ScorePosNet3D(nn.Module):
         """
         q0 = torch.zeros_like(q)
         q0[:,0] = 1.0  # identity, w=1
-        q1 = q / q.norm(dim=-1, keepdim=True)  # normalize
+        q1 = q / q.norm(dim=-1, keepdim=True).clamp(min=1e-8)  # normalize
 
         dot = (q0 * q1).sum(-1, keepdim=True)
         q1 = torch.where(dot < 0, -q1, q1)
@@ -874,7 +769,7 @@ class ScorePosNet3D(nn.Module):
         s1 = torch.where(mask, torch.sin((1 - lambdas) * theta) / sin_theta, 1 - lambdas)
 
         out = s0 * q0 + s1 * q1
-        out = out / out.norm(dim=-1, keepdim=True)
+        out = out / out.norm(dim=-1, keepdim=True).clamp(min=1e-8)
 
         return out
 
@@ -1031,6 +926,51 @@ class ScorePosNet3D(nn.Module):
         pred_res_rot = preds['pred_residue_rot']
         pred_res_chi = preds['pred_residue_chi']
 
+        # Ligand-conditioned cross-attention gate. The gate predicts a per-residue
+        # active-set weight w_i in [0,1] from (ligand state, residue state) and is
+        # supervised by the ground-truth apo->holo residue displacement (computed
+        # below as loss_gate). The same w_i is multiplied into the residue updates
+        # so train-time and sampling-time behaviour stay consistent.
+        router_w_mean = None
+        router_w_min = None
+        router_w_max = None
+        router_selected_per_graph = None
+        loss_gate = pred_res_tr.new_zeros(())
+        if self.pocket_router_mode == 'cross_attn_gate':
+            gate_logits = self._build_pocket_router_weights(
+                data=data,
+                protein_pos=protein_pos_perturbed,
+                protein_pos_apo=protein_pos_apo,
+                protein_pos_holo=protein_pos_holo,
+                ligand_pos=ligand_pos_perturbed,
+                batch_protein=batch_protein,
+                batch_ligand=batch_ligand,
+                residue_h=preds['residue_h'],
+                ligand_h=preds['final_ligand_h'],
+                return_logits=True,
+            )
+            router_weights = torch.sigmoid(gate_logits)
+            # Induced-fit soft target from ground-truth apo->holo residue motion.
+            gate_target = self._build_induced_fit_target(
+                prot_tr=prot_tr, prot_rot=prot_rot,
+                prot_chi_update=prot_chi_update, prot_chi_mask=prot_chi_mask,
+            ).detach()
+            bce_per_res = F.binary_cross_entropy_with_logits(
+                gate_logits, gate_target, reduction='none')
+            bce_per_graph = scatter_mean(bce_per_res, data.protein_translations_batch.view(-1), dim=0)
+            loss_gate = bce_per_graph.mean()
+            with torch.no_grad():
+                router_w_mean = router_weights.mean()
+                router_w_min = router_weights.min()
+                router_w_max = router_weights.max()
+                sel = (router_weights > 0.5).float()
+                sel_per_graph = scatter_sum(sel, data.protein_translations_batch.view(-1), dim=0)
+                router_selected_per_graph = sel_per_graph.mean()
+            w_f = router_weights.unsqueeze(-1)
+            pred_res_tr = pred_res_tr * w_f
+            pred_res_chi = pred_res_chi * w_f
+            pred_res_rot = self.slerp_identity_to_q(pred_res_rot, 1.0 - w_f)
+
         if self.model_mean_type == 'C0':
             target_ligand, pred_ligand = ligand_pos, pred_ligand_pos
         elif self.model_mean_type == 'noise':
@@ -1061,57 +1001,8 @@ class ScorePosNet3D(nn.Module):
         loss_prot_chi = torch.mean(loss_prot_chi)
 
         loss = loss_ligand_pos + loss_v * self.loss_v_weight + loss_prot_tr + loss_prot_rot + 5*loss_prot_chi
-
-        loss_router = loss.new_zeros(())
-        loss_router_core = loss.new_zeros(())
-        loss_router_shell = loss.new_zeros(())
-        loss_router_sparsity = loss.new_zeros(())
-        loss_router_smooth = loss.new_zeros(())
-        if self.pocket_router_mode == 'learned_active_set':
-            logits = self._build_pocket_router_weights(
-                data=data,
-                protein_pos=protein_pos_perturbed,
-                protein_pos_apo=protein_pos_apo,
-                protein_pos_holo=protein_pos_holo,
-                ligand_pos=ligand_pos_perturbed,
-                batch_protein=batch_protein,
-                batch_ligand=batch_ligand,
-                pred_residue_tr=preds['pred_residue_tr'],
-                residue_h=preds['residue_h'],
-                time_step=time_step,
-                return_logits=True,
-            )
-            w = torch.sigmoid(logits)
-            core_label, shell_mask, valid_mask = self._build_router_pseudo_labels(
-                data=data,
-                protein_pos_apo=protein_pos_apo,
-                protein_pos_holo=protein_pos_holo,
-                ligand_pos_holo=ligand_pos,
-                batch_protein=batch_protein,
-                batch_ligand=batch_ligand,
-            )
-            if valid_mask.any():
-                core_in = core_label[valid_mask]
-                num_core = core_in.sum().clamp_min(1.0)
-                num_bg = (1.0 - core_in).sum().clamp_min(1.0)
-                pos_weight = torch.clamp(num_bg / num_core, min=1.0, max=self.lasc_pos_weight_max)
-                bce = F.binary_cross_entropy_with_logits(
-                    logits[valid_mask], core_in, pos_weight=pos_weight)
-                loss_router_core = bce
-            shell_total = shell_mask.sum().clamp_min(1.0)
-            loss_router_shell = ((w - self.lasc_shell_target) ** 2 * shell_mask).sum() / shell_total
-            loss_router_sparsity = w.mean()
-            pair_i, pair_j = self._residue_neighbour_pairs(
-                data, protein_pos_apo=protein_pos_apo, batch_protein=batch_protein)
-            if pair_i.numel() > 0:
-                loss_router_smooth = ((w[pair_i] - w[pair_j]) ** 2).mean()
-            loss_router = (
-                self.lasc_core_weight * loss_router_core
-                + self.lasc_shell_weight * loss_router_shell
-                + self.lasc_sparsity_weight * loss_router_sparsity
-                + self.lasc_smoothness_weight * loss_router_smooth
-            )
-            loss = loss + loss_router
+        if self.pocket_router_mode == 'cross_attn_gate':
+            loss = loss + self.gate_loss_weight * loss_gate
 
         return {
             'loss_ligang_pos': loss_ligand_pos,
@@ -1120,11 +1011,11 @@ class ScorePosNet3D(nn.Module):
             'loss_protein_chi': loss_prot_chi,
             'loss_v': loss_v,
             'loss': loss,
-            'loss_router': loss_router,
-            'loss_router_core': loss_router_core,
-            'loss_router_shell': loss_router_shell,
-            'loss_router_sparsity': loss_router_sparsity,
-            'loss_router_smooth': loss_router_smooth,
+            'loss_gate': loss_gate,
+            'router_w_mean': router_w_mean,
+            'router_w_min': router_w_min,
+            'router_w_max': router_w_max,
+            'router_selected_per_graph': router_selected_per_graph,
             'x0': ligand_pos,
             'p0': protein_pos_holo,
             'pred_ligand_pos': pred_ligand_pos,
@@ -1214,7 +1105,7 @@ class ScorePosNet3D(nn.Module):
             pred_lig_a_h = torch.argmax(v0_from_e.detach(), dim=1)
             pred_residue_tr = preds['pred_residue_tr'].detach()
             pred_residue_rot = preds['pred_residue_rot'].detach()
-            pred_residue_rot = pred_residue_rot / pred_residue_rot.norm(dim=-1, keepdim=True)  # Normalize quaternion
+            pred_residue_rot = pred_residue_rot / pred_residue_rot.norm(dim=-1, keepdim=True).clamp_min(1e-8)  # Normalize quaternion
             pred_residue_chi = preds['pred_residue_chi'].detach()
 
             # Update ligand pos and atom types
@@ -1243,11 +1134,12 @@ class ScorePosNet3D(nn.Module):
                     batch_ligand=batch_ligand,
                     pred_residue_tr=pred_residue_tr,
                     residue_h=preds['residue_h'].detach(),
+                    ligand_h=preds['final_ligand_h'].detach(),
                     time_step=t,
                 )
                 router_active = self.pocket_router_mode != 'none' and (
                     self.pocket_router_topk > 0
-                    or self.pocket_router_mode == 'learned_active_set'
+                    or self.pocket_router_mode == 'cross_attn_gate'
                 )
                 if router_active:
                     router_weights_f = router_weights.unsqueeze(-1)
@@ -1257,8 +1149,11 @@ class ScorePosNet3D(nn.Module):
                         residue_rot_t,
                         1.0 - router_weights_f,
                     )
-                if self.pocket_router_mode == 'learned_active_set':
-                    router_selected_counts.append(int((router_weights > 0.5).sum().item()))
+                if self.pocket_router_mode == 'cross_attn_gate':
+                    # per-graph mean count so batch size does not inflate the number
+                    sel = (router_weights > 0.5).float()
+                    sel_per_graph = scatter_sum(sel, prot_update_batch.view(-1), dim=0)
+                    router_selected_counts.append(float(sel_per_graph.mean().item()))
                 else:
                     router_selected_counts.append(int((router_weights > 0).sum().item()))
                 pred_protein_pos = apply_transforms_tensor_batch(

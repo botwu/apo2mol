@@ -1,0 +1,43 @@
+name: IFBench-M1
+description: >
+  Milestone-1 gate for a community-facing induced-fit SBDD benchmark.
+  Pilot runs may fail this gate; a release candidate should pass it before
+  being treated as a public benchmark.
+
+release_gate:
+  min_final_cases: 200
+  min_hard_extreme_cases: 40
+  min_test_cases: 40
+  min_test_hard_extreme_cases: 20
+  min_motion_core_positive_cases: 40
+  min_contact_change_positive_cases: 80
+  min_ligand_evidence_positive_cases: 200
+  max_leakage_hits: 0
+  min_unique_uniprot_or_cluster: 80
+  min_unique_ligands: 120
+  required_splits:
+    - train
+    - valid
+    - test
+  required_tiers:
+    - easy
+    - medium
+    - hard
+    - extreme
+
+case_quality:
+  min_sequence_identity: 0.95
+  min_mapping_coverage: 0.85
+  max_resolution_a: 2.5
+  min_ligand_heavy_atoms: 8
+  max_ligand_heavy_atoms: 80
+  pocket_cutoff_a: 8.0
+  contact_cutoff_a: 4.5
+  motion_core_cutoff_a: 1.5
+
+provenance:
+  public_benchmark_allowed:
+    - real_if
+    - postprocessed_if
+  training_or_diagnostics_only:
+    - synthetic_if

@@ -83,6 +83,7 @@ class PocketLigandPairDataset(Dataset):
         self.db = None
 
         self.keys = None
+        self.key_set = None
 
         if not os.path.exists(self.processed_path):
             print(f'{self.processed_path} does not exist, begin processing data')
@@ -105,11 +106,18 @@ class PocketLigandPairDataset(Dataset):
         )
         with self.db.begin() as txn:
             self.keys = list(txn.cursor().iternext(values=False))
+            self.key_set = set(self.keys)
 
     def _close_db(self):
         self.db.close()
         self.db = None
         self.keys = None
+        self.key_set = None
+
+    def has_key(self, idx):
+        if self.db is None:
+            self._connect_db()
+        return str(int(idx)).encode() in self.key_set
 
     def _process(self):
         print("Processing data")
@@ -179,7 +187,14 @@ class PocketLigandPairDataset(Dataset):
         except:
             print('error idx:', idx)
             print('len(self.keys):', len(self.keys))
-        data = pickle.loads(self.db.begin().get(key))
+        value = self.db.begin().get(key)
+        if value is None:
+            raise KeyError(
+                f'Processed LMDB {self.processed_path} is missing key {idx}. '
+                'The entry was probably skipped during preprocessing; filter the split indices '
+                'or rebuild the LMDB after fixing the source structure.'
+            )
+        data = pickle.loads(value)
         # data = ProteinLigandData(**data)
         data = ApoHoloLigandData(**data)
         data.id = idx

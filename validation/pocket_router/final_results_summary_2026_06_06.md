@@ -1,6 +1,6 @@
 # Apo2Mol Active-Set Pocket Adaptation 最终实验整理
 
-更新时间：2026-06-06  
+更新时间：2026-06-06
 位置：`/Users/wujian1/Downloads/a800_molecular/Apo2Mol`
 
 ## 0. 一句话结论
@@ -522,4 +522,3 @@ flow matching 的价值是：
 最终应该推进的方向：
 
 > 不要把创新点定义成“只更新部分 residues”。要定义成“ligand-conditioned active-set flow matching”，即让模型学习当前 ligand 诱导释放哪些 pocket 自由度，以及如何在 core / shell / background 之间做连续、稳定、化学友好的联合生成。
-

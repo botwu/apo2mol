@@ -24,7 +24,7 @@ REQUIRED_FILES = [
     "configs/config.yaml",
     "configs/training.yaml",
     "configs/sampling.yaml",
-    "models/active_set_controller.py",
+    "models/ligand_residue_cross_attn.py",
     "models/molopt_score_model.py",
     "models/pl_model.py",
     "apo2mol_dataset/apo2mol_checkpoint.ckpt",

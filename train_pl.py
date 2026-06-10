@@ -117,13 +117,21 @@ def main(cfg: DictConfig):
                       hidden_nf=cfg.net_cond.hidden_dim)
     net_cond.freeze_the_model()
 
+    pretrained_ckpt = getattr(cfg.train, 'pretrained_ckpt', None)
+    if bool(getattr(cfg.train, 'freeze_backbone', False)) and pretrained_ckpt in (None, '', 'null'):
+        raise RuntimeError(
+            'train.freeze_backbone=true requires train.pretrained_ckpt to be set; '
+            'otherwise you would freeze a randomly-initialised backbone and only '
+            'train the gate on top of noise. Provide the Apo2Mol checkpoint path.'
+        )
+
     model = MoleculeTrainer(
         cfg,
         protein_featurizer,
         ligand_featurizer,
         net_cond,
         )
-    load_pretrained_weights(model, getattr(cfg.train, 'pretrained_ckpt', None))
+    load_pretrained_weights(model, pretrained_ckpt)
 
     # Define the checkpoint callback
     checkpoint_callback = ModelCheckpoint(

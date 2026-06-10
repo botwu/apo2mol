@@ -1,0 +1,2 @@
+pdb_id,ligand_id,source,evidence_type,confidence,decision,chain_id,label_asym_id,notes
+10sb,A1C8P,manual_review,biologically_relevant_ligand,1.0,positive,B,E,Example positive evidence row

@@ -5,6 +5,25 @@ from tqdm import tqdm
 from .mySubset import GetSubset
 from .pl_pair_dataset import PocketLigandPairDataset
 
+
+def _filter_missing_lmdb_indices(dataset, indices, split_name):
+    filtered = []
+    missing = []
+    for idx in indices:
+        idx = int(idx)
+        if dataset.has_key(idx):
+            filtered.append(idx)
+        else:
+            missing.append(idx)
+    if missing:
+        print(
+            f'[Apo2Mol] filtered {len(missing)} missing LMDB entr'
+            f'{"y" if len(missing) == 1 else "ies"} from {split_name} split; '
+            f'examples: {missing[:10]}'
+        )
+    return filtered
+
+
 def get_dataset(config, *args, **kwargs):
     name = config.name
     root = config.path
@@ -19,6 +38,9 @@ def get_dataset(config, *args, **kwargs):
 
     assert name == 'pl'
     dataset = PocketLigandPairDataset(root, index_path, pocket_type, *args, **kwargs)
+    train_split_indices = _filter_missing_lmdb_indices(dataset, train_split_indices, 'train')
+    valid_split_indices = _filter_missing_lmdb_indices(dataset, valid_split_indices, 'valid')
+    test_split_indices = _filter_missing_lmdb_indices(dataset, test_split_indices, 'test')
 
     train_dataset = GetSubset(dataset, indices=train_split_indices)
     valid_dataset = GetSubset(dataset, indices=valid_split_indices)

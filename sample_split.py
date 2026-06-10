@@ -248,12 +248,12 @@ def build_worker_state(gpu_device, worker_cfg):
     model_ckpt_local = {k.replace("model.", ""): v for k, v in model_ckpt_local.items() if k.startswith("model.")}
     missing, unexpected = model.load_state_dict(model_ckpt_local, strict=False)
     router_mode = getattr(train_config.model, 'pocket_router_mode', 'none')
-    if router_mode == 'learned_active_set':
-        missing_lasc = [key for key in missing if key.startswith('lasc.')]
-        if missing_lasc:
+    if router_mode == 'cross_attn_gate':
+        missing_gate = [key for key in missing if key.startswith('cross_attn_gate.')]
+        if missing_gate:
             raise RuntimeError(
-                'learned_active_set requires a checkpoint trained with LASC weights; '
-                f'missing LASC keys examples: {missing_lasc[:20]}'
+                'cross_attn_gate requires a checkpoint trained with cross-attn gate weights; '
+                f'missing gate keys examples: {missing_gate[:20]}'
             )
     elif missing or unexpected:
         raise RuntimeError(

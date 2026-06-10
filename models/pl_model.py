@@ -71,7 +71,7 @@ class MoleculeTrainer(pl.LightningModule):
         if not freeze_backbone:
             return
         for name, param in self.model.named_parameters():
-            if name.startswith('lasc.'):
+            if name.startswith('cross_attn_gate.'):
                 param.requires_grad = True
                 continue
             if not freeze_residue_head and name.startswith('res_inference.'):
@@ -113,8 +113,8 @@ class MoleculeTrainer(pl.LightningModule):
         self.net_cond.eval()
         if bool(getattr(self.config.train, 'freeze_backbone', False)):
             self.model.eval()
-            if self.model.lasc is not None:
-                self.model.lasc.train()
+            if self.model.cross_attn_gate is not None:
+                self.model.cross_attn_gate.train()
             if not bool(getattr(self.config.train, 'freeze_residue_head', True)):
                 self.model.res_inference.train()
         return super().on_train_epoch_start()
@@ -137,6 +137,14 @@ class MoleculeTrainer(pl.LightningModule):
         loss_protein_tr, loss_protein_rot, loss_protein_chi = results['loss_protein_tr'], results['loss_protein_rot'], results['loss_protein_chi']
 
         self.train_iterations += 1
+        # Router/gate diagnostics are cheap scalars: log every step so smoke tests
+        # (which run far fewer than train_report_iter iterations) can see them.
+        if self.config.model.pocket_router_mode == 'cross_attn_gate':
+            for key in ('loss_gate', 'router_w_mean', 'router_w_min',
+                        'router_w_max', 'router_selected_per_graph'):
+                val = results.get(key, None)
+                if val is not None:
+                    self.log(f'train/{key}', val)
         if self.train_iterations % self.config.train.train_report_iter == 0:
             perturbed_prot_pos = results['perturbed_protein_pos']
             pred_res_tr = results['pred_res_tr']
@@ -164,12 +172,6 @@ class MoleculeTrainer(pl.LightningModule):
             self.log('train/loss_protein_rot', loss_protein_rot)
             self.log('train/loss_protein_chi', loss_protein_chi)
             self.log('train/rmsd_protein_pos', rmsd_protein_pos)
-            if self.config.model.pocket_router_mode == 'learned_active_set':
-                self.log('train/loss_router', results['loss_router'])
-                self.log('train/loss_router_core', results['loss_router_core'])
-                self.log('train/loss_router_shell', results['loss_router_shell'])
-                self.log('train/loss_router_sparsity', results['loss_router_sparsity'])
-                self.log('train/loss_router_smooth', results['loss_router_smooth'])
         return loss
 
     def on_validation_epoch_start(self):

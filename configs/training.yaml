@@ -35,26 +35,18 @@ model:
   protein_update_interval: 50
   protein_update_min_t: 10
   protein_update_residual_threshold: 0.5
-  pocket_router_mode: none # [none, distance, random, motion_oracle, contact_oracle, contact_change_oracle, predicted_motion, learned_active_set]
+  pocket_router_mode: none # [none, distance, random, motion_oracle, contact_oracle, contact_change_oracle, predicted_motion, cross_attn_gate]
   pocket_router_topk: 0
   pocket_router_shell_radius: 0.0
   pocket_router_shell_weight: 0.0
   pocket_router_background_weight: 0.0
-  training_apply_router: false
-  lasc:
-    hidden_dim: 128
-    num_dist_gaussians: 16
-    time_emb_dim: 16
-    dist_max: 20.0
-    core_threshold_A: 1.5
-    core_contact_A: 4.0
-    shell_radius: 6.0
-    shell_target: 0.25
-    loss_core_weight: 1.0
-    loss_shell_weight: 1.0
-    loss_sparsity_weight: 0.01
-    loss_smoothness_weight: 0.1
-    pos_weight_max: 50.0
+  cross_attn_gate:
+    inner_dim: 64
+    gate_loss_weight: 1.0       # weight of the induced-fit supervision loss
+    gate_target_center_A: 0.75  # effective-displacement (A) where the soft target crosses 0.5
+    gate_target_sharpness: 4.0  # sharpness of the displacement->target sigmoid (rigid residue -> ~0.05)
+    gate_rot_radius_A: 3.0      # convert residue frame rotation angle (rad) to effective displacement (A)
+    gate_chi_radius_A: 1.5      # convert side-chain torsion change (rad) to effective displacement (A)
 
   node_indicator: True
   model_type: uni_o2
