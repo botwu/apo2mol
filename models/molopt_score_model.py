@@ -768,14 +768,23 @@ class ScorePosNet3D(nn.Module):
 
         dot = (q0 * q1).sum(-1, keepdim=True)
         q1 = torch.where(dot < 0, -q1, q1)
-        dot = dot.abs().clamp(-1, 1)
+        # Clamp away from ±1 so that acos has a finite derivative and the
+        # sin(theta) divisor below stays well above 0. Without this, when
+        # pred_res_rot is near identity (dot ≈ 1, e.g. masked-out residues),
+        # the torch.where below evaluates sin(λθ)/sin(θ) on both branches and
+        # the disabled-branch nan grad pollutes the result.
+        dot = dot.abs().clamp(max=1.0 - 1e-6)
 
         theta = torch.acos(dot)
         sin_theta = torch.sin(theta)
 
-        mask = sin_theta > 1e-6
-        s0 = torch.where(mask, torch.sin(lambdas * theta) / sin_theta, lambdas)
-        s1 = torch.where(mask, torch.sin((1 - lambdas) * theta) / sin_theta, 1 - lambdas)
+        # Use a contiguous safe mask so that the disabled torch.where branch
+        # never divides by ~0. The `safe_sin` keeps the disabled branch's
+        # numerator/denominator finite and only the active branch contributes.
+        safe = sin_theta > 1e-4
+        safe_sin = torch.where(safe, sin_theta, torch.ones_like(sin_theta))
+        s0 = torch.where(safe, torch.sin(lambdas * theta) / safe_sin, lambdas)
+        s1 = torch.where(safe, torch.sin((1 - lambdas) * theta) / safe_sin, 1 - lambdas)
 
         out = s0 * q0 + s1 * q1
         out = out / out.norm(dim=-1, keepdim=True).clamp(min=1e-8)
